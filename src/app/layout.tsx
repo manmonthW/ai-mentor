@@ -7,9 +7,17 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Mentor - 每日AI资讯 · 一站式AI成长平台",
-  description: "每日AI资讯、每周关键词、热门工具推荐、学习资源导航 - 让你轻松了解AI、使用AI、学习AI",
-  keywords: "AI, 人工智能, AI资讯, AI工具, AI学习, 每周关键词, AI产品",
+  title: {
+    default: "AI Mentor - 王珂 | 高级AI赋能专家",
+    template: "%s | AI Mentor",
+  },
+  description: "AI前沿资讯 · Skill开发 · 行业AI培训 · 法律AI应用 · OPC公司服务 — 一站式AI成长平台",
+  keywords: "AI, 人工智能, AI培训, AI Skill, 法律AI, OPC, AI工具, AI资讯, 王珂",
+  openGraph: {
+    title: "AI Mentor - 王珂 | 高级AI赋能专家",
+    description: "AI前沿资讯 · Skill开发 · 行业AI培训 · 法律AI应用 · OPC公司服务",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

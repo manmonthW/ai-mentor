@@ -1,0 +1,71 @@
+import type { LegalApp } from "@/types";
+
+export const legalApps: LegalApp[] = [
+  // 自研
+  {
+    id: "la-judgment",
+    name: "Judgment Analyzer",
+    description: "AI法律裁判文书分析工具，智能解析判决书核心要素、法律依据与裁判逻辑",
+    type: "自研",
+    category: "通用",
+    url: "https://judgment-analyzer.vercel.app",
+    githubUrl: "https://github.com/manmonthW/judgment-analyzer",
+    tags: ["裁判文书", "智能分析", "法律AI"],
+  },
+  {
+    id: "la-lexsmile",
+    name: "LexSmile",
+    description: "法律服务网站，提供法律咨询信息展示与服务入口",
+    type: "自研",
+    category: "通用",
+    url: "https://lexsmile-site-v3.vercel.app",
+    githubUrl: "https://github.com/manmonthW/lexsmile-site-v3",
+    tags: ["法律服务", "网站", "咨询"],
+  },
+  {
+    id: "la-xiaoda-tax",
+    name: "小达报税",
+    description: "AI生成财报，帮助OPC公司创始人自动完成报税（法律合规层面）",
+    type: "自研",
+    category: "合规",
+    githubUrl: "https://github.com/manmonthW/xiaoda-tax",
+    tags: ["报税", "合规", "OPC"],
+  },
+  {
+    id: "la-patent-prep",
+    name: "专利代理师备考助手",
+    description: "AI辅助专利代理师资格考试备考，智能题库与知识点梳理",
+    type: "自研",
+    category: "专利",
+    tags: ["专利代理师", "备考", "AI学习"],
+  },
+  // 收集 — Fork 的法律相关项目
+  {
+    id: "la-suitagent",
+    name: "SuitAgent 诉讼分析系统",
+    description: "基于Claude Code的诉讼法律服务智能分析系统，10个专业AI代理协作，实现法律文书工程化生成",
+    type: "收集",
+    category: "通用",
+    githubUrl: "https://github.com/manmonthW/SuitAgent",
+    tags: ["诉讼分析", "多Agent", "法律文书", "Claude Code"],
+  },
+  {
+    id: "la-notebooklm-watermark",
+    name: "NotebookLM PDF去水印",
+    description: "NotebookLM PDF水印移除工具，可用于法律文档处理",
+    type: "收集",
+    category: "通用",
+    githubUrl: "https://github.com/manmonthW/notebooklm_watermark_remover",
+    tags: ["PDF", "去水印", "文档处理"],
+  },
+  {
+    id: "la-darc",
+    name: "DARC",
+    description: "去中心化自治监管公司 — 运行在EVM兼容区块链上的公司虚拟机，含链上法律系统",
+    type: "收集",
+    category: "合规",
+    url: "https://darc.app",
+    githubUrl: "https://github.com/manmonthW/DARC",
+    tags: ["区块链", "合规", "DAO", "链上法律"],
+  },
+];
