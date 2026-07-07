@@ -1,4 +1,4 @@
-import { Github, Mail, QrCode, ArrowUpRight } from "lucide-react";
+import { Github, Mail, ArrowUpRight } from "lucide-react";
 
 export default function Subscribe() {
   return (
@@ -31,12 +31,17 @@ export default function Subscribe() {
         </div>
 
         <div className="flex md:justify-end">
-          <div className="w-full max-w-[15rem] border border-[color:var(--color-paper)]/20 p-5 text-center">
-            <div className="mx-auto flex aspect-square items-center justify-center border border-dashed border-[color:var(--color-paper)]/25 text-[color:var(--color-paper)]/40">
-              <QrCode className="h-12 w-12" />
-            </div>
-            <p className="mono mt-4 text-xs tracking-wide text-[color:var(--color-paper)]/80">微信公众号</p>
-            <p className="mt-1 text-xs text-[color:var(--color-paper)]/50">扫码关注「珂以这样玩AI」</p>
+          <div className="w-full max-w-[15rem] bg-white p-2.5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/wechat-qr.png"
+              alt="王珂 · 微信二维码"
+              className="w-full"
+              loading="lazy"
+            />
+            <p className="mono py-1 text-center text-xs tracking-wide text-slate-500">
+              微信 · 扫码加珂为好友
+            </p>
           </div>
         </div>
       </div>
