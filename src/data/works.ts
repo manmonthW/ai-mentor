@@ -1,6 +1,6 @@
 // 作品墙数据 —— 珂以这样玩AI
 // 只收录个人作品(原创 / Skill / 精选 Fork),已排除公司(Ericsson/IMS)项目与纯第三方产品。
-// featured: 首页精选;shot: public/shots/{id}.(png|svg) 截图;buildLog: 对应手记 slug。
+// url 均为已验证可访问的线上地址;shot 为 public/shots/{id}.png 的真实截图。
 
 export type WorkGroup =
   | "原创应用"
@@ -90,13 +90,13 @@ export const works: Work[] = [
   {
     id: "judgment-analyzer",
     name: "Judgment Analyzer",
-    tagline: "AI 裁判文书分析——自动拆解判决书的核心要素、法律依据与裁判逻辑。",
+    tagline: "AI 裁判文书分析——上传判决书,自动拆解核心要素、法律依据与裁判逻辑,可导出 Word。",
     group: "法律AI",
-    url: "https://judgment-analyzer.vercel.app",
+    url: "https://analyzer.xiaodalaw.cn",
     github: "https://github.com/manmonthW/judgment-analyzer",
     stack: ["Next.js", "LLM", "法律AI"],
     featured: true,
-    accent: "from-indigo-500 to-blue-700",
+    shot: "judgment-analyzer.png",
   },
   {
     id: "suitagent",
@@ -110,12 +110,12 @@ export const works: Work[] = [
   },
   {
     id: "lexsmile",
-    name: "LexSmile",
+    name: "LexSmile · 小达律法",
     tagline: "法律服务站点——法律咨询与信息展示的门面与入口。",
     group: "法律AI",
-    url: "https://lexsmile-site-v3.vercel.app",
+    url: "https://www.xiaodalaw.cn",
     stack: ["Next.js", "法律服务"],
-    accent: "from-teal-400 to-cyan-600",
+    shot: "lexsmile.png",
   },
   {
     id: "patent-prep",
@@ -132,10 +132,11 @@ export const works: Work[] = [
     name: "小达报税",
     tagline: "AI 生成财报,帮不懂财税的一人公司(OPC)创始人自动完成报税。",
     group: "一人公司",
+    url: "https://xiaoda-tax.vercel.app",
     github: "https://github.com/manmonthW/xiaoda-tax",
     stack: ["LLM", "财税", "OPC"],
     featured: true,
-    accent: "from-emerald-500 to-green-700",
+    shot: "xiaoda-tax.png",
   },
 
   // ───────────────── 思维工具 ─────────────────
@@ -161,15 +162,6 @@ export const works: Work[] = [
 
   // ───────────────── 原创应用 ─────────────────
   {
-    id: "zhiyitong",
-    name: "智医通 V1.0",
-    tagline: "AI 医疗辅助系统,面向就医与健康问题的智能助手。",
-    group: "原创应用",
-    url: "https://zhiyitong.keaimentor.com",
-    stack: ["Next.js", "医疗AI"],
-    accent: "from-rose-400 to-red-600",
-  },
-  {
     id: "voltgrid",
     name: "VoltGrid",
     tagline: "电力网格管理与可视化平台。",
@@ -183,36 +175,28 @@ export const works: Work[] = [
     name: "ChargeHub",
     tagline: "社区共享充电桩平台。",
     group: "原创应用",
-    url: "https://charge-hub-sandy.vercel.app",
+    url: "https://chargehub.keaimentor.com",
     stack: ["Next.js", "平台"],
-    accent: "from-lime-400 to-green-600",
+    shot: "chargehub.png",
   },
   {
     id: "pension-suite",
     name: "养老金规划套件",
     tagline: "从基础测算到方案优化再到精算的一整套养老金规划工具。",
     group: "原创应用",
-    url: "https://pension-optimize.vercel.app",
+    url: "https://pension-optimize2.vercel.app",
     stack: ["测算工具", "金融"],
-    accent: "from-orange-400 to-amber-700",
+    shot: "pension-suite.png",
   },
   {
     id: "word-memorizer",
     name: "Word Memorizer",
     tagline: "AI 辅助单词记忆工具。",
     group: "原创应用",
+    url: "https://word-memorizer-seven.vercel.app",
     github: "https://github.com/manmonthW/word-memorizer",
     stack: ["LLM", "教育"],
-    accent: "from-blue-400 to-indigo-600",
-  },
-  {
-    id: "photo-ai",
-    name: "Photo AI · Nano Banana Pro",
-    tagline: "基于 Nano Banana Pro 的 AI 图像处理工具。",
-    group: "原创应用",
-    url: "https://photo.keaimentor.com",
-    stack: ["图像AI"],
-    accent: "from-yellow-300 to-orange-500",
+    shot: "word-memorizer.png",
   },
 
   // ───────────────── 精选 Fork(有价值/已改造)─────────────────
@@ -224,7 +208,7 @@ export const works: Work[] = [
     url: "http://bananaslides.online",
     stack: ["AI PPT", "图像"],
     featured: true,
-    accent: "from-amber-300 to-yellow-500",
+    shot: "banana-slides.png",
   },
   {
     id: "echotrace",
@@ -251,7 +235,16 @@ export const works: Work[] = [
     group: "精选Fork",
     url: "https://worldmonitor.app",
     stack: ["聚合", "仪表盘"],
-    accent: "from-sky-500 to-blue-700",
+    shot: "worldmonitor.png",
+  },
+  {
+    id: "valuecell",
+    name: "ValueCell",
+    tagline: "社区驱动的多 Agent 金融应用平台。",
+    group: "精选Fork",
+    url: "https://valuecell-manmonthws-projects.vercel.app",
+    stack: ["多 Agent", "金融"],
+    shot: "valuecell.png",
   },
   {
     id: "director-ai",
@@ -269,7 +262,7 @@ export const works: Work[] = [
     group: "精选Fork",
     url: "https://drawnix-seedream-xi.vercel.app",
     stack: ["白板", "协作"],
-    accent: "from-cyan-300 to-teal-500",
+    shot: "drawnix.png",
   },
 ];
 
