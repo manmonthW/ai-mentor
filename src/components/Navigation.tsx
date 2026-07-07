@@ -9,6 +9,7 @@ interface NavChild { name: string; href: string }
 interface NavItem { name: string; href: string; children?: NavChild[] }
 
 const navItems: NavItem[] = [
+  { name: "AI 情报", href: "/news" },
   { name: "作品", href: "/works" },
   { name: "Skills", href: "/skills" },
   { name: "手记", href: "/blog" },
@@ -19,7 +20,6 @@ const navItems: NavItem[] = [
       { name: "法律 AI", href: "/legal" },
       { name: "一人公司", href: "/solo" },
       { name: "AI 培训", href: "/training" },
-      { name: "AI 情报", href: "/news" },
     ],
   },
   { name: "关于", href: "/about" },
@@ -120,7 +120,7 @@ export default function Navigation() {
       {mobileOpen && (
         <div className="border-t border-[color:var(--color-line)] bg-[color:var(--color-paper)] md:hidden">
           <div className="wrap flex flex-col py-3">
-            {[{ name: "作品", href: "/works" }, { name: "Skills", href: "/skills" }, { name: "手记", href: "/blog" }, { name: "法律 AI", href: "/legal" }, { name: "一人公司", href: "/solo" }, { name: "AI 培训", href: "/training" }, { name: "AI 情报", href: "/news" }, { name: "关于", href: "/about" }].map((l) => (
+            {[{ name: "AI 情报", href: "/news" }, { name: "作品", href: "/works" }, { name: "Skills", href: "/skills" }, { name: "手记", href: "/blog" }, { name: "法律 AI", href: "/legal" }, { name: "一人公司", href: "/solo" }, { name: "AI 培训", href: "/training" }, { name: "关于", href: "/about" }].map((l) => (
               <Link
                 key={l.href}
                 href={l.href}

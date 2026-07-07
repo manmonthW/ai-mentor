@@ -4,6 +4,7 @@ import { works, featuredWorks, totalShippedApprox } from "@/data/works";
 import { getAllPosts } from "@/lib/blog";
 import WorkCard from "@/components/WorkCard";
 import Subscribe from "@/components/Subscribe";
+import Reveal from "@/components/Reveal";
 
 const pillars = [
   {
@@ -38,27 +39,38 @@ export default function Home() {
       <section className="relative border-b border-[color:var(--color-line)]">
         <div className="wrap grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.6fr_1fr] lg:items-end">
           <div>
-            <p className="eyebrow mb-6">王珂 — 独立 AI 造物者 / INDEPENDENT&nbsp;AI&nbsp;BUILDER</p>
-            <h1 className="display text-[clamp(3rem,9vw,7rem)] font-bold leading-[0.98] tracking-tight text-[color:var(--color-ink)]">
-              珂以<br />
-              这样<span className="flame">玩AI</span>
-            </h1>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--color-ink-soft)] text-balance">
-              一个用 AI 把想法当天变成产品的独立创造者。作品、方法、以及法律 AI 与一人公司的实战——
-              <span className="font-semibold text-[color:var(--color-ink)]">跟着珂,你也可以这样玩。</span>
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/works" className="btn">
-                看珂造的东西 <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/#subscribe" className="ulink text-[color:var(--color-ink)]">
-                关注珂 <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <Reveal delay={0}>
+              <p className="eyebrow mb-6">王珂 — 独立 AI 造物者 / INDEPENDENT&nbsp;AI&nbsp;BUILDER</p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h1 className="display text-[clamp(3rem,9vw,7rem)] font-bold leading-[0.98] tracking-tight text-[color:var(--color-ink)]">
+                珂以<br />
+                这样<span className="flame">玩AI</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--color-ink-soft)] text-balance">
+                一个用 AI 把想法当天变成产品的独立创造者。作品、方法、以及法律 AI 与一人公司的实战——
+                <span className="font-semibold text-[color:var(--color-ink)]">跟着珂,你也可以这样玩。</span>
+              </p>
+            </Reveal>
+            <Reveal delay={0.28}>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Link href="/works" className="btn">
+                  看珂造的东西 <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/#subscribe" className="ulink text-[color:var(--color-ink)]">
+                  关注珂 <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </Reveal>
           </div>
 
           {/* 数字栏 */}
-          <div className="grid grid-cols-3 gap-px border border-[color:var(--color-line)] bg-[color:var(--color-line)] lg:grid-cols-1">
+          <Reveal
+            delay={0.36}
+            className="grid grid-cols-3 gap-px border border-[color:var(--color-line)] bg-[color:var(--color-line)] lg:grid-cols-1"
+          >
             {[
               { n: `${totalShippedApprox}+`, l: "上线应用" },
               { n: `${skillCount}`, l: "原创 Skill" },
@@ -69,7 +81,7 @@ export default function Home() {
                 <div className="eyebrow mt-1">{s.l}</div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
