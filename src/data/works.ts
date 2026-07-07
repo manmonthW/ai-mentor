@@ -8,6 +8,7 @@ export type WorkGroup =
   | "法律AI"
   | "一人公司"
   | "思维工具"
+  | "教育"
   | "精选Fork";
 
 export interface Work {
@@ -168,7 +169,7 @@ export const works: Work[] = [
     group: "原创应用",
     url: "https://volt-grid.vercel.app",
     stack: ["可视化", "数据平台"],
-    accent: "from-yellow-400 to-amber-600",
+    shot: "voltgrid.png",
   },
   {
     id: "chargehub",
@@ -264,6 +265,27 @@ export const works: Work[] = [
     stack: ["白板", "协作"],
     shot: "drawnix.png",
   },
+
+  // ───────────────── 教育 · 中考 ─────────────────
+  {
+    id: "zhongkao-baokao",
+    name: "2026 大连中考报考指南",
+    tagline: "把复杂的志愿政策讲成人话:批次结构、指标到校、征集志愿、跨区报考。",
+    group: "教育",
+    url: "https://baokao.keaimentor.com",
+    stack: ["政策分析", "志愿策略"],
+    featured: true,
+    shot: "zhongkao-baokao.png",
+  },
+  {
+    id: "zhongkao-shijuan",
+    name: "中考全学科试卷分析",
+    tagline: "辽宁中考 7 科模拟卷,用工程化 Harness 逐卷拆解、横向对比。",
+    group: "教育",
+    url: "https://zhongkao.keaimentor.com",
+    stack: ["试卷分析", "7 科"],
+    shot: "zhongkao-shijuan.png",
+  },
 ];
 
 export const workGroups: WorkGroup[] = [
@@ -271,6 +293,7 @@ export const workGroups: WorkGroup[] = [
   "法律AI",
   "一人公司",
   "思维工具",
+  "教育",
   "原创应用",
   "精选Fork",
 ];
