@@ -2,74 +2,53 @@ import Link from "next/link";
 import { ArrowUpRight, Github, BookOpen } from "lucide-react";
 import type { Work } from "@/data/works";
 
-const groupColor: Record<string, string> = {
-  Skill: "bg-fuchsia-100 text-fuchsia-700",
-  法律AI: "bg-indigo-100 text-indigo-700",
-  一人公司: "bg-emerald-100 text-emerald-700",
-  思维工具: "bg-cyan-100 text-cyan-700",
-  原创应用: "bg-amber-100 text-amber-700",
-  精选Fork: "bg-slate-100 text-slate-600",
-};
-
-export default function WorkCard({ work }: { work: Work }) {
+export default function WorkCard({ work, index }: { work: Work; index?: number }) {
   return (
-    <div className="card card-hover group flex flex-col overflow-hidden">
-      {/* 预览图 / 渐变占位 */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
+    <div className="group relative flex flex-col border border-[color:var(--color-line)] bg-[color:var(--color-paper)] transition-colors duration-200 hover:border-[color:var(--color-ink)]">
+      {/* 预览区 */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[color:var(--color-line)] bg-[color:var(--color-paper-2)]">
         {work.shot ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={`/shots/${work.shot}`}
             alt={work.name}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             loading="lazy"
           />
         ) : (
-          <div
-            className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${
-              work.accent ?? "from-brand-500 to-violet-700"
-            }`}
-          >
-            <span className="px-6 text-center text-xl font-black leading-tight text-white/95">
+          <div className="flex h-full w-full flex-col justify-between p-5">
+            <span className="eyebrow">{work.group}</span>
+            <span className="display text-2xl font-bold leading-tight text-[color:var(--color-ink)]">
               {work.name}
             </span>
           </div>
         )}
-        <span
-          className={`badge absolute left-3 top-3 ${groupColor[work.group] ?? "bg-white/90 text-slate-700"}`}
-        >
-          {work.group}
-        </span>
+        {typeof index === "number" && (
+          <span className="mono absolute right-3 top-3 bg-[color:var(--color-paper)]/85 px-1.5 text-[11px] text-[color:var(--color-ink)]">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        )}
       </div>
 
+      {/* 内容 */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-base font-bold text-slate-900">{work.name}</h3>
-        <p className="mt-1.5 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600">
+        <div className="mb-2 flex items-center justify-between">
+          <span className="eyebrow">{work.group}</span>
+          {work.stack && (
+            <span className="mono text-[11px] text-[color:var(--color-muted)]">
+              {work.stack.slice(0, 2).join(" / ")}
+            </span>
+          )}
+        </div>
+        <h3 className="text-lg font-bold text-[color:var(--color-ink)]">{work.name}</h3>
+        <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-[color:var(--color-ink-soft)]">
           {work.tagline}
         </p>
 
-        {work.stack && work.stack.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {work.stack.map((s) => (
-              <span
-                key={s}
-                className="rounded-md bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-500"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="mt-4 flex items-center gap-3 border-t border-slate-100 pt-3 text-sm">
+        <div className="mt-4 flex items-center gap-4 border-t border-[color:var(--color-line)] pt-3 text-sm">
           {work.url && (
-            <a
-              href={work.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-brand-700 hover:text-brand-800"
-            >
-              在线体验 <ArrowUpRight className="h-4 w-4" />
+            <a href={work.url} target="_blank" rel="noopener noreferrer" className="ulink">
+              在线体验 <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           )}
           {work.github && (
@@ -77,18 +56,15 @@ export default function WorkCard({ work }: { work: Work }) {
               href={work.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-slate-500 hover:text-slate-800"
+              className="text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-ink)]"
               aria-label="GitHub"
             >
               <Github className="h-4 w-4" />
             </a>
           )}
           {work.buildLog && (
-            <Link
-              href={`/blog/${work.buildLog}`}
-              className="ml-auto inline-flex items-center gap-1 text-slate-500 hover:text-brand-700"
-            >
-              <BookOpen className="h-4 w-4" /> 造物记
+            <Link href={`/blog/${work.buildLog}`} className="ml-auto inline-flex items-center gap-1 text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-flame)]">
+              <BookOpen className="h-3.5 w-3.5" /> 造物记
             </Link>
           )}
         </div>

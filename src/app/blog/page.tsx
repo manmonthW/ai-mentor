@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -7,57 +8,42 @@ export const metadata: Metadata = {
   description: "珂的 AI 手记:造物记、方法论、法律 AI 与一人公司的实战笔记。",
 };
 
-const catColor: Record<string, string> = {
-  造物记: "bg-amber-100 text-amber-700",
-  方法论: "bg-fuchsia-100 text-fuchsia-700",
-  法律AI: "bg-indigo-100 text-indigo-700",
-  手记: "bg-slate-100 text-slate-600",
-};
-
 export default function BlogPage() {
   const posts = getAllPosts();
   return (
-    <div className="container-page py-14">
-      <header className="mb-10 max-w-2xl">
-        <h1 className="text-4xl font-black text-slate-900">珂的 AI 手记</h1>
-        <p className="mt-3 text-lg text-slate-600">
+    <div className="wrap py-16">
+      <header className="max-w-3xl border-b border-[color:var(--color-line)] pb-10">
+        <p className="eyebrow mb-4">手记 / FIELD NOTES</p>
+        <h1 className="display text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1] text-[color:var(--color-ink)]">
+          珂的 AI 手记
+        </h1>
+        <p className="mt-6 text-lg leading-relaxed text-[color:var(--color-ink-soft)]">
           我造了什么、怎么造的、踩了哪些坑。写给未来的自己,也写给想一起玩的你。
         </p>
       </header>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        {posts.map((p) => (
+      <div className="mt-4 border-t border-[color:var(--color-line-strong)]">
+        {posts.map((p, i) => (
           <Link
             key={p.slug}
             href={`/blog/${p.slug}`}
-            className="card card-hover group flex flex-col p-6"
+            className="group grid gap-3 border-b border-[color:var(--color-line)] py-8 md:grid-cols-[3rem_1fr_auto] md:items-baseline md:gap-8"
           >
-            <div className="mb-3 flex items-center gap-3 text-xs">
-              <span className={`badge ${catColor[p.category] ?? catColor["手记"]}`}>
-                {p.category}
-              </span>
-              <time className="text-slate-400">{p.date}</time>
+            <span className="mono text-sm text-[color:var(--color-flame)]">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <div className="mono mb-2 text-xs text-[color:var(--color-muted)]">
+                {p.date} · {p.category}
+              </div>
+              <h2 className="display text-3xl font-bold leading-snug text-[color:var(--color-ink)] transition-colors group-hover:text-[color:var(--color-flame)]">
+                {p.title}
+              </h2>
+              <p className="mt-2 max-w-2xl text-[color:var(--color-ink-soft)]">{p.description}</p>
             </div>
-            <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand-700">
-              {p.title}
-            </h2>
-            <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600">
-              {p.description}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {p.tags.map((t) => (
-                <span key={t} className="text-[11px] text-slate-400">
-                  #{t}
-                </span>
-              ))}
-            </div>
+            <ArrowUpRight className="hidden h-6 w-6 shrink-0 text-[color:var(--color-muted)] transition-colors group-hover:text-[color:var(--color-flame)] md:block" />
           </Link>
         ))}
       </div>
-
-      {posts.length === 0 && (
-        <p className="text-slate-500">手记正在路上,很快就有。</p>
-      )}
+      {posts.length === 0 && <p className="text-[color:var(--color-muted)]">手记正在路上,很快就有。</p>}
     </div>
   );
 }

@@ -10,24 +10,26 @@ export default function WorksContent() {
   const list = active === "全部" ? works : works.filter((w) => w.group === active);
 
   return (
-    <div className="container-page py-14">
-      <header className="mb-8 max-w-2xl">
-        <h1 className="text-4xl font-black text-slate-900">作品墙</h1>
-        <p className="mt-3 text-lg text-slate-600">
-          这里精选收录了 {worksCount} 个作品;实际造过、上线过的应用有 {totalShippedApprox}+。
-          有的很正经,有的纯为好玩——都是「珂这样玩 AI」的证据。
+    <div className="wrap py-16">
+      <header className="max-w-3xl border-b border-[color:var(--color-line)] pb-10">
+        <p className="eyebrow mb-4">作品墙 / SELECTED WORK — {String(worksCount).padStart(2, "0")}</p>
+        <h1 className="display text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1] text-[color:var(--color-ink)]">
+          珂造的东西
+        </h1>
+        <p className="mt-6 text-lg leading-relaxed text-[color:var(--color-ink-soft)]">
+          精选收录 {worksCount} 个,实际造过、上线过的有 {totalShippedApprox}+。有的很正经,有的纯为好玩——都是「珂这样玩 AI」的证据。
         </p>
       </header>
 
-      <div className="mb-8 flex flex-wrap gap-2">
+      <div className="my-8 flex flex-wrap gap-x-6 gap-y-2">
         {tabs.map((t) => (
           <button
             key={t}
             onClick={() => setActive(t)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`mono pb-1 text-sm transition-colors ${
               active === t
-                ? "bg-brand-600 text-white shadow-sm"
-                : "border border-slate-200 bg-white text-slate-600 hover:border-brand-300 hover:text-brand-700"
+                ? "border-b-2 border-[color:var(--color-flame)] text-[color:var(--color-ink)]"
+                : "border-b-2 border-transparent text-[color:var(--color-muted)] hover:text-[color:var(--color-ink)]"
             }`}
           >
             {t}
@@ -35,9 +37,9 @@ export default function WorksContent() {
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((w) => (
-          <WorkCard key={w.id} work={w} />
+      <div className="grid gap-px bg-[color:var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
+        {list.map((w, i) => (
+          <WorkCard key={w.id} work={w} index={i} />
         ))}
       </div>
     </div>
