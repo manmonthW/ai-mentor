@@ -4,19 +4,53 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const SITE = {
+  name: "珂以这样玩AI",
+  author: "王珂",
+  url: "https://keaimentor.com",
+  tagline: "跟着珂,你也可以这样玩 AI",
+  description:
+    "珂以这样玩AI —— 一个用 AI 把想法当天变成产品的独立创造者。这里有我造的 40+ 个 AI 应用、把思维与名著蒸馏成 Agent Skill 的方法,以及法律 AI 与一人公司的实战。",
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "AI Mentor - 王珂 | 高级AI赋能专家",
-    template: "%s | AI Mentor",
+    default: `${SITE.name} · ${SITE.author}`,
+    template: `%s | ${SITE.name}`,
   },
-  description: "AI前沿资讯 · Skill开发 · 行业AI培训 · 法律AI应用 · OPC公司服务 — 一站式AI成长平台",
-  keywords: "AI, 人工智能, AI培训, AI Skill, 法律AI, OPC, AI工具, AI资讯, 王珂",
+  description: SITE.description,
+  keywords: [
+    "珂以这样玩AI",
+    "王珂",
+    "AI",
+    "AI应用",
+    "Claude Skill",
+    "Agent",
+    "法律AI",
+    "一人公司",
+    "AI培训",
+    "独立开发",
+  ],
+  authors: [{ name: SITE.author }],
   openGraph: {
-    title: "AI Mentor - 王珂 | 高级AI赋能专家",
-    description: "AI前沿资讯 · Skill开发 · 行业AI培训 · 法律AI应用 · OPC公司服务",
+    title: `${SITE.name} · ${SITE.author}`,
+    description: SITE.description,
     type: "website",
+    locale: "zh_CN",
+    siteName: SITE.name,
+    url: SITE.url,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} · ${SITE.author}`,
+    description: SITE.description,
+  },
+  alternates: {
+    canonical: SITE.url,
+    types: { "application/rss+xml": `${SITE.url}/rss.xml` },
   },
 };
 
@@ -26,8 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <body className={`${inter.className} antialiased bg-gray-50 text-gray-900`}>
+    <html lang="zh-CN" className={inter.variable}>
+      <body className="min-h-screen bg-white text-slate-800 antialiased">
         <Navigation />
         <main>{children}</main>
         <Footer />

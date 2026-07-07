@@ -1,0 +1,40 @@
+---
+title: "让 AI 生成「可编辑」的 PPTX:一次跨 WSL / Windows 的硬核折腾"
+description: "从一句话生成网页 PPT,到导入 OpenPencil 可视化编辑,再到导出 PowerPoint 里能改字的原生 pptx。中间踩的坑,比成品还值钱。"
+date: "2026-07-06"
+category: "造物记"
+tags: ["PPT", "OpenPencil", "Claude Code", "python-pptx"]
+accent: "from-amber-400 to-orange-500"
+---
+
+我有一个网页 PPT 的 Skill:一句话生成横向翻页的网页幻灯片,带 WebGL 背景和杂志级排版。好看,但有人问我:**能不能给我一份 PowerPoint 里能改字的 pptx?**
+
+于是有了这次折腾。结论先说:能,但路比想象的绕。
+
+## 第一版走不通的路
+
+最直觉的方案是用 `pencil2pptx`——它号称能把 Pencil 设计档转成原生 pptx。装好、跑通,结果报错:它要找的是 **pencil.dev 的商业版 Pencil**,而我装的是开源的 **OpenPencil**——两个不同的产品,MCP 协议里的工具名都对不上(它要 `open_document` / `export_nodes`,OpenPencil 只有 `open_file` / `export_image`)。
+
+**教训:** 名字像的工具不一定是一个东西。读源码比读 README 靠谱。
+
+## 第二版:自己写转换器
+
+既然现成的用不了,那就自己造。思路很简单:
+
+1. 用 Claude Code 通过 MCP 把每页内容 `render` 进 OpenPencil(JSX → 设计节点);
+2. 用 `get_node` 把每个文本的**坐标、文字、字号、颜色、字体**读出来;
+3. 用 `python-pptx` 按这些数据生成**原生文本框**——不是截图,是真能编辑的元素。
+
+关键几个数字:1920px 宽映射到 16:9 幻灯片,换算是 `6350 EMU/px`,字号 `px × 0.5 → pt`。嵌套布局要逐层累加坐标偏移。
+
+## 两个把我卡住的坑
+
+**中文变豆腐块。** `render` 默认用只含拉丁字形的字体,中文直接渲染成 ▯▯▯。解法是给每个文本显式指定 `font="Microsoft YaHei UI"`,并同时写入西文和东亚字体名。
+
+**文字溢出换行。** 文本框宽度用的是「按字体量出来的精确宽度」,没留余量,换个渲染器就溢出换行。解法是**关掉自动换行**(`word_wrap=False`)——因为设计里这些本就是自动宽度的单行标签。
+
+## 收获
+
+成品是一份中文正确、单行不换行、在 PowerPoint 里能逐字编辑的 pptx。但更值钱的是过程里的判断:**当一条链路被外部工具卡死时,退回到数据层自己拼,往往更快也更可控。**
+
+这就是我说的「玩 AI」——不是等一个完美工具,而是把手弄脏,把链路打通。

@@ -1,18 +1,66 @@
 @import "tailwindcss";
 
+/* ── 珂以这样玩AI · 设计系统 ───────────────────────── */
+@theme {
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-accent: #22d3ee; /* 电子青 · "玩"的能量色 */
+  --font-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+}
+
 :root {
-  --color-brand: #4f46e5;
-  --color-brand-light: #e0e7ff;
-  --color-brand-dark: #3730a3;
+  color-scheme: light;
 }
 
 @layer base {
-  body {
-    @apply bg-gray-50 text-gray-900;
+  html {
+    scroll-behavior: smooth;
   }
-
+  body {
+    @apply bg-white text-slate-800 antialiased;
+    font-family: var(--font-sans);
+  }
   ::selection {
-    @apply bg-indigo-200 text-indigo-900;
+    background: var(--color-brand-200);
+    color: var(--color-brand-900);
+  }
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-200;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-lg hover:border-brand-300;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-700 hover:shadow-md active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:border-brand-400 hover:text-brand-700;
   }
 }
 
@@ -28,5 +76,19 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .bg-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(124, 58, 237, 0.08) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
   }
 }

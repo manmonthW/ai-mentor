@@ -1,53 +1,78 @@
 import Link from "next/link";
-import { Sparkles, Mail, Github } from "lucide-react";
+import { Github, Mail } from "lucide-react";
+
+const cols = [
+  {
+    title: "逛逛",
+    links: [
+      { name: "作品", href: "/works" },
+      { name: "Skills", href: "/skills" },
+      { name: "手记", href: "/blog" },
+      { name: "关于珂", href: "/about" },
+    ],
+  },
+  {
+    title: "纵深",
+    links: [
+      { name: "法律 AI", href: "/legal" },
+      { name: "一人公司", href: "/solo" },
+      { name: "AI 培训", href: "/training" },
+      { name: "AI 情报", href: "/news" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <Sparkles className="w-8 h-8 text-indigo-400" />
-              <span className="text-xl font-bold text-white">AI Mentor</span>
-            </div>
-            <p className="text-gray-400 mb-2">王珂 | 高级AI赋能专家</p>
-            <p className="text-gray-500 text-sm mb-4 max-w-md">
-              AI前沿资讯 · Skill开发 · 行业AI培训 · 法律AI应用 · OPC公司服务
-            </p>
-            <div className="flex space-x-4">
-              <a href="https://github.com/manmonthW" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="mailto:contact@keaimentor.com" className="text-gray-400 hover:text-white transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">核心板块</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/skills" className="hover:text-indigo-400 transition-colors">Skill Hub</Link></li>
-              <li><Link href="/legal" className="hover:text-indigo-400 transition-colors">法律AI</Link></li>
-              <li><Link href="/opc" className="hover:text-indigo-400 transition-colors">OPC服务</Link></li>
-              <li><Link href="/learn" className="hover:text-indigo-400 transition-colors">培训中心</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">更多</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/news" className="hover:text-indigo-400 transition-colors">资讯中心</Link></li>
-              <li><Link href="/tools" className="hover:text-indigo-400 transition-colors">工具导航</Link></li>
-              <li><Link href="/products" className="hover:text-indigo-400 transition-colors">产品展示</Link></li>
-              <li><Link href="/about" className="hover:text-indigo-400 transition-colors">关于我</Link></li>
-            </ul>
+    <footer className="mt-8 border-t border-slate-200 bg-slate-50">
+      <div className="container-page grid gap-8 py-12 sm:grid-cols-2 md:grid-cols-4">
+        <div className="sm:col-span-2">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-fuchsia-500 text-lg font-black text-white">
+              珂
+            </span>
+            <span className="text-lg font-extrabold text-slate-900">珂以这样玩AI</span>
+          </Link>
+          <p className="mt-3 max-w-sm text-sm text-slate-500">
+            王珂 · 独立 AI 造物者。用 AI 把想法当天变成产品——跟着珂,你也可以这样玩。
+          </p>
+          <div className="mt-4 flex gap-3">
+            <a
+              href="https://github.com/manmonthW"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-brand-700"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:wang.manmonth@gmail.com"
+              className="text-slate-400 hover:text-brand-700"
+              aria-label="Email"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
           </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} AI Mentor by 王珂. All rights reserved.</p>
+        {cols.map((c) => (
+          <div key={c.title}>
+            <h4 className="mb-3 text-sm font-semibold text-slate-900">{c.title}</h4>
+            <ul className="space-y-2">
+              {c.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm text-slate-500 hover:text-brand-700">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-slate-200">
+        <div className="container-page py-4 text-center text-xs text-slate-400">
+          © {new Date().getFullYear()} 珂以这样玩AI · 王珂. Built with Next.js.
         </div>
       </div>
     </footer>
