@@ -1,0 +1,26 @@
+# 珂以这样玩AI（王珂）
+
+> 王珂的个人品牌站。王珂是一位法律人出身的独立 AI 造物者，用 AI 把想法当天变成产品，已上线 40+ 个 AI 应用。专长：法律 AI（裁判文书分析、诉讼多 Agent、专利备考）、一人公司（OPC）AI 工具、把「人的思维」与「经典名著」蒸馏成可执行的 Agent Skill、以及面向企业与院校的行业 AI 培训。
+
+站点主域：https://www.keaimentor.com
+
+## 关于王珂
+- [关于珂](https://www.keaimentor.com/about)：王珂的个人介绍、能力与联系方式。
+
+## 作品（40+ AI 应用）
+- [作品墙](https://www.keaimentor.com/works)：全部作品，含法律 AI、一人公司工具、思维工具、教育、精选 Fork。
+- [Skills · 技能蒸馏馆](https://www.keaimentor.com/skills)：女娲 Skill（蒸馏人的思维）、仓颉 Skill（蒸馏一本书为 Agent Skills）等。
+
+## 纵深方向
+- [法律 AI](https://www.keaimentor.com/legal)：裁判文书分析（Judgment Analyzer）、SuitAgent 诉讼多 Agent、LexSmile、专利代理师备考。
+- [一人公司 AI](https://www.keaimentor.com/solo)：小达报税等一人公司（OPC）AI 装备。
+- [AI 培训](https://www.keaimentor.com/training)：货代智能体、企业级 AI 工作流（Dify）、高校 AI 实战、法律合规等真实交付课程，可定制。
+- [中考 AI](https://www.keaimentor.com/zhongkao)：2026 大连中考报考指南、中考全学科试卷分析。
+
+## 手记（造物记 / 方法论）
+- [手记](https://www.keaimentor.com/blog)：作品的构建过程、方法论、法律 AI 与一人公司的实战笔记。
+- [RSS](https://www.keaimentor.com/rss.xml)
+
+## 联系
+- GitHub：https://github.com/manmonthW
+- 邮箱：wang.manmonth@gmail.com

@@ -59,8 +59,28 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    inLanguage: "zh-CN",
+    author: { "@type": "Person", name: "王珂", url: "https://www.keaimentor.com" },
+    publisher: { "@type": "Person", name: "王珂" },
+    mainEntityOfPage: `https://www.keaimentor.com/blog/${slug}`,
+  };
+
   return (
     <article className="wrap max-w-3xl py-16">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/blog" className="mono mb-10 inline-flex items-center gap-1 text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-flame)]">
         <ArrowLeft className="h-4 w-4" /> 返回手记
       </Link>
