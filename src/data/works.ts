@@ -266,6 +266,18 @@ export const works: Work[] = [
     shot: "drawnix.png",
   },
 
+  // ───────────────── 教育 · K-12 ─────────────────
+  {
+    id: "k12-ai-curriculum",
+    name: "中小学 AI 课程体系(3-9 年级 · 208 课时)",
+    tagline:
+      "对齐 2022 新课标的完整 K-12 AI 课程设计:10/70/20 黄金比例、四阶螺旋进阶、六大主题闭环。",
+    group: "教育",
+    url: "/k12",
+    stack: ["2022 新课标", "K-12", "课程体系设计"],
+    featured: true,
+    accent: "from-amber-500 to-orange-600",
+  },
   // ───────────────── 教育 · 中考 ─────────────────
   {
     id: "zhongkao-baokao",

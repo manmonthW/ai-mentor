@@ -1,9 +1,12 @@
 // 真实交付过的 AI 培训课程(客户/机构/人名已全部脱敏)。
 
+export type TrainingTrack = "enterprise" | "university";
+
 export interface TrainingCourse {
   id: string;
   title: string;
   subtitle: string;
+  track: TrainingTrack; // 培训方向
   audience: string; // 受众
   duration: string; // 时长
   platform?: string; // 用到的平台
@@ -18,6 +21,7 @@ export const trainingCourses: TrainingCourse[] = [
     id: "coze-freight",
     title: "货代行业智能体应用培训",
     subtitle: "一天,让每个学员带走 3 个能干活的智能体",
+    track: "enterprise",
     audience: "货代公司业务 / 管理人员(多家公司混编)",
     duration: "1 天 · 约 6 小时",
     platform: "扣子 Coze(零代码、免费可用)",
@@ -41,6 +45,7 @@ export const trainingCourses: TrainingCourse[] = [
     id: "enterprise-dify",
     title: "从 ChatGPT 到企业级 AI 工作流",
     subtitle: "基于 Dify 的智能体与工作流实战",
+    track: "enterprise",
     audience: "某软件开发团队",
     duration: "2 天 · 12 学时(可扩展至 3 天)",
     platform: "Dify(可私有化部署)",
@@ -63,6 +68,7 @@ export const trainingCourses: TrainingCourse[] = [
     id: "univ-ai-practice",
     title: "面向某大学的 AI 实战课程",
     subtitle: "产教融合,围绕港口、航运、物流方向",
+    track: "university",
     audience: "人工智能相关学院学生",
     duration: "学期课 · 项目制",
     industry: "教育 / 高校",
@@ -83,6 +89,7 @@ export const trainingCourses: TrainingCourse[] = [
     id: "legal-compliance",
     title: "法律合规与风险防控 · AI 培训",
     subtitle: "面向法务 / 合规团队,把 AI 用在真正专业的地方",
+    track: "enterprise",
     audience: "企业法务、合规人员",
     duration: "0.5 – 1 天 · 可定制",
     industry: "法律 / 合规",

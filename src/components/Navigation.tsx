@@ -10,7 +10,16 @@ interface NavItem { name: string; href: string; children?: NavChild[] }
 
 const navItems: NavItem[] = [
   { name: "AI 情报", href: "/news" },
-  { name: "AI 培训", href: "/training" },
+  {
+    name: "AI 培训",
+    href: "/training",
+    children: [
+      { name: "培训体系总览", href: "/training" },
+      { name: "企业与行业培训", href: "/training#enterprise" },
+      { name: "高校 AI 实战", href: "/training#university" },
+      { name: "中小学 AI 课程", href: "/k12" },
+    ],
+  },
   { name: "作品", href: "/works" },
   { name: "Skills", href: "/skills" },
   { name: "手记", href: "/blog" },
@@ -121,7 +130,20 @@ export default function Navigation() {
       {mobileOpen && (
         <div className="border-t border-[color:var(--color-line)] bg-[color:var(--color-paper)] md:hidden">
           <div className="wrap flex flex-col py-3">
-            {[{ name: "AI 情报", href: "/news" }, { name: "AI 培训", href: "/training" }, { name: "作品", href: "/works" }, { name: "Skills", href: "/skills" }, { name: "手记", href: "/blog" }, { name: "法律 AI", href: "/legal" }, { name: "一人公司", href: "/solo" }, { name: "中考 AI", href: "/zhongkao" }, { name: "关于", href: "/about" }].map((l) => (
+            {[
+              { name: "AI 情报", href: "/news" },
+              { name: "AI 培训 · 总览", href: "/training" },
+              { name: "  · 企业与行业培训", href: "/training#enterprise" },
+              { name: "  · 高校 AI 实战", href: "/training#university" },
+              { name: "  · 中小学 AI 课程", href: "/k12" },
+              { name: "作品", href: "/works" },
+              { name: "Skills", href: "/skills" },
+              { name: "手记", href: "/blog" },
+              { name: "法律 AI", href: "/legal" },
+              { name: "一人公司", href: "/solo" },
+              { name: "中考 AI", href: "/zhongkao" },
+              { name: "关于", href: "/about" },
+            ].map((l) => (
               <Link
                 key={l.href}
                 href={l.href}

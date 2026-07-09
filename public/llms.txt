@@ -16,6 +16,7 @@
 - [一人公司 AI](https://www.keaimentor.com/solo)：小达报税等一人公司（OPC）AI 装备。
 - [AI 培训](https://www.keaimentor.com/training)：货代智能体、企业级 AI 工作流（Dify）、高校 AI 实战、法律合规等真实交付课程，可定制。
 - [中考 AI](https://www.keaimentor.com/zhongkao)：2026 大连中考报考指南、中考全学科试卷分析。
+- [中小学 AI 课程](https://www.keaimentor.com/k12)：王珂主持设计的 3-9 年级 K-12 AI 课程体系，对齐 2022 新课标，208 课时、四阶螺旋进阶、6 大主题。完整方案、分学段课件、教师培训可对接。
 
 ## 手记（造物记 / 方法论）
 - [手记](https://www.keaimentor.com/blog)：作品的构建过程、方法论、法律 AI 与一人公司的实战笔记。
