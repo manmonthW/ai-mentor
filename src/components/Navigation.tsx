@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 interface NavChild { name: string; href: string }
 interface NavItem { name: string; href: string; children?: NavChild[] }
@@ -114,7 +113,6 @@ export default function Navigation() {
                 )}
               </div>
             ))}
-            <ThemeSwitcher />
             <Link
               href="/#subscribe"
               className="border border-[color:var(--color-ink)] px-4 py-1.5 text-sm font-semibold text-[color:var(--color-ink)] transition-all hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-paper)]"
