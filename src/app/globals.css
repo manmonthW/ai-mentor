@@ -26,6 +26,48 @@
   color-scheme: light;
 }
 
+/* ── 深夜工坊 ─────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-paper: #0f0f0f;
+  --color-paper-2: #1a1a1a;
+  --color-ink: #f0ebe3;
+  --color-ink-soft: #a89f94;
+  --color-muted: #6b6158;
+  --color-line: #2a2520;
+  --color-line-strong: #3d3630;
+  --color-flame: #f5a623;
+  --color-flame-ink: #d4901c;
+  color-scheme: dark;
+}
+
+/* ── 瑞士终端 ─────────────────────────────────────────── */
+[data-theme="swiss"] {
+  --color-paper: #ffffff;
+  --color-paper-2: #f5f5f5;
+  --color-ink: #000000;
+  --color-ink-soft: #333333;
+  --color-muted: #666666;
+  --color-line: #000000;
+  --color-line-strong: #000000;
+  --color-flame: #ff0000;
+  --color-flame-ink: #cc0000;
+  --font-display: var(--font-mono-jb), ui-monospace, monospace;
+  --font-sans: var(--font-mono-jb), ui-monospace, monospace;
+}
+
+/* ── 水墨极简 ─────────────────────────────────────────── */
+[data-theme="ink"] {
+  --color-paper: #f8f8f6;
+  --color-paper-2: #f0f0ec;
+  --color-ink: #1c1c1c;
+  --color-ink-soft: #555555;
+  --color-muted: #999999;
+  --color-line: #e0e0dc;
+  --color-line-strong: #cccccc;
+  --color-flame: #1c1c1c;
+  --color-flame-ink: #000000;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -37,6 +79,7 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv01";
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   ::selection {
     background: var(--color-flame);
@@ -117,6 +160,14 @@
     pointer-events: none;
     opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* 深夜工坊：grain 调暗 */
+  [data-theme="dark"] .grain::before {
+    opacity: 0.02;
+  }
+  /* 瑞士终端：关闭 grain */
+  [data-theme="swiss"] .grain::before {
+    opacity: 0;
   }
 }
 

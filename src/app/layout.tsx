@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const space = Space_Grotesk({
@@ -63,12 +64,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="zh-CN"
       className={`${inter.variable} ${space.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
       <body className="grain min-h-screen">
-        <StructuredData />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <StructuredData />
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
