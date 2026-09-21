@@ -1,7 +1,7 @@
 "use client";
 
-import { useTheme, THEMES, type ThemeKey } from "@/contexts/ThemeContext";
-import { useState, useRef, useEffect } from "react";
+import { useTheme, THEMES } from "@/contexts/ThemeContext";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { Palette, X } from "lucide-react";
 
 /** 右下角浮动球 + 展开面板 */
@@ -120,26 +120,22 @@ function ThemeBanner({ onDismiss }: { onDismiss: () => void }) {
 }
 
 const BANNER_DISMISSED_KEY = "keyiwanai-theme-banner-dismissed";
+const subscribe = () => () => {};
+
+function getShowBanner() {
+  return localStorage.getItem(BANNER_DISMISSED_KEY) === null;
+}
 
 /** 组合组件：首次显示横条 + 始终显示浮动球 */
 export default function ThemeSwitcher() {
-  const [showBanner, setShowBanner] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const dismissed = localStorage.getItem(BANNER_DISMISSED_KEY);
-    if (!dismissed) {
-      setShowBanner(true);
-    }
-  }, []);
+  const showInitialBanner = useSyncExternalStore(subscribe, getShowBanner, () => false);
+  const [dismissed, setDismissed] = useState(false);
+  const showBanner = showInitialBanner && !dismissed;
 
   const dismissBanner = () => {
-    setShowBanner(false);
+    setDismissed(true);
     localStorage.setItem(BANNER_DISMISSED_KEY, "1");
   };
-
-  if (!mounted) return null;
 
   return (
     <>

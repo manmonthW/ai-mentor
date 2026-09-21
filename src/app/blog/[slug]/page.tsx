@@ -78,7 +78,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <article className="wrap max-w-3xl py-16">
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Link href="/blog" className="mono mb-10 inline-flex items-center gap-1 text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-flame)]">

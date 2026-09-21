@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useState, useCallback, useSyncExternalStore } from "react";
 
 export type ThemeKey = "warm" | "dark" | "swiss" | "ink";
 
@@ -29,20 +29,19 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 const STORAGE_KEY = "keyiwanai-theme";
 
+const subscribe = () => () => {};
+
+function getStoredTheme(): ThemeKey {
+  const stored = localStorage.getItem(STORAGE_KEY) as ThemeKey | null;
+  return stored && THEMES.some((t) => t.key === stored) ? stored : "warm";
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeKey>("warm");
-  const [mounted, setMounted] = useState(false);
+  const storedTheme = useSyncExternalStore<ThemeKey>(subscribe, getStoredTheme, () => "warm");
+  const [selectedTheme, setThemeState] = useState<ThemeKey | null>(null);
+  const theme = selectedTheme ?? storedTheme;
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as ThemeKey | null;
-    if (stored && THEMES.some((t) => t.key === stored)) {
-      setThemeState(stored);
-    }
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const root = document.documentElement;
     // 移除旧 theme
     root.removeAttribute("data-theme");
@@ -50,7 +49,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.setAttribute("data-theme", theme);
     }
     localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const setTheme = useCallback((t: ThemeKey) => {
     setThemeState(t);
