@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function BriefsPage() {
+  const sortedBriefs = [...briefs].sort((a, b) => b.date.localeCompare(a.date));
+
   return (
     <div className="wrap py-16">
       <header className="max-w-3xl border-b border-[color:var(--color-line)] pb-10">
@@ -22,7 +24,7 @@ export default function BriefsPage() {
       </header>
 
       <div className="mt-4 border-t border-[color:var(--color-line-strong)]">
-        {briefs.map((brief, index) => (
+        {sortedBriefs.map((brief, index) => (
           <Link
             key={brief.date}
             href={`/briefs/${brief.date}`}

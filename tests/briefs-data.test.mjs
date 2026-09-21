@@ -1,66 +1,97 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const dataPath = new URL("../src/data/briefs.ts", import.meta.url);
-const detailPagePath = new URL("../src/app/briefs/2026-09-21/page.tsx", import.meta.url);
+const dynamicPagePath = new URL("../src/app/briefs/[date]/page.tsx", import.meta.url);
+const legacyDetailPath = new URL("../src/app/briefs/2026-09-21/page.tsx", import.meta.url);
 const listPagePath = new URL("../src/app/briefs/page.tsx", import.meta.url);
 const homePagePath = new URL("../src/app/page.tsx", import.meta.url);
 const source = (path = dataPath) => readFileSync(path, "utf8");
 
-const childIds = [
-  "rphPh91aHpcOovORbAo2Kw",
-  "fQa_seXe03mm2f5ISqOHJQ",
-  "WLnBfojjQHcuiqI6wteQUw",
-  "KC71_44AnVQ9mnwBYJHGVA",
-  "dQucrl2On0yDS1wxzAcAQg",
-  "OFG-FkhmVDJ30VplYgLQZQ",
-  "45mhPwu97oBIB0Ra3mcB3A",
-  "tUOxFKGDGTweX193w_JCqA",
-  "vwQB-j7eT25Wiz6ZJsiS3Q",
+const editions = [
+  {
+    date: "2026-09-20",
+    mainId: "pL8UK11hs5z2qu5nwgl7bA",
+    childIds: [
+      "u3oTtbEFuTUAPWsEYZSXkw", "ZJHhQrDeiwOGkkaqHw7kqA", "JA-fKZLgoXpQl9G9xzmdog",
+      "aZTOlQUnULqptBgGGKZXEg", "vAhhXRfpcVnGNeHgRIM69Q", "hLkEzbEvF8m79qmofngIZg",
+      "ZEmB7xiRrvh7_eHvOogjhQ", "yTRfQCybSFsvb5wX0nY51g", "3LNY2w6t-xAaGa9roD4WYw",
+    ],
+    fullText: 4,
+    titleOnly: 5,
+  },
+  {
+    date: "2026-09-21",
+    mainId: "T4DrR5-t0XpPeehtZbNPKg",
+    childIds: [
+      "rphPh91aHpcOovORbAo2Kw", "fQa_seXe03mm2f5ISqOHJQ", "WLnBfojjQHcuiqI6wteQUw",
+      "KC71_44AnVQ9mnwBYJHGVA", "dQucrl2On0yDS1wxzAcAQg", "OFG-FkhmVDJ30VplYgLQZQ",
+      "45mhPwu97oBIB0Ra3mcB3A", "tUOxFKGDGTweX193w_JCqA", "vwQB-j7eT25Wiz6ZJsiS3Q",
+    ],
+    fullText: 9,
+    titleOnly: 0,
+  },
 ];
 
-test("2026-09-21 brief has nine unique HTTPS WeChat child sources", () => {
+function editionBlock(text, date) {
+  const start = text.indexOf(`date: "${date}"`);
+  assert.notEqual(start, -1, `${date} edition missing`);
+  const next = text.indexOf("\n  {\n    date:", start + 1);
+  return text.slice(start, next === -1 ? text.indexOf("\n];", start) : next);
+}
+
+test("both editions have valid, unique WeChat sources and required fields", () => {
   const text = source();
-  const urls = [...text.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);
-  assert.equal(urls.length, 9);
-  assert.equal(new Set(urls).size, 9);
-  for (const url of urls) {
-    const parsed = new URL(url);
-    assert.equal(parsed.protocol, "https:");
-    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+  for (const edition of editions) {
+    const block = editionBlock(text, edition.date);
+    assert.match(block, new RegExp(`sourceUrl: "https://mp\\.weixin\\.qq\\.com/s/${edition.mainId}"`));
+    const urls = [...block.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);
+    assert.equal(urls.length, 9);
+    assert.equal(new Set(urls).size, 9);
+    assert.deepEqual(urls.map((url) => url.split("/").at(-1)), edition.childIds);
+    urls.forEach((url) => {
+      const parsed = new URL(url);
+      assert.equal(parsed.protocol, "https:");
+      assert.equal(parsed.hostname, "mp.weixin.qq.com");
+    });
+    for (const field of ["tencentSummary", "interpretation", "whyItMatters", "evidenceLevel", "checkedAt", "sourceTitle", "sourceUrl"]) {
+      assert.equal((block.match(new RegExp(`^\\s{8}${field}:`, "gm")) ?? []).length, 9, `${edition.date}: ${field}`);
+    }
+    assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, edition.fullText);
+    assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, edition.titleOnly);
   }
-  assert.deepEqual(urls.map((url) => url.split("/").at(-1)), childIds);
 });
 
-test("all nine items record full-text reading depth and check date", () => {
-  const text = source();
-  assert.match(text, /export type BriefEvidenceLevel = "full_text" \| "title_only"/);
-  assert.equal((text.match(/^\s{8}evidenceLevel:\s*["']full_text["']/gm) ?? []).length, 9);
-  assert.equal((text.match(/^\s{8}checkedAt:\s*["']2026-09-21["']/gm) ?? []).length, 9);
-  assert.doesNotMatch(text, /verified|partial|只取到标题|仅取到标题|未读取正文|正文未被本站读取/);
-  assert.match(text, /已读取正文不等于独立交叉核验/);
-  assert.doesNotMatch(text, /官方一手来源/);
+test("2026-09-20 preserves requested evidence state, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-09-20");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-09-21"/gm) ?? []).length, 9);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /已读取正文不等于独立交叉核验/);
+  assert.match(block, /版权归原作者/);
+  assert.match(block, /据(?:原文|官方)|原文称|官方称|腾讯摘要/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
 });
 
-test("brief attribution, opinion title, and copyright notice are explicit", () => {
+test("detail route is one reusable dynamic template", () => {
+  assert.equal(existsSync(dynamicPagePath), true);
+  assert.equal(existsSync(legacyDetailPath), false);
+  const detail = source(dynamicPagePath);
+  assert.match(detail, /generateStaticParams/);
+  assert.match(detail, /getBrief\(date\)/);
+  assert.match(detail, /notFound\(\)/);
+  assert.doesNotMatch(detail, /getBrief\("2026-09-21"\)/);
+  assert.match(detail, /brief\.items\.length/);
+  assert.match(detail, /NON-OFFICIAL AI BRIEF/);
+});
+
+test("attribution surfaces and link accessibility remain explicit", () => {
   const data = source();
-  const detail = source(detailPagePath);
-  const list = source(listPagePath);
-  const home = source(homePagePath);
-
-  assert.match(data, /title:\s*["'][^"']*(?:珂的非官方整理|本站整理)[^"']*["']/);
-  assert.match(detail, /珂的非官方整理|本站整理/);
-  assert.match(list, /珂的非官方整理|本站整理/);
-  assert.match(home, /珂的非官方整理|本站整理/);
-  assert.match(data, /Jake Wharton 认为：AI 编程账单可能贵过程序员/);
+  const detail = source(dynamicPagePath);
+  assert.match(detail, /珂的非官方整理/);
+  assert.match(source(listPagePath), /珂的非官方整理|brief\.title/);
+  assert.match(source(homePagePath), /珂的非官方整理|briefs/);
   assert.match(data, /基于腾讯研究院公开主文和关联原文的短摘要与评论/);
-  assert.match(data, /版权归原作者/);
-  assert.match(data, /链接回原文/);
-});
-
-test("external links are isolated and status icons are decorative", () => {
-  const detail = source(detailPagePath);
   assert.equal((detail.match(/target="_blank" rel="noopener noreferrer"/g) ?? []).length, 2);
   assert.match(detail, /<StatusIcon[^>]*aria-hidden="true"/);
 });
