@@ -131,6 +131,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── AI 速递入口 ───────────────────────── */}
+      <section className="wrap pb-20">
+        <Link
+          href="/briefs/2026-09-21"
+          className="group grid gap-6 border-y border-[color:var(--color-line-strong)] py-8 md:grid-cols-[10rem_1fr_auto] md:items-center md:gap-10"
+        >
+          <div>
+            <p className="eyebrow">AI 速递 / BRIEF</p>
+            <p className="mono mt-2 text-sm text-[color:var(--color-flame)]">2026-09-21</p>
+          </div>
+          <div>
+            <h2 className="display text-3xl font-bold text-[color:var(--color-ink)] transition-colors group-hover:text-[color:var(--color-flame)]">
+              珂的非官方整理：腾讯研究院 AI 速递（9 条结构化解读）
+            </h2>
+            <p className="mt-2 text-[color:var(--color-ink-soft)]">区分腾讯摘要、本站评论与证据读取层级，保留每条子原文入口。</p>
+          </div>
+          <ArrowUpRight className="hidden h-6 w-6 text-[color:var(--color-muted)] group-hover:text-[color:var(--color-flame)] md:block" />
+        </Link>
+      </section>
+
       {/* ── 手记(编辑式列表)────────────────── */}
       <section className="border-y border-[color:var(--color-line)] bg-[color:var(--color-paper-2)]">
         <div className="wrap py-20">
