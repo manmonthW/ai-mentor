@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#9-harnessdemo" class="md-skip">
+        <a href="#9-harnessagent" class="md-skip">
           跳转至
         </a>
       
@@ -874,10 +874,49 @@
   <a href="#harness" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一、Harness控制循环
+        一、先认识生产Harness：不只是给模型套一个循环
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="一、先认识生产Harness：不只是给模型套一个循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-harnessruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Harness、Runtime与控制面是什么关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Demo成功一次，为什么还不够
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 本章贯穿案例的完成合同
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -885,10 +924,60 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        二、运行状态
+        二、生产控制循环：把候选行动变成有证据的状态转移
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、Run与State：让每次任务有身份、有主人、有终点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Run与State：让每次任务有身份、有主人、有终点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-run-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Run ID不是装饰字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-state-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 一份初学者可读的State Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 终态必须说清发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -896,10 +985,49 @@
   <a href="#checkpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、持久Checkpoint
+        四、Checkpoint：把任务从进程内存中救出来
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="四、Checkpoint：把任务从进程内存中救出来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Checkpoint是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 等待审批时应该发生什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 恢复不是从头重放
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -907,19 +1035,130 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四、幂等与恢复
+        五、幂等：让同一动作的重试不变成第二次动作
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四、幂等与恢复">
+    <nav class="md-nav" aria-label="五、幂等：让同一动作的重试不变成第二次动作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stale-run-fencing" class="md-nav__link">
+  <a href="#51" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stale-run fencing
+        5.1 为什么超时最危险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 安全执行顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 幂等不是回滚
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、过期运行隔离：别让昨天的Worker覆盖今天的结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、过期运行隔离：别让昨天的Worker覆盖今天的结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-stale-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 什么是stale run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-fencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Fencing怎样阻止旧拥有者
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、错误分类、重试、Fallback与熔断
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、错误分类、重试、Fallback与熔断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 不要对所有错误“重试三次”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 重试要满足四个条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Fallback不能偷偷降低安全标准
       
     </span>
   </a>
@@ -935,21 +1174,60 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        五、错误分类
+        八、预算、并发与取消：限制最坏情况
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、预算、并发与取消：限制最坏情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 预算不只有Token
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
     <span class="md-ellipsis">
       
-        六、预算、取消和并发
+        8.2 并发不是越多越快
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 取消的正确顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 多Worker需要隔离工作区
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -957,10 +1235,99 @@
   <a href="#artifact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        七、Artifact与来源
+        九、Artifact、凭据与证据：状态里不要塞进整个世界
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="九、Artifact、凭据与证据：状态里不要塞进整个世界">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-artifact-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Artifact Store解决什么问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 凭据不能成为Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 什么才是完成证据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十、模型路由与全链路版本：问题发生时要知道跑的是哪一套
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、模型路由与全链路版本：问题发生时要知道跑的是哪一套">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 一次Run至少记录哪些版本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 路由是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Schema演进不能靠运气
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -968,7 +1335,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        八、模型与工具版本
+        十一、部署形态：位置可以变，控制合同不能丢
       
     </span>
   </a>
@@ -979,10 +1346,60 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        九、部署选择
+        十二、发布与回滚：不要把新版本一次推给所有任务
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十二、发布与回滚：不要把新版本一次推给所有任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 五个发布阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 回滚条件必须在发布前定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 回滚不只是切回旧模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 生产失败怎样进入下一轮改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -990,10 +1407,71 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十、发布和回滚
+        十三、贯穿案例：一次跨重启、审批和超时的运行
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十三、贯穿案例：一次跨重启、审批和超时的运行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 创建Run并只读查询
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 生成卡片并等待审批
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 部署重启后恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 发送超时
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 完成或取消
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1001,10 +1479,159 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十一、常见失败模式
+        十四、失败模式与反例
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十四、失败模式与反例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 反例一：只把聊天记录写进数据库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 反例二：模型没有工具调用就标记成功
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 反例三：所有异常统一重试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4 反例四：重试生成新幂等键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5 反例五：旧Worker最后写入获胜
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6 反例六：取消只停止前端动画
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#147-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7 反例七：把预算写进Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#148" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8 反例八：备用模型绕过原政策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#149" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.9 反例九：影子流量仍持有写权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.10 反例十：回滚只切回代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1411-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.11 反例十一：日志记录所有Prompt和秘密
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.12 反例十二：多个Worker共享同一可写目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1413-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.13 反例十三：一次失败就让Agent在线改自己
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1012,15 +1639,87 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十二、检查清单
+        十五、实施检查清单
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十五、实施检查清单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务、身份与状态
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        持久、恢复与并发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具、权限、凭据与审批
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        副作用、错误与取消
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预算、Artifact与完成证据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        版本、发布与回滚
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         知识检查
@@ -1028,10 +1727,38 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="知识检查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         来源与证据
@@ -2227,10 +2954,49 @@
   <a href="#harness" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一、Harness控制循环
+        一、先认识生产Harness：不只是给模型套一个循环
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="一、先认识生产Harness：不只是给模型套一个循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-harnessruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Harness、Runtime与控制面是什么关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Demo成功一次，为什么还不够
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 本章贯穿案例的完成合同
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2238,10 +3004,60 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        二、运行状态
+        二、生产控制循环：把候选行动变成有证据的状态转移
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、Run与State：让每次任务有身份、有主人、有终点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Run与State：让每次任务有身份、有主人、有终点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-run-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Run ID不是装饰字段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-state-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 一份初学者可读的State Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 终态必须说清发生了什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2249,10 +3065,49 @@
   <a href="#checkpoint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、持久Checkpoint
+        四、Checkpoint：把任务从进程内存中救出来
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="四、Checkpoint：把任务从进程内存中救出来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Checkpoint是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 等待审批时应该发生什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 恢复不是从头重放
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2260,19 +3115,130 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四、幂等与恢复
+        五、幂等：让同一动作的重试不变成第二次动作
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="四、幂等与恢复">
+    <nav class="md-nav" aria-label="五、幂等：让同一动作的重试不变成第二次动作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stale-run-fencing" class="md-nav__link">
+  <a href="#51" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stale-run fencing
+        5.1 为什么超时最危险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 安全执行顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 幂等不是回滚
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、过期运行隔离：别让昨天的Worker覆盖今天的结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、过期运行隔离：别让昨天的Worker覆盖今天的结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-stale-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 什么是stale run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-fencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Fencing怎样阻止旧拥有者
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、错误分类、重试、Fallback与熔断
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、错误分类、重试、Fallback与熔断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 不要对所有错误“重试三次”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 重试要满足四个条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Fallback不能偷偷降低安全标准
       
     </span>
   </a>
@@ -2288,21 +3254,60 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        五、错误分类
+        八、预算、并发与取消：限制最坏情况
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、预算、并发与取消：限制最坏情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 预算不只有Token
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
     <span class="md-ellipsis">
       
-        六、预算、取消和并发
+        8.2 并发不是越多越快
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 取消的正确顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 多Worker需要隔离工作区
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2310,10 +3315,99 @@
   <a href="#artifact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        七、Artifact与来源
+        九、Artifact、凭据与证据：状态里不要塞进整个世界
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="九、Artifact、凭据与证据：状态里不要塞进整个世界">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-artifact-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Artifact Store解决什么问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 凭据不能成为Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 什么才是完成证据
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十、模型路由与全链路版本：问题发生时要知道跑的是哪一套
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、模型路由与全链路版本：问题发生时要知道跑的是哪一套">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 一次Run至少记录哪些版本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 路由是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Schema演进不能靠运气
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2321,7 +3415,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        八、模型与工具版本
+        十一、部署形态：位置可以变，控制合同不能丢
       
     </span>
   </a>
@@ -2332,10 +3426,60 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        九、部署选择
+        十二、发布与回滚：不要把新版本一次推给所有任务
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十二、发布与回滚：不要把新版本一次推给所有任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 五个发布阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 回滚条件必须在发布前定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 回滚不只是切回旧模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 生产失败怎样进入下一轮改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2343,10 +3487,71 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十、发布和回滚
+        十三、贯穿案例：一次跨重启、审批和超时的运行
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十三、贯穿案例：一次跨重启、审批和超时的运行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 创建Run并只读查询
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 生成卡片并等待审批
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 部署重启后恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 发送超时
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 完成或取消
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2354,10 +3559,159 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十一、常见失败模式
+        十四、失败模式与反例
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="十四、失败模式与反例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 反例一：只把聊天记录写进数据库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 反例二：模型没有工具调用就标记成功
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 反例三：所有异常统一重试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4 反例四：重试生成新幂等键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5 反例五：旧Worker最后写入获胜
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6 反例六：取消只停止前端动画
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#147-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7 反例七：把预算写进Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#148" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8 反例八：备用模型绕过原政策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#149" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.9 反例九：影子流量仍持有写权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.10 反例十：回滚只切回代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1411-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.11 反例十一：日志记录所有Prompt和秘密
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.12 反例十二：多个Worker共享同一可写目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1413-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.13 反例十三：一次失败就让Agent在线改自己
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2365,15 +3719,87 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        十二、检查清单
+        十五、实施检查清单
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十五、实施检查清单">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        任务、身份与状态
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        持久、恢复与并发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具、权限、凭据与审批
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        副作用、错误与取消
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预算、Artifact与完成证据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        版本、发布与回滚
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         知识检查
@@ -2381,10 +3807,38 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="知识检查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         来源与证据
@@ -2408,268 +3862,747 @@
               <article class="md-content__inner md-typeset">
                 
   <article class="md-content__inner md-typeset bluebook-article">
-    <h1 id="9-harnessdemo">第9章　Harness：从Demo到可靠产品<a class="headerlink" href="#9-harnessdemo" title="Permanent link">&para;</a></h1>
-<p><span class="release-badge">Release Candidate 1</span></p>
+    <h1 id="9-harnessagent">第9章　生产Harness：让Agent可靠地长期运行<a class="headerlink" href="#9-harnessagent" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>核心问题：如何把不确定的模型决策放进持久、可预算、可恢复的软件控制面。</p>
+<p>状态：初学者展开试稿，待人工审阅（基于Release Candidate 1修订）</p>
+<p>本章定位：承接第3章的Runtime与第6—8章的执行边界，把状态、恢复、预算、并发、错误、版本和发布组织成生产控制面。</p>
 </blockquote>
 <h2 id="_1">本章回答的三个问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Harness在模型之外负责哪些生产职责？</li>
-<li>长任务如何Checkpoint、恢复、取消并避免重复副作用？</li>
-<li>错误、预算、模型路由和发布版本如何治理？</li>
+<li>一个已经能调用模型和工具的Demo，距离可长期运行的产品还缺什么？</li>
+<li>任务跨越重启、超时、审批与取消时，怎样恢复且不重复产生副作用？</li>
+<li>怎样限制成本与并发、追踪版本，并让新版本能够逐步发布和快速回退？</li>
 </ol>
+<p>我们继续使用前几章的教学任务：</p>
+<blockquote>
+<p>“帮我找一本适合初中生的月球科普书，确认本校图书馆现在能借，生成推荐卡。卡片先交给老师审批，批准后再发到班级群；不要替我预约。”</p>
+</blockquote>
+<p>前八章已经解释怎样查书、组织上下文、调用工具、等待事件与响应取消。本章假设这个Demo能跑通一次，再问更现实的问题：进程在等待老师时重启怎么办？发送请求超时怎么办？旧任务恢复后会不会覆盖新结果？换模型后怎样知道问题来自哪个版本？</p>
+<blockquote>
+<p><strong>证据类型说明</strong></p>
+<p>本章的学校、书目、状态值、配置和伪代码均为<strong>教学示例</strong>；带“本书建议”的内容是需要在具体系统验证的<strong>工程建议</strong>；只有明确指向已审查运行记录的内容才是限定条件下的<strong>实测结论</strong>。本章没有重新运行实验，不提供虚构的成功率、延迟、费用或通用阈值。</p>
+</blockquote>
 <h2 id="5">5分钟速读<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Model负责语义判断，Harness负责状态、权限、预算、工具、验证和恢复。</li>
-<li>每次运行有唯一ID、版本化状态Schema和明确终态。</li>
-<li>长任务不能只存在进程内存；副作用前后和等待事件前保存Checkpoint。</li>
-<li>所有写操作幂等；超时后先查询状态，不盲目重试。</li>
-<li>旧运行恢复时必须通过状态版本和所有权fencing，不能覆盖新结果。</li>
-<li>错误按校验、授权、暂态、永久、模型、上下文和预算分类处理。</li>
-<li>Token、工具、时间、金额、并发和委派深度由代码强制限制。</li>
-<li>发布遵循离线回放、影子流量、金丝雀、有限放量和回滚。</li>
+<li><strong>Harness</strong>是Agent边界内、模型之外的运行与治理层；<strong>生产控制面</strong>是其中管理运行身份、状态、权限、预算、恢复、版本和发布的部分。</li>
+<li>每次任务需要唯一的<code>run_id</code>、版本化State Schema和明确终态。模型停止生成，不等于任务成功。</li>
+<li><strong>Checkpoint（检查点）</strong>是持久化的任务存档。副作用前后、进入等待前和重规划前都应保存关键状态。</li>
+<li><strong>幂等</strong>防止同一写动作因重试而重复生效。写请求超时后先查询幂等记录或权威状态，不能直接再执行一次。</li>
+<li><strong>过期运行隔离（stale-run fencing）</strong>阻止旧Worker、旧事件或旧审批覆盖新状态。常用依据是状态版本、租约或隔离令牌。</li>
+<li>错误要分类。参数错误、权限拒绝和业务拒绝通常不应重试；临时故障也只能在预算和幂等保护下有界重试。</li>
+<li>Token、模型调用、工具调用、墙钟时间、费用、并发、Artifact大小和委派深度都可以成为硬预算，由程序计数和拒绝超额动作。</li>
+<li>取消不是杀进程。先停止接受新工作，向子任务传播取消，在安全点保存状态和释放资源，再核对已经发生的副作用。</li>
+<li>模型、Prompt、Schema、工具、政策和执行图都要带版本。新模型不能自动继承旧模型的评估结论。</li>
+<li>发布路径是<strong>离线回放 → 影子流量 → 金丝雀 → 有限放量 → 全量</strong>；每阶段都要预先定义停止与回滚条件。</li>
+<li>生产失败不应直接触发在线自我训练。先检查知识、Prompt／Skill和Harness等外部、可版本化载体，再决定是否需要参数更新。</li>
+<li>多个Worker若确有必要，应使用私有工作区和带Schema、Hash、来源、ACL的Artifact交接，由单一Owner合并；否则优先单Run顺序执行。</li>
 </ul>
-<h2 id="harness">一、Harness控制循环<a class="headerlink" href="#harness" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>输入与身份
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>→ 构造上下文
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→ Model提出候选决策
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>→ Schema/语义校验
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>→ 授权与政策
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>→ 审批（如需要）
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>→ 幂等执行
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>→ 环境结果验证
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>→ 持久状态更新
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>→ 继续/完成/阻塞/失败/取消
-</code></pre></div>
-<p>模型不能直接修改权威状态，也不能自行批准高影响动作。</p>
-<h2 id="_2">二、运行状态<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">run_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run_01J</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">actor_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user_456</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">tenant_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tenant_123</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">waiting_approval</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">state_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">current_step</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">approve_refund</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">completed_effects</span><span class="p">:</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">idempotency_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refund-preview-order-789-v1</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">result_ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artifact://runs/run_01J/preview.json</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nt">pending_effects</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">refund-order-789</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">budgets</span><span class="p">:</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nt">model_calls_remaining</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">tool_calls_remaining</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">deadline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-09-21T11:00:00Z</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nt">versions</span><span class="p">:</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nt">graph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">support-v4</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">toolset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">billing-v3</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nt">policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refund-v7</span>
-</code></pre></div>
-<p>运行终态至少区分：<code>succeeded</code>、<code>partial_success</code>、<code>blocked</code>、<code>failed</code>、<code>cancelled</code>和<code>budget_exhausted</code>。模型停止生成不等于成功。</p>
-<h2 id="checkpoint">三、持久Checkpoint<a class="headerlink" href="#checkpoint" title="Permanent link">&para;</a></h2>
-<p>在以下位置保存：</p>
+<h2 id="harness">一、先认识生产Harness：不只是给模型套一个循环<a class="headerlink" href="#harness" title="Permanent link">&para;</a></h2>
+<h3 id="11-harnessruntime">1.1 Harness、Runtime与控制面是什么关系<a class="headerlink" href="#11-harnessruntime" title="Permanent link">&para;</a></h3>
+<p>第1章把<strong>Harness</strong>解释为Agent边界内、Model之外的运行与治理程序。它构造Context、提供Tool接口，并实施约束、验证与纠正。Environment中的数据库、网页和消息系统不属于Harness，即使它们部署在同一台机器上。<sup id="fnref:harness-manuscript"><a class="footnote-ref" href="#fn:harness-manuscript">1</a></sup></p>
+<p>第3章介绍的<strong>Runtime（运行时）</strong>负责推进一条执行图：调用节点、读写State、等待事件并进入终态。本章所说的<strong>生产控制面（Production Control Plane）</strong>不是另一个模型，而是Harness中保证大量Run长期、受控运行的那部分程序和基础设施，例如：</p>
 <ul>
-<li>副作用执行前；</li>
-<li>副作用成功且验证后；</li>
-<li>等待审批、用户或事件前；</li>
-<li>重规划和版本切换前；</li>
-<li>接近预算阈值时。</li>
+<li>创建和归属Run；</li>
+<li>保存版本化State与Checkpoint；</li>
+<li>计量预算、并发和截止时间；</li>
+<li>管理租约、队列、取消和恢复；</li>
+<li>执行权限、审批和幂等；</li>
+<li>记录配置版本、Artifact与完成证据；</li>
+<li>控制新版本放量和回滚。</li>
 </ul>
-<p>Checkpoint包括状态版本、已完成副作用、Artifact引用、等待条件和下一步。</p>
-<h2 id="_3">四、幂等与恢复<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>业务幂等键示例：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>refund:{tenant}:{order}:{approved_action_digest}
+<p>“控制面”可以类比车站调度室：它不替司机判断每位乘客想去哪儿，却决定哪列车能进入哪条线路、何时停、故障后怎样恢复。这个比喻只帮助理解职责，不代表所有系统必须部署一个独立的“控制面服务”。简单产品可以把这些职责实现在应用内。</p>
+<h3 id="12-demo">1.2 Demo成功一次，为什么还不够<a class="headerlink" href="#12-demo" title="Permanent link">&para;</a></h3>
+<p>找书Demo在开发者电脑上顺利跑通，并没有回答下面的问题：</p>
+<ul>
+<li>老师一天后才批准，原进程已经更新或重启，任务还能继续吗？</li>
+<li>消息平台收到发送请求，但回执丢失，重试会不会发两遍？</li>
+<li>用户已取消，排队中的Worker还会不会继续发送？</li>
+<li>同一个Run被两个Worker同时领取，谁有权写最终状态？</li>
+<li>新Prompt上线后失败，能否知道当时使用了哪套模型、工具和政策？</li>
+<li>成本、队列和并发突然增长时，系统会降级、排队还是无限扩张？</li>
+</ul>
+<p>这些不是提示词能够可靠解决的问题。<strong>模型负责有不确定性的语义判断；程序负责身份、状态转移、权限、计数、并发和外部事实。</strong> 这延续了第3章的Model—Runtime分工与第6章的统一工具网关。<sup id="fnref:patterns"><a class="footnote-ref" href="#fn:patterns">2</a></sup></p>
+<h3 id="13">1.3 本章贯穿案例的完成合同<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>为避免“生产化”变成堆组件，本章先写清合同：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>目标：找到有依据且当前可借的书，生成推荐卡；老师批准后发送。
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>权限：查询阶段只读；发送使用受限服务身份；禁止预约。
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>审批：绑定准确卡片版本、班级群和附件；过期或载荷变化后失效。
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>恢复：等待审批和进程重启后可以继续；已发送消息不能重复发送。
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>取消：阻止新动作并级联子任务；对结果未知的发送先查权威状态。
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>完成：消息系统确认指定载荷已发送；否则只能是等待、阻塞或失败。
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>回滚：草稿可恢复旧版；已发送消息通常只能更正，不能保证真正撤回。
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>证据：保存Run版本、审批、幂等键、外部消息ID和最终状态。
 </code></pre></div>
-<p>HTTP超时不代表操作失败。恢复流程：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>查询幂等记录/权威状态
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>→ 已完成则复用结果
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>→ 未执行且仍允许才重试
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>→ 状态不确定则人工处理
+<p>这是教学合同，不是学校的真实安全政策。正式系统必须由业务、安全、隐私和运维负责人共同确定权限、保留期、审批和服务目标。</p>
+<h2 id="_2">二、生产控制循环：把候选行动变成有证据的状态转移<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><img alt="图3（复用）：生产Harness控制循环" src="../../assets/figures/fig03-unified-execution-graph.svg" /></p>
+<p>本章复用第3章的图3（统一执行图），不另造一张内容重复的图。这里从生产控制面的角度重读同一张图：节点可以换模型或工具，但每条重要转移都必须经过状态、权限、预算和验证。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>认证输入并创建Run
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>→ 从Checkpoint读取版本化State
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>→ 构造当前Context
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>→ Model提出候选决定
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>→ Schema与语义校验
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>→ 身份、政策、预算与审批检查
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>→ 写入执行意图和幂等键
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>→ Tool改变或查询Environment
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>→ Verifier核对权威结果
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>→ 原子更新State与Checkpoint
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>→ 继续 / 等待 / 成功 / 部分成功 / 阻塞 / 失败 / 取消 / 预算耗尽
 </code></pre></div>
-<h3 id="stale-run-fencing">Stale-run fencing<a class="headerlink" href="#stale-run-fencing" title="Permanent link">&para;</a></h3>
-<p>每次写入校验状态版本、运行所有者、审批有效期和政策兼容性。旧运行不得覆盖更新后的状态。</p>
-<h2 id="_4">五、错误分类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>Verifier（验证器）</strong>是检查结果是否满足条件的程序、工具或人工步骤。查到外部消息ID、重新读取文件、运行测试都可以是验证；模型说“完成了”不是独立验证。</p>
+<blockquote>
+<p><strong>工程建议</strong></p>
+<p>关键顺序是“先持久化意图，再执行副作用；先验证结果，再提交完成”。具体数据库、队列和事务实现要按业务系统选择，没有一个框架能自动保证这条顺序。</p>
+</blockquote>
+<h2 id="runstate">三、Run与State：让每次任务有身份、有主人、有终点<a class="headerlink" href="#runstate" title="Permanent link">&para;</a></h2>
+<h3 id="31-run-id">3.1 Run ID不是装饰字段<a class="headerlink" href="#31-run-id" title="Permanent link">&para;</a></h3>
+<p><strong>Run（运行）</strong>是一次从输入到终态的任务实例，<code>run_id</code>是它的唯一标识。用户再次发起相同请求，通常是另一个Run；同一个Run因进程重启而恢复，仍应保留原<code>run_id</code>。</p>
+<p>还需记录：</p>
+<ul>
+<li><code>tenant_id</code>：属于哪个租户或组织空间；</li>
+<li><code>actor_id</code>：由哪个已认证主体发起；</li>
+<li><code>owner</code>或<code>lease</code>：当前哪个Worker拥有推进权；</li>
+<li><code>parent_run_id</code>：是否由父任务创建；</li>
+<li><code>created_at</code>、<code>deadline</code>：何时开始、最晚运行到何时。</li>
+</ul>
+<p>身份来自认证系统和服务凭据，不来自模型声称“我是老师”。凭据由执行层代管，不应写进State、Prompt、Artifact URI或普通日志。</p>
+<h3 id="32-state-schema">3.2 一份初学者可读的State Schema<a class="headerlink" href="#32-state-schema" title="Permanent link">&para;</a></h3>
+<p>下面的YAML是教学示例；时间、预算、ID和版本均为占位值，不是推荐阈值：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">run_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run_demo_01</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">tenant_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">school_demo</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">actor_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">student_demo</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">waiting_approval</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">state_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">owner</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">worker_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker_7</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">lease_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lease_31</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">lease_expires_at</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-09-21T10:10:00Z</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nt">current_step</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">await_teacher_approval</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nt">verified_facts</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nt">book_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BK-204</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nt">availability</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">available</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="nt">observed_at</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-09-21T09:55:00Z</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nt">artifacts</span><span class="p">:</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="nt">card</span><span class="p">:</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artifact://run_demo_01/card-v1.md</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nt">content_hash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha256:example-only</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nt">acl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">student_demo</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">teacher_demo</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="nt">approval</span><span class="p">:</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pending</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="nt">payload_digest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sha256:example-only</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="nt">completed_effects</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="nt">pending_effects</span><span class="p">:</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_card_v1_to_class_demo</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="nt">budgets</span><span class="p">:</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">  </span><span class="nt">model_calls_remaining</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span><span class="nt">tool_calls_remaining</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">  </span><span class="nt">deadline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-09-21T12:00:00Z</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="nt">versions</span><span class="p">:</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span><span class="nt">state_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span><span class="nt">graph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">book-flow-v3</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">recommendation-v5</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span><span class="nt">output_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">card-v2</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">  </span><span class="nt">model_route</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reasoning-primary-v2</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span><span class="nt">toolset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">school-tools-v4</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">  </span><span class="nt">policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">class-message-v7</span>
+</code></pre></div>
+<p><strong>State Schema（状态结构约定）</strong>规定有哪些字段、类型和不变量。<code>state_version</code>是这条状态每次成功修改后的版本号；<code>state_schema</code>则是字段结构的版本。二者不要混淆。</p>
+<h3 id="33">3.3 终态必须说清发生了什么<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>本书建议至少区分：</p>
 <table>
 <thead>
 <tr>
-<th>错误</th>
-<th>默认处理</th>
+<th>状态</th>
+<th>普通话解释</th>
+<th>找书案例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Schema/Validation</td>
-<td>修复一次或拒绝候选</td>
+<td><code>succeeded</code></td>
+<td>全部成功条件已有证据</td>
+<td>指定卡片已被消息系统确认发送</td>
 </tr>
 <tr>
-<td>Authorization</td>
-<td>不重试；拒绝或等待授权</td>
+<td><code>partial_success</code></td>
+<td>有可交付成果，但并非全部目标</td>
+<td>卡片生成并核实，但发送失败</td>
 </tr>
 <tr>
-<td>Rate Limit</td>
-<td>遵循Retry-After，有界退避</td>
+<td><code>waiting</code></td>
+<td>知道在等什么事件，可恢复继续</td>
+<td>等待老师审批v1</td>
 </tr>
 <tr>
-<td>Transient Network</td>
-<td>幂等保护下有界重试</td>
+<td><code>blocked</code></td>
+<td>缺权限、凭据或决定，当前无自动路径</td>
+<td>没有可发送班级群的服务权限</td>
 </tr>
 <tr>
-<td>Permanent Business</td>
-<td>改道、澄清或失败</td>
+<td><code>failed</code></td>
+<td>已知无法在本Run内恢复</td>
+<td>卡片生成持续违反强制Schema</td>
 </tr>
 <tr>
-<td>Model Refusal</td>
-<td>分类和Fallback，不伪造回答</td>
+<td><code>cancelled</code></td>
+<td>取消已生效并完成必要清理</td>
+<td>停止新工作，发送未发生</td>
 </tr>
 <tr>
-<td>Context Overflow</td>
-<td>压缩、分段或终止</td>
-</tr>
-<tr>
-<td>Budget Exhausted</td>
-<td>明确终态，不伪装成功</td>
-</tr>
-<tr>
-<td>Policy Changed</td>
-<td>重新预览和审批</td>
+<td><code>budget_exhausted</code></td>
+<td>达到硬边界</td>
+<td>调用预算用完，仍未找到可借书</td>
 </tr>
 </tbody>
 </table>
-<p>统一“重试三次”会让授权失败和业务拒绝重复消耗资源，甚至放大副作用。</p>
-<h2 id="_5">六、预算、取消和并发<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">max_model_calls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">max_tool_calls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">max_wall_time_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">max_cost_usd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.00</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">max_concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nt">max_delegation_depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">max_artifact_bytes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50000000</span>
+<p><code>waiting</code>可以建模为非终态；团队也可以把长期阻塞结束为<code>blocked</code>，以后新建Run接续。关键是定义清楚，不要全部写成<code>stopped</code>或<code>done</code>。类型化状态与显式终态来自P04模式。<sup id="fnref:state"><a class="footnote-ref" href="#fn:state">3</a></sup></p>
+<h2 id="checkpoint">四、Checkpoint：把任务从进程内存中救出来<a class="headerlink" href="#checkpoint" title="Permanent link">&para;</a></h2>
+<h3 id="41-checkpoint">4.1 Checkpoint是什么<a class="headerlink" href="#41-checkpoint" title="Permanent link">&para;</a></h3>
+<p><strong>Checkpoint（检查点）</strong>是持久保存、可恢复的状态快照，类似游戏存档。它不只是聊天记录，而应包含恢复所需的业务状态、版本、Artifact引用、已发生副作用和等待条件。<sup id="fnref:checkpoint"><a class="footnote-ref" href="#fn:checkpoint">4</a></sup></p>
+<p>适合保存检查点的位置包括：</p>
+<ul>
+<li>创建Run并确认任务边界后；</li>
+<li>每个外部副作用之前；</li>
+<li>副作用得到权威验证之后；</li>
+<li>等待用户、审批、定时器或Webhook之前；</li>
+<li>重规划、模型路由或Schema迁移之前；</li>
+<li>接近预算或服务截止时间时。</li>
+</ul>
+<p>短、无副作用、失败后可安全从头执行的原子调用可以简化；不要为了形式每个Token保存一次。</p>
+<h3 id="42">4.2 等待审批时应该发生什么<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>推荐卡v1准备好后，Runtime应：</p>
+<ol>
+<li>保存卡片Artifact、Hash、目标班级和当前政策版本；</li>
+<li>生成绑定精确载荷的审批请求；</li>
+<li>把State改为<code>waiting_approval</code>；</li>
+<li>保存Checkpoint并释放Worker；</li>
+<li>审批事件到达后，验证来源、Run、载荷版本、时效和防重放标识；</li>
+<li>重新取得推进权，再继续发送。</li>
+</ol>
+<p>不要让模型每隔一分钟询问“老师批准了吗”。等待是持久状态问题，不是推理问题。</p>
+<h3 id="43">4.3 恢复不是从头重放<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>进程重启后，Runtime读取最新可信Checkpoint，检查等待事件与外部状态，从未确认完成的节点继续。若机械重放整条轨迹，<code>send_class_message</code>可能再次执行。</p>
+<p>恢复前至少核对：</p>
+<ul>
+<li>Checkpoint是否属于当前租户与Run；</li>
+<li>State Schema是否能被当前代码读取或迁移；</li>
+<li>已完成副作用是否有权威外部ID；</li>
+<li>审批、凭据和政策是否仍有效；</li>
+<li>原Worker租约是否失效；</li>
+<li>目标是否被用户取消或修改；</li>
+<li>剩余预算和截止时间是否仍允许继续。</li>
+</ul>
+<h2 id="_3">五、幂等：让同一动作的重试不变成第二次动作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 为什么超时最危险<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>发送工具超时，只说明调用方没有及时收到明确结果。消息可能未到达、已经发送，或仍在处理中。直接重试与直接认定成功都不可靠。</p>
+<p><strong>幂等（Idempotency）</strong>在本章指同一业务动作重复提交时，不再产生一份额外副作用。稳定的幂等键应由业务语义产生，并绑定主体、对象和已批准载荷摘要。<sup id="fnref:idempotency"><a class="footnote-ref" href="#fn:idempotency">5</a></sup></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>class-message:{tenant}:{class_id}:{approved_payload_digest}
 </code></pre></div>
-<p>取消采用协作式安全点：先停止新工作、清理资源、写Checkpoint，再退出；无响应时强制终止。取消父运行默认级联子任务。并发达到上限时排队或拒绝，不能无限创建Worker。</p>
-<h2 id="artifact">七、Artifact与来源<a class="headerlink" href="#artifact" title="Permanent link">&para;</a></h2>
-<p>大型网页、文档、代码、日志和报告存入Artifact Store。状态只保存：</p>
+<p>不要每次重试生成随机键；不要只使用<code>run_id</code>，因为一个Run可能合法执行多个不同动作；同一个键也不能接受变化后的正文或收件人。</p>
+<h3 id="52">5.2 安全执行顺序<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>下面是不能直接运行的教学伪代码：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>校验当前身份、权限、政策、预算和准确审批
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>生成稳定业务幂等键，并绑定载荷摘要
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>保存 Checkpoint(intent, key, state_version)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>调用写工具(key, payload)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>如果超时或连接中断：
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    查询幂等记录或权威业务状态
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    已完成 → 复用外部结果
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    确认未执行且仍被授权 → 使用同一key有界重试
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    状态不确定 → 阻塞并交人工处置
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>验证外部对象、载荷版本和最终状态
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>原子保存 completed_effect + external_id + 新state_version
+</code></pre></div>
+<p>安全边界如下：身份和权限由策略网关判断；凭据只在执行器中短时使用；T3/T4等高影响动作按组织政策审批；超时不改变审批范围；回滚能力在执行前说明；完成证据来自权威系统而不是工具调用返回一行“OK”。</p>
+<h3 id="53">5.3 幂等不是回滚<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p>幂等防止重复发送，却不能让已经看过消息的人忘记。<strong>回滚（Rollback）</strong>是恢复到先前状态；<strong>补偿（Compensation）</strong>是无法真正撤销时追加修正，例如发更正消息。设计生产流程时，三者必须分别回答。</p>
+<h2 id="worker">六、过期运行隔离：别让昨天的Worker覆盖今天的结果<a class="headerlink" href="#worker" title="Permanent link">&para;</a></h2>
+<h3 id="61-stale-run">6.1 什么是stale run<a class="headerlink" href="#61-stale-run" title="Permanent link">&para;</a></h3>
+<p><strong>Stale run（过期运行）</strong>是仍在执行、但已经失去当前所有权或依据过时状态工作的Run或Worker。常见情况是：Worker A超时，队列把任务交给Worker B；B完成发送并更新状态；A稍后恢复，又试图写入自己的旧结果。</p>
+<p>若数据库只执行“最后写入者获胜”，A可能把成功状态覆盖成旧的<code>running</code>，甚至再次产生副作用。</p>
+<h3 id="62-fencing">6.2 Fencing怎样阻止旧拥有者<a class="headerlink" href="#62-fencing" title="Permanent link">&para;</a></h3>
+<p><strong>Fencing（隔离）</strong>是让每次写入携带当前所有权证明，并由存储或工具端拒绝过期证明。可以使用：</p>
 <ul>
-<li>URI；</li>
+<li>乐观并发版本：仅当<code>state_version = 12</code>时更新为13；</li>
+<li>租约：Worker在期限内拥有推进权，续租失败就停止新动作；</li>
+<li>单调递增的fencing token：新Owner取得更大令牌，外部写入拒绝旧令牌；</li>
+<li>审批和政策版本：旧批准或旧政策不能用于新载荷。</li>
+</ul>
+<p>教学SQL式伪代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>UPDATE runs
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>SET state = new_state, state_version = 13
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>WHERE run_id = 'run_demo_01'
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  AND state_version = 12
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  AND lease_token = 'lease_31';
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>如果更新行数为0：
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    不得覆盖；重新读取当前状态并停止、重规划或交人工
+</code></pre></div>
+<p>这不是可直接复制的完整数据库事务。正式实现还要处理租约时钟、事务隔离、队列语义和工具端幂等。<strong>只有应用数据库做版本检查，而外部写工具不做幂等，仍然可能重复发送。</strong></p>
+<h2 id="fallback">七、错误分类、重试、Fallback与熔断<a class="headerlink" href="#fallback" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 不要对所有错误“重试三次”<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p><strong>Fallback（回退路径）</strong>是在主路径不可用时采用的替代模型、工具或人工流程。<strong>Circuit Breaker（熔断器）</strong>是在某服务持续失败时暂时停止调用，避免更多请求放大故障；它类似电路保险装置，但具体开启和恢复条件必须测量。</p>
+<table>
+<thead>
+<tr>
+<th>错误类别</th>
+<th>找书案例</th>
+<th>默认处理方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schema／Validation</td>
+<td>缺少<code>book_id</code></td>
+<td>修正候选或拒绝，不原样重试</td>
+</tr>
+<tr>
+<td>Authorization／Policy</td>
+<td>学生身份请求发送或预约</td>
+<td>拒绝、等待授权；不靠重试突破</td>
+</tr>
+<tr>
+<td>合法空结果</td>
+<td>没有符合条件的书</td>
+<td>换查询或诚实结束，不当网络错误</td>
+</tr>
+<tr>
+<td>永久业务错误</td>
+<td>班级群不存在</td>
+<td>澄清、改道或失败</td>
+</tr>
+<tr>
+<td>Rate Limit</td>
+<td>模型或工具限流</td>
+<td>遵循服务提示，有界退避并计入预算</td>
+</tr>
+<tr>
+<td>临时网络／服务故障</td>
+<td>馆藏服务暂时不可用</td>
+<td>对只读调用有界重试；写调用先查状态</td>
+</tr>
+<tr>
+<td>不确定副作用</td>
+<td>发送超时</td>
+<td>查幂等记录／权威状态，不直接重试</td>
+</tr>
+<tr>
+<td>Model Refusal／空输出</td>
+<td>模型拒绝或返回空内容</td>
+<td>分类原因，允许时走经评估Fallback</td>
+</tr>
+<tr>
+<td>Context Overflow</td>
+<td>输入超过窗口</td>
+<td>按第4章压缩、分段或终止</td>
+</tr>
+<tr>
+<td>Budget Exhausted</td>
+<td>时间或费用耗尽</td>
+<td>明确终态，不伪装成功</td>
+</tr>
+<tr>
+<td>Policy／Approval Changed</td>
+<td>批准后政策或载荷变化</td>
+<td>重新预览、重新授权和审批</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72">7.2 重试要满足四个条件<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>本书建议只有同时满足以下条件才自动重试：</p>
+<ol>
+<li>错误合同明确标为可重试；</li>
+<li>重试不会扩大权限或副作用，写入已有幂等保护；</li>
+<li>仍有时间、调用和费用预算；</li>
+<li>新尝试有变化，例如等待退避、服务恢复或参数已修正。</li>
+</ol>
+<p>同一参数、同一错误、同一环境不断重复，不是恢复。可以对错误指纹和状态摘要做无进展检测，达到系统设定上限后熔断或退出；具体次数不能从本章照抄。</p>
+<h3 id="73-fallback">7.3 Fallback不能偷偷降低安全标准<a class="headerlink" href="#73-fallback" title="Permanent link">&para;</a></h3>
+<p>主模型失败后可以路由到备用模型，但备用路径仍必须遵守相同的工具权限、审批、预算和完成验证。不能因为主模型拒绝，就改用一个不执行安全策略的模型；不能因为主消息API不可用，就改用一个没有幂等和审计的临时脚本。</p>
+<h2 id="_4">八、预算、并发与取消：限制最坏情况<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="81-token">8.1 预算不只有Token<a class="headerlink" href="#81-token" title="Permanent link">&para;</a></h3>
+<p><strong>Budget（预算）</strong>是一次Run可使用资源的硬上限。可包含：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">max_model_calls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按任务测定&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">max_tool_calls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按任务测定&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">max_input_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按模型与成本测定&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">max_output_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按任务测定&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">max_wall_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按服务目标测定&gt;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">max_cost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按组织计价与币种测定&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">max_concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按容量与限流测定&gt;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nt">max_delegation_depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按拓扑测定&gt;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nt">max_artifact_bytes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;按存储政策测定&gt;</span>
+</code></pre></div>
+<p>尖括号不是待复制的生产值，而是提醒实施者必须填写自己的上限。费用要使用当前供应商的计费记录计算；不要从Token数量虚构成本。预算由程序预留、扣减和拒绝，展示给模型只用于帮助它规划。P03将这类设计称为有界执行循环。<sup id="fnref:bounded-loop"><a class="footnote-ref" href="#fn:bounded-loop">6</a></sup></p>
+<h3 id="82">8.2 并发不是越多越快<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
+<p>并发会受到模型限流、数据库连接、外部API、队列和合并步骤限制。达到上限时应排队、降级或拒绝，不应无限创建Worker。多个Worker处理同一Run时，租约与fencing必须防止并发写。</p>
+<p>只有任务独立且收益经过比较时才并行。多个Agent还要计算Manager、上下文复制、Artifact和合并成本；第14章进一步讨论多Agent准入。<sup id="fnref:multi-agent"><a class="footnote-ref" href="#fn:multi-agent">10</a></sup></p>
+<h3 id="83">8.3 取消的正确顺序<a class="headerlink" href="#83" title="Permanent link">&para;</a></h3>
+<p><strong>安全点（Safe Point）</strong>是可以停止而不留下无法解释中间状态的位置。取消流程建议为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>记录取消请求
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>→ 阻止新的模型、工具和子任务
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>→ 向子任务树传播取消
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>→ 在工具调用结束、事务完成或Checkpoint落盘后的安全点退出
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>→ 释放租约、浏览器、文件锁和临时凭据
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>→ 查询结果未知的副作用
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>→ 保存cancelled或需要人工处理的终态与证据
+</code></pre></div>
+<p>无响应工具在超时后可以强制终止，但不能因此假定外部动作未发生。只停止UI转圈或TTS播报，不是任务取消。P15给出了Safe Point与级联取消模式。<sup id="fnref:cancellation"><a class="footnote-ref" href="#fn:cancellation">7</a></sup></p>
+<h3 id="84-worker">8.4 多Worker需要隔离工作区<a class="headerlink" href="#84-worker" title="Permanent link">&para;</a></h3>
+<p>并行查询不一定需要多个Agent；普通受限工具并发可能更简单。确实需要多个Worker读写文件或生成产物时，不应让它们直接修改同一个共享目录。P19的工程建议是：每个Worker使用私有Scratch或Worktree，只发布带Schema、Hash、来源和ACL的Artifact，再由一个明确Owner合并。<sup id="fnref:workspace"><a class="footnote-ref" href="#fn:workspace">13</a></sup></p>
+<p>这条边界同时服务可靠性与安全：私有工作区限制相互覆盖；ACL限制不必要的数据扩散；Hash帮助检测交接后内容是否变化；单一Owner避免两个“最终答案”同时结算。父Run取消时，Worker、临时凭据和工作区租约要一起回收；仍需保留的Artifact按生命周期策略转存，而不是把整个Scratch永久保存。</p>
+<p>如果任务是单Agent顺序执行，就不要为了采用模式而创建多工作区。隔离的存储、合并和垃圾回收本身都有成本。</p>
+<h2 id="artifact">九、Artifact、凭据与证据：状态里不要塞进整个世界<a class="headerlink" href="#artifact" title="Permanent link">&para;</a></h2>
+<h3 id="91-artifact-store">9.1 Artifact Store解决什么问题<a class="headerlink" href="#91-artifact-store" title="Permanent link">&para;</a></h3>
+<p>完整网页、PDF、日志、截图、代码和推荐卡不宜全部放入State或每轮Context。<strong>Artifact Store（产物存储）</strong>保存这些大对象，State只保留：</p>
+<ul>
+<li>URI与对象ID；</li>
 <li>内容Hash；</li>
-<li>来源；</li>
-<li>创建者；</li>
-<li>权限；</li>
-<li>Schema和版本；</li>
-<li>生命周期。</li>
+<li>来源与创建时间；</li>
+<li>创建者或生成节点；</li>
+<li>Schema、媒体类型和版本；</li>
+<li>租户、ACL与数据分类；</li>
+<li>生命周期、保留与删除状态；</li>
+<li>与当前决策相关的片段引用。</li>
 </ul>
-<p>这样可恢复、审计，也避免上下文重复膨胀。</p>
-<h2 id="_6">八、模型与工具版本<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>每次运行记录：</p>
+<p>Hash帮助发现内容变化，不能证明内容真实。摘要是派生内容，不能替代原始证据。这个边界承接第4章P10模式。<sup id="fnref:artifact"><a class="footnote-ref" href="#fn:artifact">8</a></sup></p>
+<h3 id="92-artifact">9.2 凭据不能成为Artifact<a class="headerlink" href="#92-artifact" title="Permanent link">&para;</a></h3>
+<p>API密钥、SSH私钥、访问令牌和数据库密码应由Secret Manager或执行层按需提供短时、最小作用域凭据。不要把秘密放进Prompt、State、Artifact、幂等键、命令行参数或普通Telemetry。</p>
+<p>恢复Run时，不应假设旧凭据仍有效。Runtime重新认证和授权；凭据缺失时进入<code>blocked</code>，不能扫描用户主目录或降级为管理员密钥。</p>
+<h3 id="93">9.3 什么才是完成证据<a class="headerlink" href="#93" title="Permanent link">&para;</a></h3>
+<p>贯穿案例的完成证据可以是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>run_id
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>+ 已批准卡片的content_hash
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>+ 批准者身份、范围、政策版本和有效期
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>+ 稳定幂等键
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>+ 消息系统返回的external_message_id
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>+ 查询到的最终状态sent
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>+ 最终State与配置版本
+</code></pre></div>
+<p>“模型说已发”“工具返回HTTP 200”或“队列接受任务”都可能只是中间信号。第10章会系统讲Trace与Evaluation；本章只要求恢复和终态判断所需的证据不能丢。</p>
+<h2 id="_5">十、模型路由与全链路版本：问题发生时要知道跑的是哪一套<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="101-run">10.1 一次Run至少记录哪些版本<a class="headerlink" href="#101-run" title="Permanent link">&para;</a></h3>
 <ul>
-<li>模型供应商、模型ID和路由；</li>
-<li>Prompt ID、版本和Hash；</li>
-<li>输出Schema版本；</li>
-<li>Toolset与每个工具版本；</li>
-<li>政策和执行图版本。</li>
+<li>模型供应商、模型ID和路由决策；</li>
+<li>Prompt ID、版本和内容Hash；</li>
+<li>输入与输出Schema版本；</li>
+<li>Toolset及每个工具／协议适配器版本；</li>
+<li>执行图与State Schema版本；</li>
+<li>权限政策、审批政策和验证器版本；</li>
+<li>检索索引或知识版本（若使用）；</li>
+<li>Runtime与发布版本。</li>
 </ul>
-<p>切换模型不能默认旧Prompt和评估继续有效。路由器也需要评估和Fallback。</p>
-<h2 id="_7">九、部署选择<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>供应商可能在同一名称下更新服务行为，因此正式记录还应按其接口提供可用的版本或快照标识。不能获得更细标识时，应明确这一可重复性限制。</p>
+<h3 id="102">10.2 路由是什么<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<p><strong>模型路由（Model Routing）</strong>是根据任务类型、风险、延迟、成本或故障，把调用送到不同模型的程序。简单抽取可走一种路线，复杂规划可走另一种；主服务故障时也可以有Fallback。</p>
+<p>路由本身也会错，必须记录“为何选中、使用了谁、回退了几次”。新模型可能改变工具格式、拒答、上下文长度、输出风格和成本。<strong>替换模型后，应重新运行私有评估与兼容性检查，不能默认原Prompt和阈值继续成立。</strong> 原始书稿的评估章节也强调固定Harness的模型替换实验用于区分模型与Harness瓶颈。<sup id="fnref:evaluation-manuscript"><a class="footnote-ref" href="#fn:evaluation-manuscript">11</a></sup></p>
+<h3 id="103-schema">10.3 Schema演进不能靠运气<a class="headerlink" href="#103-schema" title="Permanent link">&para;</a></h3>
+<p>旧Run可能在v1 State上等待审批，新代码只认识v2。部署前应决定：</p>
+<ul>
+<li>原地迁移旧State；</li>
+<li>保留旧Worker完成旧Run；</li>
+<li>将旧Run转人工或安全终止；</li>
+<li>新旧工具与政策是否兼容；</li>
+<li>回滚代码后，新Schema写入的数据能否被旧代码读取。</li>
+</ul>
+<p>迁移脚本应可测试、可重复执行并保留备份。涉及副作用的Run不能通过“删状态重跑”迁移。</p>
+<h2 id="_6">十一、部署形态：位置可以变，控制合同不能丢<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>形态</th>
-<th>适用</th>
-<th>代价</th>
+<th>适合的起点</th>
+<th>主要工程负担</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>应用内Runtime</td>
-<td>简单、短任务</td>
-<td>持久和扩缩容自建</td>
+<td>短任务、低规模、简单恢复</td>
+<td>持久化、扩缩容和隔离需自建</td>
 </tr>
 <tr>
-<td>Worker/Queue</td>
-<td>异步、长任务</td>
-<td>状态和消息复杂</td>
+<td>Worker + Queue</td>
+<td>异步、长任务、可重投工作</td>
+<td>消息语义、租约、去重和状态一致性</td>
 </tr>
 <tr>
 <td>托管Agent Service</td>
-<td>快速上线和集中观测</td>
-<td>平台约束与锁定</td>
+<td>快速接入托管模型与观测</td>
+<td>平台约束、可移植性、数据边界</td>
 </tr>
 <tr>
-<td>本地Agent</td>
-<td>隐私、离线、设备工具</td>
-<td>模型能力和运维限制</td>
+<td>本地／端侧Agent</td>
+<td>离线、隐私或设备工具</td>
+<td>模型能力、更新、资源和设备运维</td>
 </tr>
 <tr>
-<td>混合</td>
-<td>本地敏感处理+云端复杂推理</td>
-<td>路由、数据边界复杂</td>
+<td>混合部署</td>
+<td>本地敏感处理 + 云端复杂推理</td>
+<td>路由、凭据、网络、来源与跨边界恢复</td>
 </tr>
 </tbody>
 </table>
-<p>无论部署在哪，状态、授权和审计契约应保持可迁移。</p>
-<h2 id="_8">十、发布和回滚<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Offline Replay → Shadow → Canary → Bounded Rollout → Full
+<p>选型首先看问题合同，不要默认最复杂架构。无论部署在哪里，以下合同应保持：Run身份、类型化State、授权主体、预算、幂等、Checkpoint、完成证据和版本可追溯。</p>
+<p>队列也不自动保证“恰好一次”业务效果。消息可能重复投递，Worker可能在确认前崩溃；因此仍需业务幂等和权威状态验证。</p>
+<h2 id="_7">十二、发布与回滚：不要把新版本一次推给所有任务<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="121">12.1 五个发布阶段<a class="headerlink" href="#121" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Offline Replay
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>→ Shadow Traffic
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>→ Canary
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>→ Bounded Rollout
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>→ Full Rollout
 </code></pre></div>
-<p>定义回滚阈值：任务成功率、政策违规、重复副作用、p95延迟、每成功任务成本、Fallback和人工接管率。保留旧模型、Prompt、Schema和工具版本。</p>
-<h2 id="_9">十一、常见失败模式<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>失败</th>
-<th>控制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>长任务进程重启后丢失</td>
-<td>持久状态和Checkpoint</td>
-</tr>
-<tr>
-<td>写请求重复执行</td>
-<td>幂等键和状态查询</td>
-</tr>
-<tr>
-<td>旧运行覆盖新状态</td>
-<td>版本和所有权fencing</td>
-</tr>
-<tr>
-<td>所有错误都重试</td>
-<td>错误分类</td>
-</tr>
-<tr>
-<td>Agent成本失控</td>
-<td>多维硬预算</td>
-</tr>
-<tr>
-<td>模型切换不可追溯</td>
-<td>全链路版本记录</td>
-</tr>
-<tr>
-<td>发布后无法回滚</td>
-<td>保留旧版本和迁移策略</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_10">十二、检查清单<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>首次术语解释：</p>
 <ul>
-<li>[ ] Run ID、状态Schema和终态明确。</li>
-<li>[ ] 长任务可Checkpoint、恢复和取消。</li>
-<li>[ ] 所有副作用幂等。</li>
-<li>[ ] 旧运行不能覆盖新状态。</li>
-<li>[ ] 错误类型决定重试策略。</li>
-<li>[ ] 多维预算由代码执行。</li>
-<li>[ ] Artifact有来源、Hash和权限。</li>
-<li>[ ] 模型、Prompt、Schema、工具和政策可追踪。</li>
-<li>[ ] 发布和回滚阈值明确。</li>
+<li><strong>离线回放（Offline Replay）</strong>：在可重置环境中重跑代表任务与历史失败，不影响真实用户。</li>
+<li><strong>影子流量（Shadow Traffic）</strong>：新版本观察真实输入或脱敏副本，但不让它的写动作影响用户；敏感数据仍须按政策处理。</li>
+<li><strong>金丝雀（Canary）</strong>：仅让小范围、可控真实流量使用新版本。</li>
+<li><strong>有限放量（Bounded Rollout）</strong>：在限定用户、任务、权限和预算内逐步扩大。</li>
+<li><strong>全量（Full Rollout）</strong>：达到门槛后成为默认版本，旧版本仍保留可回退期。</li>
 </ul>
-<h2 id="_11">知识检查<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>影子版本不得持有生产写凭据，或其写工具必须由网关硬阻断；“在Prompt里说不要写”不够。</p>
+<h3 id="122">12.2 回滚条件必须在发布前定义<a class="headerlink" href="#122" title="Permanent link">&para;</a></h3>
+<p>第10章会讲指标和统计。本章先要求每阶段预先定义：</p>
+<ul>
+<li>哪些政策违规、越权或重复副作用触发立即停止；</li>
+<li>哪些任务完成、Fallback、人工接管、错误和恢复指标需要观察；</li>
+<li>延迟与每成功任务成本的边界；</li>
+<li>最小观察量与负责人；</li>
+<li>谁能回滚、回滚哪个组件、多久内完成；</li>
+<li>新Schema、数据和在途Run怎样兼容旧版本。</li>
+</ul>
+<p>具体数值必须来自业务目标、容量测试和评估，不能由本章虚构。</p>
+<h3 id="123">12.3 回滚不只是切回旧模型<a class="headerlink" href="#123" title="Permanent link">&para;</a></h3>
+<p>一次发布可能同时改变Prompt、工具、政策、State Schema和索引。若只把模型名切回去，旧模型可能读不懂新工具结果，旧代码也可能读不懂新State。</p>
+<p>本书建议让每个变更可独立开关，保留兼容版本和迁移路径。高风险写能力还要准备紧急熔断：关闭动作，不一定关闭只读查询和人工接管。第10章P16将质量门展开为Schema／Unit、Smoke、Offline和Online四层。<sup id="fnref:quality-gates"><a class="footnote-ref" href="#fn:quality-gates">12</a></sup></p>
+<h3 id="124">12.4 生产失败怎样进入下一轮改进<a class="headerlink" href="#124" title="Permanent link">&para;</a></h3>
+<p>上线后出现失败，不应让当前Run直接改Prompt、代码或模型参数。更稳妥的路径是：保存并脱敏证据，定位首个失效边界，形成最小更新提案，再走上述质量门和渐进发布。</p>
+<p>P18将选择顺序概括为<strong>外部能力优先更新</strong>：先看知识是否缺失，再看Prompt／Skill是否缺少可语言化规则，再看Harness是否缺少可确定执行的控制；只有在信息与接口充分、外部方案仍稳定失败，并且已有合格数据和验证器时，才评估参数训练。<sup id="fnref:external-first"><a class="footnote-ref" href="#fn:external-first">14</a></sup></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>脱敏失败证据
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>→ 首错归因
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>→ 知识 / Prompt或Skill / Harness / 参数的载体选择
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>→ 最小、可回滚提案
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>→ 触发失败集 + 原有保留集
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>→ 离线验证
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>→ 金丝雀与监控
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>→ 保留、回滚或继续修订
+</code></pre></div>
+<p>这是工程建议，不是“外部修改永远优于训练”的定律。它优先解决可解释、可审计和可快速回滚的问题，也避免用训练修复实时知识或权限边界。原始第9章将在线执行与离线进化分开：在线Run只记录证据，离线流程生成和验证更新；本章采用这一安全边界，不复述其中尚未完成证据审查的效果数字。<sup id="fnref:evolution-manuscript"><a class="footnote-ref" href="#fn:evolution-manuscript">15</a></sup></p>
+<h2 id="_8">十三、贯穿案例：一次跨重启、审批和超时的运行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="131-run">13.1 创建Run并只读查询<a class="headerlink" href="#131-run" title="Permanent link">&para;</a></h3>
+<p>API认证学生身份，创建<code>run_demo_01</code>，写入“不预约”约束、只读工具集、预算和版本。模型选择候选书，Runtime经策略网关调用馆藏工具。结果带书目ID、来源和查询时间写入State。</p>
+<p>此阶段不向模型提供预约工具。图书网页中的任何指令都不能改变权限。</p>
+<h3 id="132">13.2 生成卡片并等待审批<a class="headerlink" href="#132" title="Permanent link">&para;</a></h3>
+<p>程序生成卡片v1 Artifact并检查必填字段。审批系统展示完整正文、班级群、附件、政策版本和可撤销边界。State保存<code>payload_digest</code>并进入<code>waiting_approval</code>，Checkpoint落盘，Worker释放。</p>
+<p>老师批准的是v1。若模型后来生成v2，或目标班级变化，旧批准失效，需要重新审批。<sup id="fnref:approval"><a class="footnote-ref" href="#fn:approval">9</a></sup></p>
+<h3 id="133">13.3 部署重启后恢复<a class="headerlink" href="#133" title="Permanent link">&para;</a></h3>
+<p>新Worker读取Checkpoint，验证State Schema、Run租约、批准时效、政策兼容性和剩余预算。它取得新的fencing token；旧Worker即使恢复，也不能再写状态。</p>
+<p>执行层为发送工具取得短时、仅限目标群组的凭据。凭据不进入模型Context。</p>
+<h3 id="134">13.4 发送超时<a class="headerlink" href="#134" title="Permanent link">&para;</a></h3>
+<p>Runtime先保存执行意图与稳定幂等键，再调用消息系统。请求超时后，它查询幂等记录或消息状态：</p>
+<ul>
+<li>若找到同一载荷的<code>external_message_id</code>且状态为<code>sent</code>，复用结果；</li>
+<li>若权威系统确认未执行，且审批、权限和预算仍有效，使用同一键有界重试；</li>
+<li>若状态无法确定，进入<code>blocked</code>并通知人工，不能再发一次碰运气。</li>
+</ul>
+<h3 id="135">13.5 完成或取消<a class="headerlink" href="#135" title="Permanent link">&para;</a></h3>
+<p>只有目标群组、内容Hash和最终消息状态都一致，Verifier才将Run更新为<code>succeeded</code>。若用户在发送前取消，系统阻止发送并进入<code>cancelled</code>；若取消到达时发送结果未知，先查权威状态，再报告“已取消”或“消息可能已经发送，需人工处理”。</p>
+<p>这条路径说明生产Harness的核心不是“永不失败”，而是：<strong>失败后仍知道当前事实、谁有权继续、怎样避免重复，以及凭什么结束。</strong></p>
+<h2 id="_9">十四、失败模式与反例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="141">14.1 反例一：只把聊天记录写进数据库<a class="headerlink" href="#141" title="Permanent link">&para;</a></h3>
+<p>重启后系统能读到模型说过什么，却不知道审批绑定哪一版卡片、消息是否已发送、预算还剩多少。应保存类型化State、已完成副作用和Artifact引用，而不只是聊天。</p>
+<h3 id="142">14.2 反例二：模型没有工具调用就标记成功<a class="headerlink" href="#142" title="Permanent link">&para;</a></h3>
+<p>模型可能因截断、拒答或忘记目标而停下。必须进入完成验证节点，对照任务合同和环境证据。</p>
+<h3 id="143">14.3 反例三：所有异常统一重试<a class="headerlink" href="#143" title="Permanent link">&para;</a></h3>
+<p>权限拒绝、参数错误、空结果和发送超时都重试，会浪费资源，甚至重复副作用。应先分类，再决定修正、等待、查询状态或失败。</p>
+<h3 id="144">14.4 反例四：重试生成新幂等键<a class="headerlink" href="#144" title="Permanent link">&para;</a></h3>
+<p>新键让消息系统把重试当作新动作。必须由稳定业务语义导出同一个键，并拒绝同键不同载荷。</p>
+<h3 id="145-worker">14.5 反例五：旧Worker最后写入获胜<a class="headerlink" href="#145-worker" title="Permanent link">&para;</a></h3>
+<p>A超时后B完成任务，A又用旧State覆盖B。应使用状态版本、租约或fencing token，让存储和工具拒绝旧Owner。</p>
+<h3 id="146">14.6 反例六：取消只停止前端动画<a class="headerlink" href="#146" title="Permanent link">&para;</a></h3>
+<p>后台Worker、子Agent和发送工具继续运行。取消必须持久记录、级联传播、在安全点清理，并核对已发生副作用。</p>
+<h3 id="147-prompt">14.7 反例七：把预算写进Prompt<a class="headerlink" href="#147-prompt" title="Permanent link">&para;</a></h3>
+<p>模型看到“最多调用十次”却仍可能继续请求。程序必须计数、预留并拒绝超限；Prompt只是提示，不是计费器。</p>
+<h3 id="148">14.8 反例八：备用模型绕过原政策<a class="headerlink" href="#148" title="Permanent link">&para;</a></h3>
+<p>主模型拒答后，系统把任务交给“更宽松”模型并开放全部工具。Fallback必须共享同一身份、网关、审批和验证边界。</p>
+<h3 id="149">14.9 反例九：影子流量仍持有写权限<a class="headerlink" href="#149" title="Permanent link">&para;</a></h3>
+<p>即使结果不展示给用户，影子版本也可能真的发消息或修改数据。影子环境应禁写或隔离到可重置环境。</p>
+<h3 id="1410">14.10 反例十：回滚只切回代码<a class="headerlink" href="#1410" title="Permanent link">&para;</a></h3>
+<p>新版本已经写入新Schema或启动在途Run，旧代码无法读取。发布前必须验证向前／向后兼容、数据迁移和在途任务处置。</p>
+<h3 id="1411-prompt">14.11 反例十一：日志记录所有Prompt和秘密<a class="headerlink" href="#1411-prompt" title="Permanent link">&para;</a></h3>
+<p>为了排障保存完整令牌、用户数据和凭据，反而造成泄漏。只记录必要、脱敏的标识、摘要和证据引用；详细Telemetry与审计边界由第10、11章展开。</p>
+<h3 id="1412-worker">14.12 反例十二：多个Worker共享同一可写目录<a class="headerlink" href="#1412-worker" title="Permanent link">&para;</a></h3>
+<p>一个Worker生成卡片，另一个同时修订，第三个读取到半写入文件并发起审批。最终Hash、批准载荷和实际发送内容可能不一致。应使用私有工作区、原子发布Artifact和单一合并Owner；简单顺序任务则不要拆成多Worker。</p>
+<h3 id="1413-agent">14.13 反例十三：一次失败就让Agent在线改自己<a class="headerlink" href="#1413-agent" title="Permanent link">&para;</a></h3>
+<p>模型根据一条用户抱怨直接重写Prompt或重试代码，并立即影响后续生产Run。反馈可能误导、含提示注入或只适用于旧工具版本。应把在线证据送入离线改进流程，先选择最可控载体，再用失败集和保留集验证、灰度与回滚。</p>
+<h2 id="_10">十五、实施检查清单<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">任务、身份与状态<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 每个Run有唯一ID、租户、认证主体、父子关系和截止时间。</li>
+<li>[ ] State Schema版本化，计划、候选、已核实事实和执行意图可区分。</li>
+<li>[ ] <code>waiting</code>、<code>blocked</code>、成功、部分成功、失败、取消和预算耗尽语义明确。</li>
+<li>[ ] 模型不能直接修改批准、权限、预算或权威业务状态。</li>
+</ul>
+<h3 id="_12">持久、恢复与并发<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 副作用前后、等待前和重规划前保存Checkpoint。</li>
+<li>[ ] 恢复从最新可信状态继续，不从头重放写操作。</li>
+<li>[ ] 状态版本、租约或fencing token阻止旧Worker写入。</li>
+<li>[ ] 队列重复投递与多Worker争抢已有测试。</li>
+<li>[ ] 并行Worker使用私有Scratch／Worktree，Artifact交接带Schema、Hash、来源和ACL。</li>
+<li>[ ] 最终合并与结算有单一Owner；取消会回收Worker、租约、临时凭据和工作区。</li>
+<li>[ ] 父任务取消会传播到子任务，不留下孤儿Run。</li>
+</ul>
+<h3 id="_13">工具、权限、凭据与审批<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 所有工具路径经过统一Schema、身份、政策和预算检查。</li>
+<li>[ ] 权限来自认证主体；服务凭据最小、短时，并由执行层代管。</li>
+<li>[ ] 读、预览、写和状态查询分离，高影响动作使用窄工具。</li>
+<li>[ ] 审批绑定准确对象、参数、载荷Hash、政策版本、期限与批准者。</li>
+<li>[ ] 载荷、身份、政策或期限变化时会重新授权和审批。</li>
+</ul>
+<h3 id="_14">副作用、错误与取消<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 每个写动作有稳定业务幂等键并绑定载荷摘要。</li>
+<li>[ ] 超时后先查幂等记录或权威状态，不盲目重试。</li>
+<li>[ ] 幂等、回滚和补偿分别定义并实际演练。</li>
+<li>[ ] 参数、权限、空结果、临时故障和不确定副作用能区分。</li>
+<li>[ ] 重试有退避、上限、预算和无进展出口。</li>
+<li>[ ] 取消先阻止新动作，在安全点保存、清理并核对副作用。</li>
+</ul>
+<h3 id="artifact_1">预算、Artifact与完成证据<a class="headerlink" href="#artifact_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 模型、工具、Token、时间、费用、并发、委派和存储有硬上限。</li>
+<li>[ ] 费用使用真实计费与币种记录，不从Token数猜测。</li>
+<li>[ ] Artifact有URI、Hash、来源、ACL、版本和生命周期。</li>
+<li>[ ] Prompt、State、日志和Artifact中不含不必要凭据或敏感数据。</li>
+<li>[ ] 完成由权威环境状态或独立验证器证明，并关联当前版本。</li>
+</ul>
+<h3 id="_15">版本、发布与回滚<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 模型、Prompt、Schema、工具、政策、验证器和执行图可追踪。</li>
+<li>[ ] State与数据迁移可重复测试；旧Run和在途事件有处置方案。</li>
+<li>[ ] 新模型和路由重新执行兼容、私有评估与安全检查。</li>
+<li>[ ] 发布按离线、影子、金丝雀、有限放量逐级进行。</li>
+<li>[ ] 每阶段已有停止、Owner和回滚条件，不在故障后临时讨论。</li>
+<li>[ ] 生产失败先脱敏和首错归因，不由在线Run直接修改正式Agent。</li>
+<li>[ ] 已按知识 → Prompt／Skill → Harness → 参数检查最可控更新载体。</li>
+<li>[ ] 更新提案同时通过触发失败集与原有保留集，且可灰度、可回滚。</li>
+<li>[ ] 回滚覆盖代码、配置、Schema、索引和在途Run，而不只模型名。</li>
+</ul>
+<h2 id="_16">知识检查<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>先用自己的话回答，再看参考解释。</p>
 <ol>
-<li>为什么超时后不能直接重试退款？</li>
+<li>Harness、Runtime和Environment分别是什么？</li>
+<li>为什么模型停止请求工具不能直接把Run标记为成功？</li>
+<li>Checkpoint为什么不能只保存聊天记录？</li>
+<li>发送请求超时后，正确的第一步是什么？</li>
+<li>幂等、回滚和补偿各解决什么问题？</li>
+<li><code>state_version</code>与State Schema版本有什么区别？</li>
 <li>Stale-run fencing解决什么问题？</li>
-<li>哪些错误不应自动重试？</li>
-<li>为什么模型切换后要重新评估？</li>
-<li>本地和托管部署的控制契约为何应保持一致？</li>
+<li>哪些错误通常不应自动重试？</li>
+<li>为什么预算必须由程序而不是Prompt执行？</li>
+<li>用户点击取消后，为什么不能立即杀掉所有进程并报告取消成功？</li>
+<li>切换到更强模型后，为什么仍要重新评估？</li>
+<li>影子流量为什么不应拥有真实写权限？</li>
+<li>一条“消息已发送”的可信完成证据至少应关联哪些信息？</li>
+<li>
+<p>本章与第10、11章的分工是什么？</p>
+</li>
+<li>
+<p>为什么生产中的一次失败不应直接触发Agent在线修改自己？</p>
+</li>
+<li>多个Worker为什么不应直接共享一个可写工作目录？</li>
 </ol>
-<h2 id="_12">来源与证据<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
-<p>主要来源为主仓库第1、6、9、10章，以及补充仓库Lesson 02、14、16和17。本章是生产控制面的综合架构，不归因于单一框架。</p>
+<h3 id="_17">参考解释<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><strong>第1题：Harness是Agent边界内、模型之外的运行与治理层；Runtime推进一次执行图；Environment保存和改变外部世界状态。</strong> Runtime通常是Harness的一部分，Environment不是。</p>
+<p><strong>第2题：模型可能因拒答、截断、遗忘或错误而停止。</strong> Runtime必须对照成功条件并查询环境证据；不满足时进入等待、阻塞、失败或预算耗尽等状态。</p>
+<p><strong>第3题：聊天只记录说过什么，不能稳定表达权威事实、预算、Owner、批准载荷和已完成副作用。</strong> 恢复需要类型化State和外部标识。</p>
+<p><strong>第4题：使用原幂等键查询幂等记录或权威业务状态。</strong> 超时不代表未执行，直接重试可能重复发送。</p>
+<p><strong>第5题：幂等防止同一动作重复生效；回滚恢复可撤销状态；补偿是在无法真正撤销时追加修正。</strong> 三者不能互相代替。</p>
+<p><strong>第6题：<code>state_version</code>表示某条Run State被修改了多少个版本，用于并发检查；State Schema版本表示字段结构的版本，用于兼容与迁移。</strong></p>
+<p><strong>第7题：阻止失去所有权的旧Worker、旧事件或旧审批覆盖新状态或再次执行动作。</strong> 常用状态版本、租约或隔离令牌。</p>
+<p><strong>第8题：确定性参数错误、权限／政策拒绝、合法空结果和永久业务错误通常不应原样重试。</strong> 写操作结果未知时也应先查状态。</p>
+<p><strong>第9题：模型可以遗漏或请求延长限制。</strong> 只有程序计数、预留和拒绝，才能形成硬边界。</p>
+<p><strong>第10题：工具可能正处于事务或外部副作用中。</strong> 应先阻止新工作，传播取消，在安全点保存和清理，并核对已发生或结果未知的动作。</p>
+<p><strong>第11题：模型变化会改变工具调用、拒答、格式、上下文使用和成本。</strong> 旧Prompt、路由和阈值不一定仍适用，必须在自己的任务上复测。</p>
+<p><strong>第12题：影子运行的目的只是观察新版本行为。</strong> 若持有真实写权限，它即使不展示结果，也可能修改生产环境；应硬禁写或使用可重置隔离环境。</p>
+<p><strong>第13题：至少关联Run、批准的精确载荷、稳定幂等键、外部消息ID、权威最终状态和执行配置版本。</strong> HTTP 200或模型自述都不够。</p>
+<p><strong>第14题：本章负责运行可靠性和发布控制；第10章定义可观测性与评估证据；第11章系统展开威胁、授权、审计与治理。</strong> 实际系统需要三者共同工作。</p>
+<p><strong>第15题：单次反馈可能错误、带注入或只适用于旧环境。</strong> 应先保存和脱敏证据、做首错归因，选择知识、Prompt／Skill、Harness或参数中最可控的载体，再通过失败集、保留集、灰度和回滚验证。</p>
+<p><strong>第16题：共享可写目录会产生覆盖、半写入读取和责任不清。</strong> 需要并行时，每个Worker使用私有工作区，以带Schema、Hash、来源和ACL的Artifact交接，由单一Owner合并；简单任务保持顺序执行更合适。</p>
+<h2 id="_18">小结<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>回到找书任务，生产Harness先给Run一个身份和版本化State；只读查询得到的事实带来源写入状态；卡片以Artifact保存；老师只批准准确版本；等待期间Checkpoint让进程可以退出。恢复后，新Worker通过租约和fencing取得所有权，发送使用短时最小凭据与稳定幂等键。超时先查消息系统，完成由外部消息ID和最终状态证明。用户取消、预算耗尽、权限缺失和状态未知都有各自终点，不会被包装成成功。</p>
+<p>本章核心可以缩写为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>有身份的Run
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>+ 类型化State
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>+ 持久Checkpoint
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>+ 幂等副作用
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>+ 版本与所有权隔离
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>+ 分类错误与硬预算
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>+ 安全取消
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>+ 渐进发布与可回滚
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>= 可运营的生产Harness
+</code></pre></div>
+<p>它不保证模型永远正确，而是让系统在模型、工具、网络和人都可能出错时，仍能回答：<strong>现在处于什么状态，谁有权继续，什么已经发生，怎样证明完成，失败后如何安全退出或恢复。</strong></p>
+<p>下一章将沿着这些证据继续讨论评估与可观测性；第11章再把权限、提示注入、数据保护、审计和组织治理展开为完整安全体系。</p>
+<h2 id="_19">来源与证据<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>本章保留修订前第9章的生产控制面主线：Harness职责、Run与终态、Checkpoint、幂等、stale-run fencing、错误分类、多维预算、取消、Artifact、全链路版本、部署形态和渐进发布。初学者案例、YAML、SQL式伪代码和字段值均为教学示例；工程建议需要在具体系统测试。本章没有新增或复现实验，也没有引用第9章那些仍处于<code>pending</code>证据审查状态的实验卡，因此没有把其标题中的数字写成实测结论。<sup id="fnref:experiment-status"><a class="footnote-ref" href="#fn:experiment-status">16</a></sup></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:harness-manuscript">
+<p>原始中文书稿<a href="../../book/chapter1.md">第1章</a>的“Harness工程：模型之外的竞争力”一节定义<code>Agent = Model + Harness</code>，并将Harness限定为Agent边界内、模型之外的上下文、工具、约束、验证与纠正层。本章采用该边界，不转述其中时效性产品排行和未经本章复核的效果数字。&#160;<a class="footnote-backref" href="#fnref:harness-manuscript" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:patterns">
+<p>蓝皮书<a href="../../patterns/P02-model-program-separation/">P02模型与程序职责分离</a>与<a href="../../patterns/P08-tool-policy-gateway/">P08统一工具策略网关</a>。前者要求模型提出类型化候选、程序执行政策与环境动作；后者要求本地函数、框架和协议路径统一经过身份、政策、预算、审批与结果验证。&#160;<a class="footnote-backref" href="#fnref:patterns" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:state">
+<p>蓝皮书<a href="../../patterns/P04-typed-state/">P04类型化状态与显式终态</a>。模式要求使用版本化State Schema，并区分成功、部分成功、阻塞、失败、取消和预算耗尽；本章额外保留<code>waiting</code>作为可恢复非终态。&#160;<a class="footnote-backref" href="#fnref:state" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:checkpoint">
+<p>蓝皮书<a href="../../patterns/P05-checkpoint-recovery/">P05 Checkpoint与持久恢复</a>，以及原始中文书稿<a href="../../book/chapter6.md">第6章</a>的“异步与事件驱动：当世界主动找上门”一节。二者支持等待期间持久化、进程释放和事件恢复的机制；具体存储与恢复性能未在本章测量。&#160;<a class="footnote-backref" href="#fnref:checkpoint" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:idempotency">
+<p>蓝皮书<a href="../../patterns/P06-idempotent-side-effects/">P06幂等副作用</a>要求稳定业务键绑定动作Digest，超时后先查幂等记录或权威状态，并区分幂等、回滚与补偿。外部消息、支付或部署系统的实际幂等合同必须逐项核对。&#160;<a class="footnote-backref" href="#fnref:idempotency" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bounded-loop">
+<p>蓝皮书<a href="../../patterns/P03-bounded-loop/">P03有界执行循环</a>要求Runtime强制步骤、时间、费用和无进展上限；本章把它扩展到并发、委派和Artifact预算。具体阈值取决于任务与服务目标。&#160;<a class="footnote-backref" href="#fnref:bounded-loop" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cancellation">
+<p>蓝皮书<a href="../../patterns/P15-safe-point-cancellation/">P15 Safe Point与级联取消</a>，以及原始中文书稿<a href="../../book/chapter6.md">第6章</a>的“事件处理机制”一节。取消先阻止新工作、保存状态、清理资源并沿任务树传播；不可中断动作只能在前后设置安全点。&#160;<a class="footnote-backref" href="#fnref:cancellation" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:artifact">
+<p>蓝皮书<a href="../../patterns/P10-context-artifact/">P10上下文压缩与Artifact外置</a>。该模式要求大对象外置并保留URI、Hash、来源和权限；Hash与摘要都不构成内容正确性证明。&#160;<a class="footnote-backref" href="#fnref:artifact" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:approval">
+<p>蓝皮书<a href="../../patterns/P07-exact-payload-approval/">P07准确载荷审批</a>要求审批绑定主体、资源、准确参数、政策版本、期限、Nonce和动作Digest；执行前重新计算。具体哪些动作需要何种审批由组织政策决定。&#160;<a class="footnote-backref" href="#fnref:approval" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:multi-agent">
+<p>蓝皮书<a href="../../patterns/P20-multi-agent-admission/">P20多Agent准入与等预算基线</a>要求新增Agent具备独立信息、并行、隔离、身份或Handoff理由，并与同预算单Agent基线比较。第14章将展开协作生命周期。&#160;<a class="footnote-backref" href="#fnref:multi-agent" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:evaluation-manuscript">
+<p>原始中文书稿<a href="../../book/chapter7.md">第7章“Agent的评估”</a>讨论固定Harness的模型替换实验、成本预算、生产轨迹回流和特性开关；蓝皮书<a href="../10-evaluation-observability/">第10章</a>承接正式评估与可观测性。本章只采用“模型变化需要重新评估”和“完成证据可关联”的工程结论。&#160;<a class="footnote-backref" href="#fnref:evaluation-manuscript" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:quality-gates">
+<p>蓝皮书<a href="../../patterns/P16-four-level-quality-gates/">P16四级质量门</a>定义<code>Schema/Unit → Smoke → Offline Eval → Online Eval</code>。Smoke只证明最小路径可达，不证明复杂任务质量；发布指标与统计方法见第10章。&#160;<a class="footnote-backref" href="#fnref:quality-gates" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:workspace">
+<p>蓝皮书<a href="../../patterns/P19-isolated-agent-workspace/">P19独立Agent工作区与Artifact交换</a>要求每个Worker使用私有Scratch／Worktree，以带Schema、Hash、来源和ACL的Artifact发布，并由单一Owner合并。该模式只在并行和隔离需求真实存在时采用。&#160;<a class="footnote-backref" href="#fnref:workspace" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+<li id="fn:external-first">
+<p>蓝皮书<a href="../../patterns/P18-external-first-update/">P18外部能力优先更新</a>建议按知识、Prompt／Skill、程序／Harness、模型参数选择最可控载体。它是可解释和可回滚优先的工程顺序，不排除有合格数据与验证器时进行后训练。&#160;<a class="footnote-backref" href="#fnref:external-first" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+</li>
+<li id="fn:evolution-manuscript">
+<p>原始中文书稿<a href="../../book/chapter9.md">第9章</a>的“构建可长期运行的持续进化闭环”将在线任务执行与离线更新提案分开，并要求回归、安全检查和渐进发布。本章只采用这一生产边界；当前实验卡仍为<code>pending</code>，故不转述其中量化效果。&#160;<a class="footnote-backref" href="#fnref:evolution-manuscript" title="Jump back to footnote 15 in the text">&#8617;</a></p>
+</li>
+<li id="fn:experiment-status">
+<p>蓝皮书<a href="../experiments/cards/chapter9/"><code>chapter9</code>实验卡目录</a>中的卡片在本次核对时均标记为“待证据审查／pending”，初步等级从E0到E2不等。本章因此仅说明实验资产存在，不使用卡片标题中的运行次数、提升幅度或通过率作为已核验结论。&#160;<a class="footnote-backref" href="#fnref:experiment-status" title="Jump back to footnote 16 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
   </article>
 
               </article>
