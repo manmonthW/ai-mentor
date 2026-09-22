@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://keaimentor.com/schemas/haip/event-2.0.schema.json",
+  "title": "HAIP 2.0 Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "schema_version",
+    "sequence",
+    "timestamp",
+    "room_id",
+    "actor",
+    "type",
+    "correlation_id",
+    "visibility",
+    "payload",
+    "redaction"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$"},
+    "schema_version": {"const": "haip.event/2.0"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "room_id": {"type": "string", "pattern": "^room_[A-Za-z0-9_-]+$"},
+    "task_id": {"type": ["string", "null"], "pattern": "^task_[A-Za-z0-9_-]+$"},
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "kind"],
+      "properties": {
+        "actor_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["human", "agent", "system"]}
+      }
+    },
+    "type": {
+      "enum": [
+        "room.created", "room.updated", "room.member_joined", "room.member_left", "room.closed",
+        "agent.connected", "agent.disconnected", "agent.presence_changed", "agent.heartbeat", "agent.capabilities_changed",
+        "message.sent", "message.delivered", "message.delivery_failed", "message.read",
+        "task.proposed", "task.assigned", "task.acknowledged", "task.started", "task.progress", "task.delegated",
+        "task.waiting_input", "task.input_received", "task.waiting_approval", "task.approval_resolved",
+        "task.blocked", "task.unblocked", "task.result_submitted", "task.review_requested", "task.changes_requested",
+        "task.completed", "task.failed", "task.retry_requested", "task.cancel_requested", "task.cancelled",
+        "task.reassigned", "task.archived",
+        "tool.started", "tool.progress", "tool.completed", "tool.approval_required", "tool.cancelled",
+        "artifact.created", "artifact.updated", "artifact.verified", "artifact.missing",
+        "evidence.recorded", "evidence.invalidated", "evidence.waived",
+        "clarification.requested", "clarification.responded", "approval.requested", "approval.resolved",
+        "user.steered", "user.reassigned_task", "user.changed_acceptance", "user.marked_incomplete"
+      ]
+    },
+    "causation_id": {"type": ["string", "null"], "pattern": "^evt_[A-Za-z0-9_-]+$"},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "visibility": {"enum": ["room", "private", "audit", "secret"]},
+    "payload": {"type": "object"},
+    "redaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applied", "fields"],
+      "properties": {
+        "applied": {"type": "boolean"},
+        "fields": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "pattern": "^(task|tool|artifact|evidence|approval|clarification|user\\.)"
+          }
+        }
+      },
+      "then": {"required": ["task_id"]}
+    }
+  ]
+}

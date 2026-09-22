@@ -1,0 +1,15 @@
+{
+  "entry_id": "nar_test_failed_001",
+  "room_id": "room_ai_brief_20260922",
+  "task_id": "task_article_update_20260922",
+  "speaker_id": "codex:wsl-main",
+  "kind": "verification_failure",
+  "sequence_start": 18,
+  "sequence_end": 19,
+  "text": "测试没有全过。失败点在文章来源唯一性校验，我继续处理这个问题。",
+  "tone": "concise",
+  "confidence": "verified",
+  "derived_from_event_ids": ["evt_test_failed_001", "evt_progress_after_test_001"],
+  "attachments": ["artifact://task_article_update_20260922/test-log-001"],
+  "actions": ["open_evidence", "open_task"]
+}

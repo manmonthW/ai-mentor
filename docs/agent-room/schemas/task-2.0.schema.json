@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://keaimentor.com/schemas/haip/task-2.0.schema.json",
+  "title": "HAIP 2.0 Task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id", "room_id", "created_by", "assignee", "intent", "objective",
+    "acceptance_criteria", "inputs", "expected_artifacts", "allowed_capabilities",
+    "approval_required_for", "budget", "delegation_chain", "status", "attempt", "version"
+  ],
+  "properties": {
+    "task_id": {"type": "string", "pattern": "^task_[A-Za-z0-9_-]+$"},
+    "room_id": {"type": "string", "pattern": "^room_[A-Za-z0-9_-]+$"},
+    "parent_task_id": {"type": ["string", "null"], "pattern": "^task_[A-Za-z0-9_-]+$"},
+    "created_by": {"type": "string", "minLength": 1},
+    "assignee": {"type": "string", "minLength": 1},
+    "collaborators": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "reviewers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "intent": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*(\\.[a-z0-9_-]+)+$"},
+    "objective": {"type": "string", "minLength": 1, "maxLength": 4000},
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "uri", "access"],
+        "properties": {
+          "kind": {"enum": ["text", "url", "file", "workspace", "image", "git_diff", "task_result", "artifact"]},
+          "uri": {"type": "string", "minLength": 1},
+          "access": {"enum": ["read-only", "read-write"]},
+          "role": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+        }
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["criterion_id", "description", "required", "status", "evidence_ids"],
+        "properties": {
+          "criterion_id": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "required": {"type": "boolean"},
+          "verification_method": {"type": "string"},
+          "expected": {"type": "object"},
+          "status": {"enum": ["pending", "passing", "failing", "waived", "stale"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        }
+      }
+    },
+    "expected_artifacts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "allowed_capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "approval_required_for": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_turns", "max_agent_hops", "max_duration_seconds"],
+      "properties": {
+        "max_turns": {"type": "integer", "minimum": 1, "maximum": 1000},
+        "max_agent_hops": {"type": "integer", "minimum": 0, "maximum": 20},
+        "max_duration_seconds": {"type": "integer", "minimum": 1, "maximum": 86400}
+      }
+    },
+    "delegation_chain": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "depends_on": {"type": "array", "items": {"type": "string", "pattern": "^task_[A-Za-z0-9_-]+$"}, "uniqueItems": true},
+    "status": {
+      "enum": [
+        "proposed", "assigned", "acknowledged", "running", "waiting_input", "waiting_approval",
+        "blocked", "review", "cancelling", "rejected", "completed", "failed", "cancelled", "archived"
+      ]
+    },
+    "stage": {"type": ["string", "null"]},
+    "progress": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "attempt": {"type": "integer", "minimum": 1},
+    "version": {"type": "integer", "minimum": 1},
+    "deadline": {"type": ["string", "null"], "format": "date-time"}
+  }
+}

@@ -193,3 +193,74 @@
 .animate-in {
   animation: animate-in 0.2s ease-out;
 }
+
+/* Agent Room · Monitor / Operate surface */
+.agent-room-shell {
+  min-height: calc(100vh - 4rem);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.agent-room-topbar {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-line-strong);
+  padding: 0.75rem 1rem;
+  background: var(--color-paper);
+}
+.agent-room-grid {
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr) 19rem;
+  height: calc(100vh - 8.5rem);
+  min-height: 42rem;
+}
+.agent-room-scroll {
+  height: calc(100vh - 17rem);
+  min-height: 28rem;
+  overflow-y: auto;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+.agent-room-scroll button:focus-visible,
+.agent-room-shell button:focus-visible,
+.agent-room-shell input:focus-visible {
+  outline: 2px solid var(--color-flame);
+  outline-offset: 2px;
+}
+@media (max-width: 1100px) {
+  .agent-room-grid {
+    grid-template-columns: 14rem minmax(0, 1fr);
+  }
+  .agent-room-grid > aside:last-child {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .agent-room-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .agent-room-grid {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+  .agent-room-grid > aside:first-child,
+  .agent-room-grid > aside:last-child {
+    display: none;
+  }
+  .agent-room-scroll {
+    height: calc(100vh - 17rem);
+    min-height: 24rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-room-shell *,
+  .agent-room-shell *::before,
+  .agent-room-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

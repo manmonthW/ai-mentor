@@ -28,6 +28,7 @@ const navItems: NavItem[] = [
     name: "更多",
     href: "/works",
     children: [
+      { name: "Agent Room", href: "/agent-room" },
       { name: "法律 AI", href: "/legal" },
       { name: "一人公司", href: "/solo" },
       { name: "中考 AI", href: "/zhongkao" },
@@ -141,6 +142,7 @@ export default function Navigation() {
               { name: "作品", href: "/works" },
               { name: "Skills", href: "/skills" },
               { name: "手记", href: "/blog" },
+              { name: "Agent Room", href: "/agent-room" },
               { name: "法律 AI", href: "/legal" },
               { name: "一人公司", href: "/solo" },
               { name: "中考 AI", href: "/zhongkao" },

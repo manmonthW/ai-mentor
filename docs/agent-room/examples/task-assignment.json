@@ -1,0 +1,61 @@
+{
+  "task_id": "task_article_update_20260922",
+  "room_id": "room_ai_brief_20260922",
+  "parent_task_id": null,
+  "created_by": "hermes:default",
+  "assignee": "codex:wsl-main",
+  "collaborators": ["marvis:windows"],
+  "reviewers": ["hermes:default"],
+  "intent": "code.publish_prepare",
+  "objective": "Update the site with the Tencent AI brief and verify it locally without publishing",
+  "inputs": [
+    {
+      "kind": "url",
+      "uri": "https://mp.weixin.qq.com/s/example",
+      "access": "read-only",
+      "role": "primary_source"
+    },
+    {
+      "kind": "workspace",
+      "uri": "file:///home/ekewang/projects/ai-mentor/ai-mentor",
+      "access": "read-write",
+      "role": "target_repository"
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "criterion_id": "tests",
+      "description": "npm test exits 0",
+      "required": true,
+      "verification_method": "command_exit",
+      "expected": {"command": "npm test", "exit_code": 0},
+      "status": "pending",
+      "evidence_ids": []
+    },
+    {
+      "criterion_id": "build",
+      "description": "npm run build exits 0",
+      "required": true,
+      "verification_method": "command_exit",
+      "expected": {"command": "npm run build", "exit_code": 0},
+      "status": "pending",
+      "evidence_ids": []
+    }
+  ],
+  "expected_artifacts": ["git_diff", "test_log", "build_log"],
+  "allowed_capabilities": ["file.read", "file.write", "terminal.execute", "web.read"],
+  "approval_required_for": ["publish", "payment", "destructive_operation"],
+  "budget": {
+    "max_turns": 20,
+    "max_agent_hops": 3,
+    "max_duration_seconds": 900
+  },
+  "delegation_chain": ["hermes:default", "codex:wsl-main"],
+  "depends_on": [],
+  "status": "assigned",
+  "stage": null,
+  "progress": null,
+  "attempt": 1,
+  "version": 1,
+  "deadline": null
+}

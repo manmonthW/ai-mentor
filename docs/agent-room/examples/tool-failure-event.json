@@ -1,0 +1,31 @@
+{
+  "event_id": "evt_test_failed_001",
+  "schema_version": "haip.event/2.0",
+  "sequence": 18,
+  "timestamp": "2026-09-22T08:15:59Z",
+  "room_id": "room_ai_brief_20260922",
+  "task_id": "task_article_update_20260922",
+  "actor": {
+    "actor_id": "codex:wsl-main",
+    "kind": "agent"
+  },
+  "type": "tool.completed",
+  "causation_id": "evt_test_started_001",
+  "correlation_id": "task_article_update_20260922",
+  "visibility": "room",
+  "payload": {
+    "tool": "terminal",
+    "invocation_id": "toolcall_test_001",
+    "command": "npm test",
+    "working_directory": "/home/ekewang/projects/ai-mentor/ai-mentor",
+    "status": "failed",
+    "exit_code": 1,
+    "duration_ms": 1060,
+    "summary": "1 test failed; source uniqueness validation did not pass",
+    "output_ref": "artifact://task_article_update_20260922/test-log-001"
+  },
+  "redaction": {
+    "applied": false,
+    "fields": []
+  }
+}
