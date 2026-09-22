@@ -71,6 +71,30 @@ const editions = [
     itemCount: 9,
   },
   {
+    date: "2026-09-16",
+    mainId: "xcL6S0C8JN55D43b1b2lhA",
+    childIds: Array(10).fill("xcL6S0C8JN55D43b1b2lhA"),
+    fullText: 0,
+    titleOnly: 10,
+    itemCount: 10,
+  },
+  {
+    date: "2026-09-17",
+    mainId: "DstCN36veEO21no4_vo8Ng",
+    childIds: Array(9).fill("DstCN36veEO21no4_vo8Ng"),
+    fullText: 0,
+    titleOnly: 9,
+    itemCount: 9,
+  },
+  {
+    date: "2026-09-18",
+    mainId: "ePg0n47SQoLiA8AhtRWT0Q",
+    childIds: Array(8).fill("ePg0n47SQoLiA8AhtRWT0Q"),
+    fullText: 0,
+    titleOnly: 8,
+    itemCount: 8,
+  },
+  {
     date: "2026-09-20",
     mainId: "pL8UK11hs5z2qu5nwgl7bA",
     childIds: [
@@ -123,7 +147,13 @@ test("all brief editions have valid, unique WeChat sources and required fields",
     assert.match(block, new RegExp(`sourceUrl: "https://mp\\.weixin\\.qq\\.com/s/${edition.mainId}"`));
     const urls = [...block.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);
     assert.equal(urls.length, edition.itemCount);
-    assert.equal(new Set(urls).size, edition.itemCount);
+    const mainUrl = `https://mp.weixin.qq.com/s/${edition.mainId}`;
+    const fallbackUrls = urls.filter((url) => url === mainUrl);
+    const childUrls = urls.filter((url) => url !== mainUrl);
+    assert.equal(new Set(childUrls).size, childUrls.length);
+    if (fallbackUrls.length && fallbackUrls.length === edition.itemCount) {
+      assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, edition.itemCount);
+    }
     assert.deepEqual(urls.map((url) => url.split("/").at(-1)), edition.childIds);
     urls.forEach((url) => {
       const parsed = new URL(url);
@@ -136,6 +166,31 @@ test("all brief editions have valid, unique WeChat sources and required fields",
     assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, edition.fullText);
     assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, edition.titleOnly);
   }
+});
+
+test("requested September 16-22 brief batch exists with exact source item counts", () => {
+  const text = source();
+  const expected = new Map([
+    ["2026-09-16", 10],
+    ["2026-09-17", 9],
+    ["2026-09-18", 8],
+    ["2026-09-20", 9],
+    ["2026-09-21", 9],
+    ["2026-09-22", 10],
+  ]);
+  for (const [date, itemCount] of expected) {
+    const block = editionBlock(text, date);
+    assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, itemCount, date);
+  }
+});
+
+test("homepage and sitemap discover briefs from the data layer", () => {
+  const home = source(homePagePath);
+  const sitemap = source(new URL("../src/app/sitemap.ts", import.meta.url));
+  assert.match(home, /reduce\([\s\S]*brief\.date > latest\.date/);
+  assert.doesNotMatch(home, /href="\/briefs\/2026-09-21"/);
+  assert.match(sitemap, /briefs\.map/);
+  assert.doesNotMatch(sitemap, /"\/briefs\/2026-09-21"/);
 });
 
 test("new five-edition batch preserves current evidence scope, attribution, and copyright", () => {

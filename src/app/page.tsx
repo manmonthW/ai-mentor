@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { works, featuredWorks, totalShippedApprox } from "@/data/works";
 import { getAllPosts } from "@/lib/blog";
+import { briefs } from "@/data/briefs";
 import WorkCard from "@/components/WorkCard";
 import Subscribe from "@/components/Subscribe";
 import Reveal from "@/components/Reveal";
@@ -32,6 +33,7 @@ export default function Home() {
   const skillCount = works.filter((w) => w.group === "Skill").length;
   const legalCount = works.filter((w) => w.group === "法律AI").length;
   const ticker = works.map((w) => w.name);
+  const latestBrief = briefs.reduce((latest, brief) => brief.date > latest.date ? brief : latest);
 
   return (
     <>
@@ -134,16 +136,16 @@ export default function Home() {
       {/* ── AI 速递入口 ───────────────────────── */}
       <section className="wrap pb-20">
         <Link
-          href="/briefs/2026-09-21"
+          href={`/briefs/${latestBrief.date}`}
           className="group grid gap-6 border-y border-[color:var(--color-line-strong)] py-8 md:grid-cols-[10rem_1fr_auto] md:items-center md:gap-10"
         >
           <div>
             <p className="eyebrow">AI 速递 / BRIEF</p>
-            <p className="mono mt-2 text-sm text-[color:var(--color-flame)]">2026-09-21</p>
+            <p className="mono mt-2 text-sm text-[color:var(--color-flame)]">{latestBrief.date}</p>
           </div>
           <div>
             <h2 className="display text-3xl font-bold text-[color:var(--color-ink)] transition-colors group-hover:text-[color:var(--color-flame)]">
-              珂的非官方整理：腾讯研究院 AI 速递（9 条结构化解读）
+              {latestBrief.title}（{latestBrief.items.length} 条结构化解读）
             </h2>
             <p className="mt-2 text-[color:var(--color-ink-soft)]">区分腾讯摘要、本站评论与证据读取层级，保留每条子原文入口。</p>
           </div>

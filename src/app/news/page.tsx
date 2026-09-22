@@ -30,7 +30,7 @@ export default async function NewsPage() {
           聚合自{sources.length ? sources.join("、") : "量子位、The Verge"}等公开 RSS 的真实资讯,每 30 分钟自动刷新。点标题直达原文。
         </p>
         <p className="mono mt-3 text-xs text-[color:var(--color-muted)]">
-          更新于 {new Date(updatedAt).toLocaleString("zh-CN")}
+          更新于 {new Date(updatedAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}（北京时间）
         </p>
       </header>
 

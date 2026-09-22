@@ -55,6 +55,12 @@ test("live event timestamps are rendered explicitly in China Standard Time", asy
   assert.match(client, /北京时间/);
 });
 
+test("AI news update timestamp is rendered explicitly in Beijing time", async () => {
+  const source = await readFile(new URL("../src/app/news/page.tsx", import.meta.url), "utf8");
+  assert.match(source, /timeZone:\s*["']Asia\/Shanghai["']/);
+  assert.match(source, /北京时间/);
+});
+
 test("Agent Room participant roster includes the requested external agents", async () => {
   const source = await readFile(dataPath, "utf8");
   for (const agent of ["Claude Code", "Pi", "OpenCode", "DSH"]) {
