@@ -11,6 +11,14 @@ const source = (path = dataPath) => readFileSync(path, "utf8");
 
 const editions = [
   {
+    date: "2026-09-14",
+    itemCount: 8,
+  },
+  {
+    date: "2026-09-15",
+    itemCount: 9,
+  },
+  {
     date: "2026-09-07",
     mainId: "tdwpwREQm2kdS4bP_-PATA",
     childIds: [
@@ -140,9 +148,54 @@ function editionBlock(text, date) {
   return text.slice(start, next === -1 ? text.indexOf("\n];", start) : next);
 }
 
+test("September 14-15 editions satisfy the complete data contract", () => {
+  const text = source();
+  const expectedCounts = new Map([
+    ["2026-09-14", 8],
+    ["2026-09-15", 9],
+  ]);
+
+  for (const [date, itemCount] of expectedCounts) {
+    const block = editionBlock(text, date);
+    const mainUrlMatch = block.match(/^\s{4}sourceUrl:\s*["']([^"']+)["']/m);
+    assert.ok(mainUrlMatch, `${date}: main sourceUrl`);
+    const mainUrl = new URL(mainUrlMatch[1]);
+    assert.equal(mainUrl.protocol, "https:", `${date}: main source protocol`);
+    assert.equal(mainUrl.hostname, "mp.weixin.qq.com", `${date}: main source host`);
+
+    const childUrls = [...block.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);
+    assert.equal(childUrls.length, itemCount, `${date}: child source count`);
+    const expectedUniqueSources = date === "2026-09-14" ? itemCount - 1 : itemCount;
+    assert.equal(new Set(childUrls).size, expectedUniqueSources, `${date}: child source count must match the sources actually published`);
+    childUrls.forEach((url) => {
+      const parsed = new URL(url);
+      assert.equal(parsed.protocol, "https:", `${date}: child source protocol`);
+      assert.equal(parsed.hostname, "mp.weixin.qq.com", `${date}: child source host`);
+    });
+
+    for (const field of ["id", "category", "title", "tencentSummary", "interpretation", "whyItMatters", "evidenceLevel", "checkedAt", "sourceTitle", "sourceUrl"]) {
+      assert.equal((block.match(new RegExp(`^\\s{8}${field}:`, "gm")) ?? []).length, itemCount, `${date}: ${field}`);
+    }
+    assert.equal((block.match(/^\s{8}evidenceLevel: "(?:full_text|title_only)"/gm) ?? []).length, itemCount, `${date}: evidence enum`);
+    assert.equal((block.match(new RegExp(`^\\s{8}checkedAt: "${date}"`, "gm")) ?? []).length, itemCount, `${date}: checkedAt`);
+    assert.match(block, /title: "珂的非官方整理：/, `${date}: nonofficial title`);
+    assert.match(block, /本站为非官方整理/, `${date}: nonofficial copyright label`);
+    assert.match(block, /版权归原作者(?:和发布者)?/, `${date}: copyright ownership`);
+  }
+});
+
+test("brief detail template keeps safe external links and decorative icons hidden", () => {
+  const detail = source(dynamicPagePath);
+  const externalLinks = [...detail.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)].map((match) => match[0]);
+  assert.equal(externalLinks.length, 2);
+  externalLinks.forEach((link) => assert.match(link, /rel="noopener noreferrer"/));
+  assert.match(detail, /<StatusIcon[^>]*aria-hidden="true"/);
+  assert.equal((detail.match(/<ArrowUpRight[^>]*aria-hidden="true"/g) ?? []).length, 2);
+});
+
 test("all brief editions have valid, unique WeChat sources and required fields", () => {
   const text = source();
-  for (const edition of editions) {
+  for (const edition of editions.filter(({ mainId }) => mainId)) {
     const block = editionBlock(text, edition.date);
     assert.match(block, new RegExp(`sourceUrl: "https://mp\\.weixin\\.qq\\.com/s/${edition.mainId}"`));
     const urls = [...block.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);

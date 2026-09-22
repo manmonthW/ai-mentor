@@ -45,7 +45,7 @@ export default async function TencentBriefPage({ params }: BriefPageProps) {
               <div className="display text-5xl font-bold">{String(brief.items.length).padStart(2, "0")}</div>
               <p className="eyebrow mt-2">ITEMS / {categories.length} SECTIONS</p>
               <a href={brief.sourceUrl} target="_blank" rel="noopener noreferrer" className="ulink mt-5 text-sm">
-                腾讯主文 <ArrowUpRight className="h-4 w-4" />
+                腾讯主文 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default async function TencentBriefPage({ params }: BriefPageProps) {
                         <StatusIcon className="h-4 w-4" aria-hidden="true" /> {status[item.evidenceLevel].label} · {item.checkedAt}
                       </span>
                       <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="ulink text-sm">
-                        子原文 <ArrowUpRight className="h-4 w-4" />
+                        子原文 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                       </a>
                     </div>
                     <p className="mt-3 text-xs leading-relaxed text-[color:var(--color-muted)]">{item.sourceTitle}</p>

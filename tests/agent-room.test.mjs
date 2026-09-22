@@ -2,8 +2,19 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
+const navigationPath = new URL("../src/components/Navigation.tsx", import.meta.url);
+const sitemapPath = new URL("../src/app/sitemap.ts", import.meta.url);
+
 const pagePath = new URL("../src/app/agent-room/page.tsx", import.meta.url);
 const dataPath = new URL("../src/data/agent-room-replay.ts", import.meta.url);
+
+test("Bluebook RC is discoverable in desktop and mobile navigation and sitemap", async () => {
+  const navigation = await readFile(navigationPath, "utf8");
+  const sitemap = await readFile(sitemapPath, "utf8");
+  assert.ok((navigation.match(/href:\s*["']\/bluebook\/["']/g) ?? []).length >= 2);
+  assert.match(navigation, /AI Agent 蓝皮书/);
+  assert.match(sitemap, /["']\/bluebook\/["']/);
+});
 
 test("Agent Room route implements all three evidence views", async () => {
   const page = await readFile(pagePath, "utf8");
