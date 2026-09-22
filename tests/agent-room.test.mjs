@@ -11,7 +11,7 @@ const dataPath = new URL("../src/data/agent-room-replay.ts", import.meta.url);
 test("Bluebook RC is discoverable in desktop and mobile navigation and sitemap", async () => {
   const navigation = await readFile(navigationPath, "utf8");
   const sitemap = await readFile(sitemapPath, "utf8");
-  assert.ok((navigation.match(/href:\s*["']\/bluebook\/["']/g) ?? []).length >= 2);
+  assert.ok((navigation.match(/href:\s*["']\/bluebook\/index\.html["']/g) ?? []).length >= 2);
   assert.match(navigation, /AI Agent 蓝皮书/);
   assert.match(sitemap, /["']\/bluebook\/["']/);
 });
