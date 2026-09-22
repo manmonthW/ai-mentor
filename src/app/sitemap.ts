@@ -5,7 +5,7 @@ import { SITE } from "./layout";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
-  const routes = ["", "/works", "/skills", "/blog", "/briefs", "/bluebook/", "/legal", "/solo", "/training", "/zhongkao", "/k12", "/news", "/about"].map(
+  const routes = ["", "/works", "/skills", "/blog", "/briefs", "/bluebook/index.html", "/legal", "/solo", "/training", "/zhongkao", "/k12", "/news", "/about"].map(
     (r) => ({
       url: `${base}${r}`,
       lastModified: new Date(),

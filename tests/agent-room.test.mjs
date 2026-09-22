@@ -13,7 +13,7 @@ test("Bluebook RC is discoverable in desktop and mobile navigation and sitemap",
   const sitemap = await readFile(sitemapPath, "utf8");
   assert.ok((navigation.match(/href:\s*["']\/bluebook\/index\.html["']/g) ?? []).length >= 2);
   assert.match(navigation, /AI Agent 蓝皮书/);
-  assert.match(sitemap, /["']\/bluebook\/["']/);
+  assert.match(sitemap, /["']\/bluebook\/index\.html["']/);
 });
 
 test("Agent Room route implements all three evidence views", async () => {
