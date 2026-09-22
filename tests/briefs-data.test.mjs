@@ -20,6 +20,7 @@ const editions = [
     ],
     fullText: 4,
     titleOnly: 5,
+    itemCount: 9,
   },
   {
     date: "2026-09-21",
@@ -31,6 +32,20 @@ const editions = [
     ],
     fullText: 9,
     titleOnly: 0,
+    itemCount: 9,
+  },
+  {
+    date: "2026-09-22",
+    mainId: "FFtUavCjawo40TokJjfw1w",
+    childIds: [
+      "YJmteuFKuOsHRemL9YjQbg", "QCHjEye57BUKUNInPKb4cA", "0x-tXOxlutrxE9YNODng0A",
+      "-J598xWiMu6gIls_dERfRw", "9xswBSikTTErGX-LGjg4oA", "8IrHbNboy58FZO2PcxxSTw",
+      "gbjDsY7AJv9hXxstGvPY3A", "rUrUNHWEQvEoQlAXK9MfDQ", "HZZEMDldR19mwlvmfpuCEA",
+      "TXylfIKU0VZNO9eNzbW0mQ",
+    ],
+    fullText: 10,
+    titleOnly: 0,
+    itemCount: 10,
   },
 ];
 
@@ -47,8 +62,8 @@ test("both editions have valid, unique WeChat sources and required fields", () =
     const block = editionBlock(text, edition.date);
     assert.match(block, new RegExp(`sourceUrl: "https://mp\\.weixin\\.qq\\.com/s/${edition.mainId}"`));
     const urls = [...block.matchAll(/^\s{8}sourceUrl:\s*["']([^"']+)["']/gm)].map((match) => match[1]);
-    assert.equal(urls.length, 9);
-    assert.equal(new Set(urls).size, 9);
+    assert.equal(urls.length, edition.itemCount);
+    assert.equal(new Set(urls).size, edition.itemCount);
     assert.deepEqual(urls.map((url) => url.split("/").at(-1)), edition.childIds);
     urls.forEach((url) => {
       const parsed = new URL(url);
@@ -56,7 +71,7 @@ test("both editions have valid, unique WeChat sources and required fields", () =
       assert.equal(parsed.hostname, "mp.weixin.qq.com");
     });
     for (const field of ["tencentSummary", "interpretation", "whyItMatters", "evidenceLevel", "checkedAt", "sourceTitle", "sourceUrl"]) {
-      assert.equal((block.match(new RegExp(`^\\s{8}${field}:`, "gm")) ?? []).length, 9, `${edition.date}: ${field}`);
+      assert.equal((block.match(new RegExp(`^\\s{8}${field}:`, "gm")) ?? []).length, edition.itemCount, `${edition.date}: ${field}`);
     }
     assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, edition.fullText);
     assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, edition.titleOnly);
