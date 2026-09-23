@@ -139,6 +139,18 @@ const editions = [
     titleOnly: 0,
     itemCount: 10,
   },
+  {
+    date: "2026-09-23",
+    mainId: "WHdSwsopsLsB15W6AP1zmQ",
+    childIds: [
+      "grok-4-7-20260923", "mimo-v2-6-20260923", "hy-image-3-5-20260923",
+      "me-dex-1-0-20260923", "zhenwu-v900-20260923", "hygon-1000-20260923",
+      "openai-math-agmai-20260923", "jev-interview-20260923", "rsi-verification-20260923",
+    ],
+    fullText: 6,
+    titleOnly: 3,
+    itemCount: 9,
+  },
 ];
 
 function editionBlock(text, date) {
@@ -221,7 +233,7 @@ test("all brief editions have valid, unique WeChat sources and required fields",
   }
 });
 
-test("requested September 16-22 brief batch exists with exact source item counts", () => {
+test("requested September 16-23 brief batch exists with exact source item counts", () => {
   const text = source();
   const expected = new Map([
     ["2026-09-16", 10],
@@ -230,6 +242,7 @@ test("requested September 16-22 brief batch exists with exact source item counts
     ["2026-09-20", 9],
     ["2026-09-21", 9],
     ["2026-09-22", 10],
+    ["2026-09-23", 9],
   ]);
   for (const [date, itemCount] of expected) {
     const block = editionBlock(text, date);
@@ -266,6 +279,19 @@ test("2026-09-20 preserves requested evidence state, attribution, and copyright"
   assert.match(block, /已读取正文不等于独立交叉核验/);
   assert.match(block, /版权归原作者/);
   assert.match(block, /据(?:原文|官方)|原文称|官方称|腾讯摘要/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
+});
+
+test("2026-09-23 preserves requested evidence state, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-09-23");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-09-23"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 6);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 3);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /已读取正文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要|厂商称|OpenAI 称|认为/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
 });
 
