@@ -151,6 +151,19 @@ const editions = [
     titleOnly: 3,
     itemCount: 9,
   },
+  {
+    date: "2026-09-24",
+    mainId: "4IBqsW_SbPT5zPA-HeNetw",
+    childIds: [
+      "KFjb2fHjorVE8O1ZjoM0-g", "5Iw9_q6DLws2vtwr2Qv46g", "7LODRsNVOdlFRceBIt-4MQ",
+      "YeMNZiVkVLux6VEAeySgdQ", "MW6wBdCJEdgGYX1DE9FzXQ", "FRt7cN8hwQAKKgDV6n7dBg",
+      "jfOcLNmEN50sOTEAjvuwVA", "aLOF_RZ91Wflm7xCHuIBgA", "AFVAMRv1SdPsM6-wWp2WsQ",
+      "5qJ4B9iUG3p01NG0f-f-fg",
+    ],
+    fullText: 10,
+    titleOnly: 0,
+    itemCount: 10,
+  },
 ];
 
 function editionBlock(text, date) {
@@ -243,6 +256,7 @@ test("requested September 16-23 brief batch exists with exact source item counts
     ["2026-09-21", 9],
     ["2026-09-22", 10],
     ["2026-09-23", 9],
+    ["2026-09-24", 10],
   ]);
   for (const [date, itemCount] of expected) {
     const block = editionBlock(text, date);
@@ -292,6 +306,19 @@ test("2026-09-23 preserves requested evidence state, attribution, and copyright"
   assert.match(block, /本站为非官方整理/);
   assert.match(block, /版权归原作者和发布者/);
   assert.match(block, /腾讯摘要|厂商称|OpenAI 称|认为/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
+});
+
+test("2026-09-24 preserves complete source order, current evidence state, and attribution", () => {
+  const block = editionBlock(source(), "2026-09-24");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-09-24"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 10);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /已读取正文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要|关联原文|官方称|厂商|认为/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
 });
 
