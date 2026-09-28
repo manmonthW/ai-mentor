@@ -164,6 +164,14 @@ const editions = [
     titleOnly: 0,
     itemCount: 10,
   },
+  {
+    date: "2026-09-28",
+    mainId: "TpY2ipVnIkoPEIsZX_dLpQ",
+    childIds: Array(10).fill("TpY2ipVnIkoPEIsZX_dLpQ"),
+    fullText: 0,
+    titleOnly: 10,
+    itemCount: 10,
+  },
 ];
 
 function editionBlock(text, date) {
@@ -246,7 +254,7 @@ test("all brief editions have valid, unique WeChat sources and required fields",
   }
 });
 
-test("requested September 16-23 brief batch exists with exact source item counts", () => {
+test("requested September 16-28 brief batch exists with exact source item counts", () => {
   const text = source();
   const expected = new Map([
     ["2026-09-16", 10],
@@ -257,6 +265,7 @@ test("requested September 16-23 brief batch exists with exact source item counts
     ["2026-09-22", 10],
     ["2026-09-23", 9],
     ["2026-09-24", 10],
+    ["2026-09-28", 10],
   ]);
   for (const [date, itemCount] of expected) {
     const block = editionBlock(text, date);
@@ -320,6 +329,19 @@ test("2026-09-24 preserves complete source order, current evidence state, and at
   assert.match(block, /版权归原作者和发布者/);
   assert.match(block, /腾讯摘要|关联原文|官方称|厂商|认为/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会/);
+});
+
+test("2026-09-28 preserves summary-only evidence, explicit attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-09-28");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-09-28"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 10);
+  assert.match(block, /仅主文摘要层级/);
+  assert.match(block, /读取主文摘要不等于读取关联原文，也不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /链接回腾讯研究院主文/);
+  assert.equal((block.match(/腾讯摘要称/g) ?? []).length >= 20, true);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
 
 test("detail route is one reusable dynamic template", () => {
