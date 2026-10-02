@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { works, featuredWorks, totalShippedApprox } from "@/data/works";
 import { getAllPosts } from "@/lib/blog";
 import { briefs } from "@/data/briefs";
+import { films } from "@/data/films";
 import WorkCard from "@/components/WorkCard";
 import Subscribe from "@/components/Subscribe";
 import Reveal from "@/components/Reveal";
@@ -111,6 +112,37 @@ export default function Home() {
               </div>
               <p className="max-w-2xl text-lg leading-relaxed text-[color:var(--color-ink-soft)]">{p.d}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 影像 ─────────────────────────────── */}
+      <section className="wrap pb-20">
+        <div className="mb-10 border-b border-[color:var(--color-line)] pb-4">
+          <p className="eyebrow mb-2">影像 / FILMS</p>
+          <h2 className="display text-4xl font-bold text-[color:var(--color-ink)]">三部片子,全部用代码做出来</h2>
+        </div>
+        <div className="grid gap-px bg-[color:var(--color-line)] md:grid-cols-2">
+          {films.map((f, i) => (
+            <figure key={f.id} className={`bg-[color:var(--color-paper)] p-5 ${i === 0 ? "md:col-span-2" : ""}`}>
+              <video
+                className="aspect-video w-full border border-[color:var(--color-line)] bg-[color:var(--color-ink)]"
+                src={`/films/${f.id}.mp4`}
+                poster={`/films/${f.id}-poster.jpg`}
+                controls
+                playsInline
+                preload="none"
+              />
+              <figcaption className="mt-4">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h3 className="display text-2xl font-bold text-[color:var(--color-ink)]">{f.title}</h3>
+                  <span className="mono text-xs text-[color:var(--color-flame)]">
+                    {f.kind} · {f.style} · {f.duration}
+                  </span>
+                </div>
+                <p className="mt-2 max-w-2xl leading-relaxed text-[color:var(--color-ink-soft)]">{f.description}</p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
