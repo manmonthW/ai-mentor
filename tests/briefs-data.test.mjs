@@ -172,6 +172,18 @@ const editions = [
     titleOnly: 10,
     itemCount: 10,
   },
+  {
+    date: "2026-10-20",
+    mainId: "petCn1z6BUpKjmh5_RnaRg",
+    childIds: [
+      "o5XAgjI8YoynfTYv5mTr2A", "fO9snz_lnPxVg0q55chDFg", "EDOPeycZ5e6SWcl06ETCPA",
+      "_0KYzDhvp4TEM4OS7tCrlw", "P_PWL2S-jVh0CUMYo-700Q", "3cnRdFHbWqGE_sLE4DtMyw",
+      "LWmds0ZCSxLoMA60UFIxvA", "umUtmyGJdaH2B75RE9wBJg", "5jDYCDHITPnBODYpewW_Tg",
+    ],
+    fullText: 9,
+    titleOnly: 0,
+    itemCount: 9,
+  },
 ];
 
 function editionBlock(text, date) {
@@ -341,6 +353,20 @@ test("2026-09-28 preserves summary-only evidence, explicit attribution, and copy
   assert.match(block, /本站为非官方整理/);
   assert.match(block, /链接回腾讯研究院主文/);
   assert.equal((block.match(/腾讯摘要称/g) ?? []).length >= 20, true);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
+
+test("2026-10-20 reads every linked article as full_text with proper attribution and copyright", () => {
+  const block = editionBlock(source(), "2026-10-20");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-10-20"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 9);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称|关联原文|认为/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
 
