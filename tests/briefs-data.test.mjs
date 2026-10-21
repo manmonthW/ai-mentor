@@ -370,6 +370,22 @@ test("2026-10-20 reads every linked article as full_text with proper attribution
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
 
+test("2026-10-21 reads every linked article as full_text with proper attribution and copyright", () => {
+  const block = editionBlock(source(), "2026-10-21");
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-10-21"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\//gm) ?? []).length, 9);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /主文微信直链未能取得/);
+  assert.match(block, /腾讯摘要称|关联原文|认为/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
+
 test("detail route is one reusable dynamic template", () => {
   assert.equal(existsSync(dynamicPagePath), true);
   assert.equal(existsSync(legacyDetailPath), false);
