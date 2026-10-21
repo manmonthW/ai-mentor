@@ -408,3 +408,23 @@ test("attribution surfaces and link accessibility remain explicit", () => {
   assert.equal((detail.match(/target="_blank" rel="noopener noreferrer"/g) ?? []).length, 2);
   assert.match(detail, /<StatusIcon[^>]*aria-hidden="true"/);
 });
+
+test("2026-10-22 reads every linked article as full_text with proper attribution and copyright", () => {
+  const block = editionBlock(source(), "2026-10-22");
+  assert.equal((block.match(/^\s{8}id: "20261022-/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-10-22"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\//gm) ?? []).length, 8);
+  assert.equal(
+    (block.match(/sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\/ucLT1c0QVPPBfmsmEhQMfQ"/g) ?? []).length,
+    1,
+  );
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称|关联原文|原文/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
