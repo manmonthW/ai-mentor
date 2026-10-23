@@ -428,3 +428,24 @@ test("2026-10-22 reads every linked article as full_text with proper attribution
   assert.match(block, /腾讯摘要称|关联原文|原文/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
+
+test("2026-10-23 reads every linked article as full_text with proper attribution and copyright", () => {
+  const block = editionBlock(source(), "2026-10-23");
+  assert.equal((block.match(/^\s{8}id: "20261023-/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-10-23"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\//gm) ?? []).length, 10);
+  assert.match(
+    block,
+    /^ {4}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\?__biz=MjM5OTE0ODA2MQ==&mid=2650999169&idx=1&sn=74215be841af0a3e1e82c66f5a9f7103"/m,
+  );
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /聚合站 aiexpress\.news 当时尚未同步本期/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称|关联原文|原文/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
