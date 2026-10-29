@@ -212,8 +212,8 @@ const editions = [
       "YoYS43E9f9_zl0YlXzqd2w", "8r9IEOa5RpNsWC6QCLqt0A", "T0ooATg8EQMqiG2TKWIpEw",
       "ZmeFrr7PsqW6zBPy4S0bjw", "knrSV0XoB9I4T4R7sJ7agA",
     ],
-    fullText: 5,
-    titleOnly: 3,
+    fullText: 7,
+    titleOnly: 1,
     itemCount: 8,
   },
 ];
@@ -590,5 +590,32 @@ test("2026-10-28 reads every linked article as full_text with proper attribution
   assert.match(block, /本站为非官方整理/);
   assert.match(block, /版权归原作者和发布者/);
   assert.match(block, /腾讯摘要称|关联原文|原文/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
+
+test("2026-10-30 edition keeps main-article fallback, evidence scope, and attribution", () => {
+  const block = editionBlock(source(), "2026-10-30");
+  assert.equal((block.match(/^\s{8}id: "20261030-/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-10-30"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 7);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 1);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\//gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}category: "(?:生成式 AI|前沿科技|报告观点)"/gm) ?? []).length, 8);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261030-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08"],
+  );
+  const childUrls = [...block.matchAll(/^\s{8}sourceUrl: "(https:\/\/mp\.weixin\.qq\.com\/s\/[^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(new Set(childUrls).size, 8);
+  assert.equal(
+    (block.match(/sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\/knrSV0XoB9I4T4R7sJ7agA"/g) ?? []).length,
+    2,
+  );
+  assert.match(block, /腾讯研究院 AI 速递 20261030/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
