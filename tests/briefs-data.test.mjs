@@ -204,6 +204,18 @@ const editions = [
     titleOnly: 0,
     itemCount: 9,
   },
+  {
+    date: "2026-10-30",
+    mainId: "knrSV0XoB9I4T4R7sJ7agA",
+    childIds: [
+      "GJjiIsD7dqsuaIjrxAlAew", "uvG1HdCEVeNmz96E_NazOQ", "TRdHethMYG_AQLDSkxqflg",
+      "YoYS43E9f9_zl0YlXzqd2w", "8r9IEOa5RpNsWC6QCLqt0A", "T0ooATg8EQMqiG2TKWIpEw",
+      "ZmeFrr7PsqW6zBPy4S0bjw", "knrSV0XoB9I4T4R7sJ7agA",
+    ],
+    fullText: 5,
+    titleOnly: 3,
+    itemCount: 8,
+  },
 ];
 
 function editionBlock(text, date) {
