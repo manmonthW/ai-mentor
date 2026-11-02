@@ -654,3 +654,38 @@ test("2026-10-29 edition keeps full-text evidence, attribution, and copyright", 
   assert.match(block, /腾讯摘要称|关联原文|原文/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
+
+test("2026-11-03 edition keeps full-text evidence, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-11-03");
+  assert.equal((block.match(/^\s{8}id: "20261103-/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-11-03"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}interpretation:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}whyItMatters:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\//gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}category: "(?:生成式 AI|前沿科技|报告观点)"/gm) ?? []).length, 9);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261103-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08", "09"],
+  );
+  const childUrls = [...block.matchAll(/^\s{8}sourceUrl: "(https:\/\/mp\.weixin\.qq\.com\/s\/[^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(new Set(childUrls).size, 9);
+  childUrls.forEach((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+  });
+  assert.equal(
+    (block.match(/sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\/YYW39I1dsYZBFnq4HLU90g"/g) ?? []).length,
+    1,
+  );
+  assert.match(block, /腾讯研究院 AI 速递 20261103/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称|关联原文|原文/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});

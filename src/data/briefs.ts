@@ -5326,6 +5326,181 @@ export const briefs: Brief[] = [
       },
     ],
   },
+  {
+    date: "2026-11-03",
+    title: "珂的非官方整理：腾讯研究院 AI 速递 20261103",
+    description:
+      "从光通信重大并购、旗舰模型曝光到科学 Agent、游戏开发工具与太空算力现实检验：9 条动态的结构化阅读。",
+    sourceUrl: "https://mp.weixin.qq.com/s/YYW39I1dsYZBFnq4HLU90g",
+    evidenceNote:
+      "本期已通过文本提取读取腾讯研究院主文及全部 9 条关联原文。主文发布于 2026 年 11 月 2 日，关联原文涵盖并购报道、产品发布、技术博客与演讲整理等多种来源。证据等级只表示本站实际读取范围，读取关联原文不等于独立交叉核验。",
+    copyrightNotice:
+      "基于腾讯研究院公开主文和关联原文的短摘要与评论，本站为非官方整理，版权归原作者和发布者，链接回各条原文与腾讯研究院主文。",
+    items: [
+      {
+        id: "20261103-01",
+        category: "生成式 AI",
+        title: "Marvell 拟 1150 亿美元收购 Lumentum，打造 AI 光互联巨头",
+        tencentSummary: [
+          "腾讯摘要称，Marvell 11 月 2 日宣布全股票收购 Lumentum，隐含企业价值约 1150 亿美元（约 7646 亿元）。",
+          "腾讯摘要称，每股 Lumentum 换 4.5 股 Marvell，约合 1132 美元，较 10 月 28 日收盘溢价约 23.9%；交割后双方股东分持约 67% 与 33%。",
+          "腾讯摘要称，Lumentum 上财季营收 12.63 亿美元，同比增 136.5%，净利 3.6 亿美元；新获 NPO／CPO 大单，采购承诺超 50 亿美元。",
+        ],
+        interpretation:
+          "关联原文（半导体产业纵横）为完整报道。Marvell 与 Lumentum 于 2026 年 11 月 2 日签署最终收购协议，交易为 2026 年规模最大的科技行业并购之一。合并逻辑在于 AI 数据中心带宽需求增长与铜缆物理限制加速向光纤转型，Marvell 的电气与光互连、网络交换、定制 XPU 能力与 Lumentum 的高性能激光器、光收发器、光路交换（OCS）和化合物半导体制造专长互补。Marvell CEO Matt Murphy 称之为「千载难逢的机遇」；Lumentum CEO Michael Hurlston 提及 5500 亿美元市场机遇，该数字为厂商自述。Lumentum 2027 财年第一季度（截至 9 月 26 日）营收 12.63 亿美元，同比增长 136.5%，净利润 3.60 亿美元；泵浦激光器和光交换机为主要增长驱动力，第二笔大型 NPO/CPO 订单相关采购承诺超 50 亿美元。交易尚待交割完成。",
+        whyItMatters:
+          "这笔并购标志着 AI 数据中心互连正从离散模块化组件转向高度集成的光纤解决方案。67/33 的股权分配显示 Marvell 为收购方，但 Lumentum 的光技术是战略核心。超 50 亿美元的采购承诺表明 CPO/NPO 需求是实质性的，但 5500 亿美元市场机遇为 CEO 口径，不构成投资参考。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "7646亿，Marvell宣布光通信重大收购",
+        sourceUrl: "https://mp.weixin.qq.com/s/b-tACnh4_QahOzs6weXqww",
+      },
+      {
+        id: "20261103-02",
+        category: "生成式 AI",
+        title: "Fable 5.5 与 GPT-6.2 Astra 接连曝光，11 月或迎旗舰更新潮",
+        tencentSummary: [
+          "腾讯摘要称，Anthropic 官网源码现 Mythos 5.5 字样后被删；LiteLLM 配置曾现 Fable 5.5，传上下文 100 万 token，每百万输入／输出 10／50 美元。",
+          "腾讯摘要称，开发者晒出疑似 Fable 5.5 生成的 3D 场景与 Minecraft 风格游戏，称单个提示词一两小时完成，未附源代码。",
+          "腾讯摘要称，部分 Codex 统计与 API 响应现 gpt-6.2-astra，截图显示 1M 窗口；社区对其能否超 Opus 5.5 看法不一。",
+        ],
+        interpretation:
+          "关联原文（爱范儿）为完整报道。Anthropic 官网 HTML 源代码中被发现 Mythos 5.5 字样，由 X 用户 @kimmonismus 于 11 月 1 日发现；Mythos 面向网络安全和生物学等高风险研究领域，Fable 在相同底层模型上加入安全防护面向更广用户。开发者 @chetaslua 发现 Mythos 5.5 在 HTML 中出现六次但正文仍为 Mythos 5.1，随后 Anthropic 删除相关内容。10 月 13 日 LiteLLM Azure 配置曾出现 claude-fable-5-5 标识，后被移除但 MLflow 仍保留记录；流传配置显示 100 万 token 输入上下文、12.8 万 token 最大输出、每百万输入 10 美元/输出 50 美元。开发者 @notjazii 发布 Opus 5.5 与 Fable 5.5 生成 3D 场景对比视频，Fable 5.5 展示了更多动态事件；还展示了 Minecraft 风格游戏。以上演示均未附完整提示词、调用日志和源代码。GPT-6.2 Astra 方面，@TokenGremlin 发现 Codex 使用统计中 GPT-6.2 Astra 占 19.8%；@Mr_Salio 的 API 响应数据显示 response.model 为 gpt-6.2-astra；@ai_funss 展示 Codex CLI 中 gpt-6.2-astra medium 与 1M 窗口。社区评价分化：@TokenGremlin 认为部分任务可能超过 Opus 5.5，@Da7_Tech 则认为尚未达到。",
+        whyItMatters:
+          "两条线索均未经公司正式确认。官网源代码和 API 日志是弱信号，可能预示即将发布的产品也可能是测试遗留。Fable 5.5 的演示缺乏可验证证据，GPT-6.2 Astra 的信号来自使用统计和 API 响应，可信度略高但非官方。社区关于超越 Opus 5.5 的争论在没有基准测试的情况下为时过早。定价信息若属实则具有竞争力，但同样未经确认。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "一夜之间，GPT-6.2 Astra 和 Fable 5.5 双双曝光，AI 圈疯狂 11 月要来了",
+        sourceUrl: "https://mp.weixin.qq.com/s/LTtVzVTuODe31OOegfP2Ug",
+      },
+      {
+        id: "20261103-03",
+        category: "生成式 AI",
+        title: "腾讯混元发布 Hyra 2.0，让 Agent 从头研发科学模型与工具",
+        tencentSummary: [
+          "腾讯摘要称，Hyra 2.0 分 Overall、Mission、Worker 三层协作，接入企业微信、计算平台与代码仓库，经验沉淀为 skill。",
+          "腾讯摘要称，从头训练的 196 万参数 HyInv 较 ProteinMPNN 快 57 倍；6.5 亿参数 HyPLM-Flash 推理速度在 12 个模型中最快。",
+          "腾讯摘要称，HyQEC 构造的量子码编码效率较原榜首提升约 48%；香山处理器每 GHz 得分提升 5.79%，fuzz 测试发现 10 个未报告 bug。",
+        ],
+        interpretation:
+          "关联原文（腾讯混元官方）为完整技术博客。Hyra 2.0 的核心理念是从「解题」转向「造工具」——让 agent 参与科学模型与工具的研发，使一次研发成果在后续研究中反复使用。三层架构：Overall 与人类研究者沟通并管理优先级，Mission 负责研究路线和实验设计，Worker 执行探索与实验并可质疑 Mission。Research Board 记录进展，Books 保存可复用经验（分「观察」「已验证」「约定」三级）。初步成果包括：HyInv（196 万参数图神经网络，蛋白质逆折叠，较 ProteinMPNN 快 57 倍）；HyPLM-Flash（6.5 亿参数，7260 亿训练 token，为 ESM-2 650M 的 0.73 倍，12 个蛋白质语言模型中推理最快，35 个评测任务平均第 3）；HyFF（原子级力场模型，230 万至 12 亿参数，覆盖 83 种元素）；HyProver（数学证明工作流，称已解决丘成桐圆周作用猜想与五维 Petty 等距点猜想）；HyQEC（量子纠错，构造 [488,123,22] 码，kd²/n 达 122.0，比 qLDPC Challenge 原榜首提升约 48%）；香山 RISC-V 处理器每 GHz 得分提升 5.79%，发现 10 个未报告 bug。成果已公开在 GitHub 仓库。以上数据均为腾讯自述。",
+        whyItMatters:
+          "Hyra 2.0 代表了从「AI 解决单个问题」到「AI 研发可复用工具」的范式转变，工具升级带来的复利效应可能比单次突破更有价值。科学成果已公开供社区检验，但需独立复现才能确认。递归自我改进的框架（Hyra 帮助训练更好的 Hy 模型，更强的模型成为 Hyra 的工具）目前是愿景而非已验证的闭环。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "Hyra 2.0 发布：为模型研发打造可复用工具",
+        sourceUrl: "https://mp.weixin.qq.com/s/WnIFZYIRLdk7tw7cJIVpJA",
+      },
+      {
+        id: "20261103-04",
+        category: "生成式 AI",
+        title: "Kimi 推出游戏开发方案，Agent 直接操作 Unity、UE 与 Blender",
+        tencentSummary: [
+          "腾讯摘要称，方案基于 Kimi K3.1 Pro、Kimi Code 与 Kimi Work，借插件直接操作 Unity、UE、Blender 中的现有工程。",
+          "腾讯摘要称，无编程经验的策划可在 1 到 2 天内用 Godot 做出可试玩原型，Kimi 会实际运行并结合录像自检迭代。",
+          "腾讯摘要称，与团结引擎 Tuanjie Codely Agent 协同演示中，Kimi 无人干预连续工作 20 小时，复现原作并产出原生工程；发行侧可做素材测试、反馈归类与 UGC 审核。",
+        ],
+        interpretation:
+          "关联原文（月之暗面/Kimi 官方）为完整产品发布文章。方案针对游戏开发两大痛点：创意验证成本高和跨工具协作摩擦。Kimi K3.1 Pro 负责理解与规划，Kimi Code 侧重代码开发，Kimi Work 承接跨文件多步骤任务；通过插件连接 Blender、Unity、Unreal Engine。原型制作阶段，策划无需编程经验即可在 1-2 天内用 Godot 做出可试玩原型，Kimi 会实际运行游戏并结合渲染画面和试玩录像自检迭代。美术资产适配阶段，Kimi 通过 Blender 插件检查多视角一致性、模型穿插和材质问题。Unity 方面，Kimi 与团结引擎 Tuanjie Codely Agent 协同，在一次演示中无人干预连续工作 20 小时，复现原作并产出原生工程。UE 方面支持跨模块玩法开发与复杂场景搭建。发行运营侧覆盖获客玩法开发、素材批量制作、社区反馈分类、内容本地化与 UGC 审核。文中引用 Unity《2026 Game Development Report》称 52% 开发者优先选择小项目、67% 将原型阶段控制在三个月以内。20 小时连续工作为厂商自述。",
+        whyItMatters:
+          "Kimi 的方案与纯代码生成 agent 的区别在于直接操作专业工具，切入游戏行业实际工作流而非仅生成代码。20 小时无人干预的声明值得关注但属厂商自述，其价值取决于生成原型和美术资产是否达到生产质量标准，需要真实工作室采用验证。UGC 审核和反馈分类功能切中了游戏发行运营中的真实痛点。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "Kimi 发布游戏开发与创意工作解决方案",
+        sourceUrl: "https://mp.weixin.qq.com/s/qSwHJXAuAyrjeYXGC3XnFA",
+      },
+      {
+        id: "20261103-05",
+        category: "生成式 AI",
+        title: "商汤推出 SenseNova 6.8 Flash 正式版，主打主动办公与动态设计",
+        tencentSummary: [
+          "腾讯摘要称，SenseNova 6.8 Flash 借长期记忆与主动交互，可在产品升级后提醒跟进曾拒单客户，或整理前任客户交接信息。",
+          "腾讯摘要称，设计支持 Web、SVG、Three.js、PPT 等形态，可生成动态 PPT 与动态海报，经多轮反馈输出可编辑 Blender 工程，并接入 Figma。",
+          "腾讯摘要称，官方称其在智能体协作、数据分析与演示生成上超过部分国际前沿模型；小浣熊限免至 12 月 1 日，商汤还开源了 Loop-9B-Preview。",
+        ],
+        interpretation:
+          "关联原文（商汤科技官方）为完整产品发布文章。两大核心能力：办公智能（长期记忆+主动交互）和设计美学（从 Vibe Design 到 Vibe Dynamics）。办公场景示例：模型记住客户曾因产品不支持私有化部署而拒绝合作，产品升级后主动提醒重新跟进；员工岗位调整时主动整理前任的客户信息。设计能力涵盖动态 PPT（将叙事节奏纳入生成目标）、动态海报（主体视觉与文字层级动效协同）、3D Blender 设计（Agent 与 Blender 协同，多轮生成-观察-反馈-修改，输出可编辑工程）、网页设计、SVG、3D 网页建模和 Figma 集成。商汤称在智能体协作、数据分析与演示生成上超过「部分国际前沿模型」，未点名具体模型。Loop-9B-Preview 为面向下一代模型架构的开源探索。小浣熊限免至 2026 年 12 月 1 日。「超过部分国际前沿模型」为厂商自评。",
+        whyItMatters:
+          "主动交互功能（记住历史上下文并在条件变化时建议行动）代表了从被动问答到持久任务协助的转变，若可靠则切中销售和客户管理的真实痛点。设计能力降低了非设计者的门槛，但生产质量需实际验证。「超过部分国际前沿模型」为厂商自评，未附命名基准测试。Loop-9B-Preview 的开源对架构研究有参考价值。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "SenseNova 6.8 Flash 正式版发布：办公更稳，设计更美",
+        sourceUrl: "https://mp.weixin.qq.com/s/pub1zJcaLGKYsTht8jOipg",
+      },
+      {
+        id: "20261103-06",
+        category: "生成式 AI",
+        title: "LongCat-2.5 发布，1.6 万亿参数原生多模态模型主攻长程 Agent",
+        tencentSummary: [
+          "腾讯摘要称，LongCat-2.5 总参数 1.6 万亿、每 token 激活约 480 亿，将视觉信号表示为多层级离散 token，与文本统一处理。",
+          "腾讯摘要称，训练加入长程轨迹数据与大规模长程强化学习，并把真实 Agent 失败轨迹转为可验证任务；国产算力上长序列 SFT 单卡吞吐较 DDP 基线提升 86%。",
+          "腾讯摘要称，W4A4 推理相对 W8A8 基线，prefill 与 decode 吞吐分别提升 43.3% 和 42.77%；注册即赠千万 token。",
+        ],
+        interpretation:
+          "关联原文（龙猫 LongCat 官方）为完整技术博客。LongCat-2.5 为 1.6 万亿总参数 MoE 模型，每 token 激活约 480 亿。技术特点：通过残差向量量化（RVQ）将视觉信号表示为多层级离散 token，与文本统一处理；离线视觉 token 预处理简化训练负载管理；视觉码本 embedding 与主干模型联合学习。RL 训练链路涵盖大规模数据合成（GitHub 公开仓库和内部代码任务）、F2P/P2P 测试验证、partial rollout 异步训练策略、reward hacking 抑制（断网、清除 git 历史、LLM judge 监督）和输出行为优化。MOPD（多领域在线策略蒸馏）使用 per-cut prefix 控制分布偏移，Tree Attention 提高训练效率。基础设施针对国产算力（单卡显存不足 80GB）优化。W4A4 推理相对 W8A8 基线 prefill 提升 43.3%、decode 提升 42.77%。文中选取 GPT-5.5、GPT-5.6-Sol、Claude-Opus-4.8 和 Claude-Opus-5 进行对比，比较为厂商选定。以上数据均为 LongCat 自述。",
+        whyItMatters:
+          "LongCat-2.5 将视觉信号离散化为统一 token 的方式在架构上区别于使用独立视觉编码器的模型。将真实 Agent 失败轨迹转为训练数据是提升 agent 可靠性的务实路径。国产算力优化反映了中国 AI 基础设施自主化的推进。1.6 万亿参数规模虽大但 480 亿激活量使推理成本可控。与国际模型的对比为厂商选定，相对性能需独立基准验证。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "LongCat-2.5：面向智能体任务的原生多模态模型",
+        sourceUrl: "https://mp.weixin.qq.com/s/c6IkevuKYuORnfkppABkkQ",
+      },
+      {
+        id: "20261103-07",
+        category: "生成式 AI",
+        title: "卡帕西用 Claude 两小时搭出 HackerTube，以 HN 推荐替代算法",
+        tencentSummary: [
+          "腾讯摘要称，Karpathy 用 Claude Code（Opus 5.5 Medium）凭一句提示词两小时建成 HackerTube，复刻 YouTube 布局，收录 6454 个 HN 推荐视频。",
+          "腾讯摘要称，排序由点击时长换成 HN 用户多年主动推荐，免登录、观看状态存本地，封面取视频中间一帧，可导出底层数据。",
+          "腾讯摘要称，他本人只建 API Key、启动 VPS、买域名，其余交给 Claude；仍依赖 YouTube 视频与元数据，搜索会混入无关内容。",
+        ],
+        interpretation:
+          "关联原文为完整报道。Karpathy 在周五晚因不满 YouTube 推荐算法，用 Claude Code 桌面版（Opus 5.5 Medium 推理强度）以一句提示词在约两小时内建成 HackerTube（hackertube.org）。网站收录 6454 个来自 Hacker News 用户多年推荐的 YouTube 视频，按艺术、软件工程、历史、思想、商业、游戏等分类。设计选择：不要求登录、观看状态存本地浏览器、封面取视频中间一帧而非上传者优化封面、底层数据可导出。Karpathy 本人仅完成 Google Cloud API Key 创建、VPS 启动和域名购买，其余代码编写、数据处理、部署和安全加固均由 Claude 完成。社区讨论中有人质疑为何 Karpathy 可用 Opus 逆向 YouTube 而他人碰安全围栏。网站局限：仍依赖 YouTube 视频与元数据、HN 用户品味不等于普遍高质量、搜索混入无关内容、播放量排行中多为老视频。更准确地说，它是建立在现有平台之上的个性化策展与推荐层。",
+        whyItMatters:
+          "HackerTube 展示了单个开发者可用 AI 重建信息发现入口，用社区策展信号替代平台推荐算法。从点击时长到人类主动推荐的排序信号转换是对内容分发机制的哲学表态。但项目局限显著：未重建视频托管、上传、版权管理和创作者分成，2 小时建成的成果是 YouTube 基础设施之上的薄层。更广泛的意义在于个人推荐算法作为潜在市场的可能性。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "卡帕西用Claude两小时重做了YouTube，每个人都能拥有一个自己的互联网",
+        sourceUrl: "https://mp.weixin.qq.com/s/DJ0Asz5dJZZygFvKBGlAfw",
+      },
+      {
+        id: "20261103-08",
+        category: "报告观点",
+        title: "谷歌能源负责人泼冷水：太空数据中心成本或达地面 100 倍",
+        tencentSummary: [
+          "腾讯摘要称，谷歌数据中心能源负责人 Amanda Peterson Corio 称，发射上天成本最高可达地面建设的 100 倍，维护升级亦难，落地「绝非近在眼前」。",
+          "腾讯摘要称，谷歌论文称发射成本降至每公斤 200 美元时，太空算力成本有望与地面相当，或在 2035 年前后达成；马斯克称最快明年建成，贝佐斯称十年内现 1 吉瓦级。",
+          "腾讯摘要称，她认为美国电力够用，瓶颈在并网审批与评估，Alphabet 的 Tapestry 项目正与 PJM 合作用 AI 提速。",
+        ],
+        interpretation:
+          "关联原文（科创板日报）为完整报道。Amanda Peterson Corio 在 WTF 峰会上表示太空数据中心发射成本最高可达地面建设的 100 倍，在轨设备维护升级困难。谷歌 Suncatcher 项目已与 Planet Labs 合作，向太空发射了搭载博通定制 AI TPU 的小型服务器原型机。谷歌研究员及首席研究员 James Manyika 发表论文称，若发射成本降至每公斤 200 美元及以下，太空单位功耗算力成本有望与地面相当，可能在 2035 年前后达成，取决于 SpaceX 星舰研发进度和发射频次。竞争方态度：马斯克称最快明年建成太空数据中心，贝佐斯预判十年内出现 1 吉瓦级。Peterson Corio 未全盘否定太空算力，称方向「非常有意思」但落地「绝非近在眼前」。关于美国电力，她认为电力供给足够，真正瓶颈在并网审批流程和评估研究；Alphabet 旗下 Tapestry 项目正与东海岸最大电网运营商 PJM 合作，用 AI 加速评估。得克萨斯州已放缓部分数据中心审批。",
+        whyItMatters:
+          "Peterson Corio 的视角具有特殊分量——谷歌既是大型数据中心运营商也在积极研究太空算力。100 倍成本和「绝非近在眼前」的评估与 SpaceX 和蓝色起源的乐观时间表形成对比。她将瓶颈从「电力不足」重新定义为「审批流程」，对 AI 基建政策有直接含义。Tapestry 用 AI 加速电网评估的做法可能成为其他地区的范本。马斯克（明年）、贝佐斯（十年）、谷歌（2035）的悬殊时间表反映了巨大的不确定性。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: "谷歌：太空数据中心成本是地面的100倍",
+        sourceUrl: "https://mp.weixin.qq.com/s/gLbOLBmDFaJRKhyz-mrNVg",
+      },
+      {
+        id: "20261103-09",
+        category: "报告观点",
+        title: 'HumanLayer 创始人质疑"关灯软件工厂"，称 Agent 难维护代码库',
+        tencentSummary: [
+          "腾讯摘要称，德克斯·霍西认为测试只验证当下改动，糟糕架构的代价按月按年显现，无人看管的模型难在多轮修改中维持代码库质量。",
+          "腾讯摘要称，分阶段评测 SlopCodeBench 含 36 道任务、196 个检查点，受测 Agent 无一完整做完，最佳严格通过率 14.8%，十月更新升至 16.3%。",
+          "腾讯摘要称，他建议大改动先花 20 到 30 分钟与 Agent 规划，让 Agent 用浏览器自测，并保留计划与会话记录；候选修复 PR 仍须由人决定是否合并。",
+        ],
+        interpretation:
+          "关联原文为完整演讲整理。德克斯·霍西（HumanLayer 联合创始人兼 CEO）讨论「关灯运行的软件工厂」设想。核心论点：测试验证当前改动是否满足要求，但无法预判下个月产品新需求会牵动哪些模块；糟糕架构的代价按月按年显现，当时没有评判标准。SlopCodeBench 采用分阶段评测：先让 Agent 完成初版，再不断加新需求要求继续修改自己写过的代码。36 道任务、196 个阶段检查点；示例任务从基本搜索逐步增加结构化匹配、自动修复和多语言支持。结果：受测 Agent 无一完整做完全部任务，最佳严格通过率 14.8%，十月更新升至 16.3%。建议：大改动先花 20-30 分钟与 Agent 讨论模块划分和改动顺序；让 Agent 用浏览器操作页面、用 curl 调接口、录运行画面来自检；保留计划和会话记录；事故告警旁可有 Agent 准备的修复 PR，但合并仍须由人决定。需注意霍西作为编程 Agent 产品创始人的立场。",
+        whyItMatters:
+          "霍西的批评指向「通过测试」与「可维护代码」之间的差距——这在团队采纳 AI 编程 agent 时是真实关切。SlopCodeBench 的分阶段方法比单任务基准更接近迭代开发现实。14.8% 至 16.3% 的通过率表明当前 agent 在代码维护方面远不能替代人类判断。但作为 HumanLayer（agent 产品）创始人，其视角可能倾向于强调局限性以定位自身产品的人机协作价值。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-03",
+        sourceTitle: 'Agent的能力还不足维护代码库！HumanLayer创始人质疑"无人值守"的软件工厂',
+        sourceUrl: "https://mp.weixin.qq.com/s/CrEorp4srOhMM5wlS-Up7w",
+      },
+    ],
+  },
 ];
 
 export function getBrief(date: string) {
