@@ -5333,7 +5333,7 @@ export const briefs: Brief[] = [
       "从 GPT-6 Astra 改写 Qwen 权重、Anthropic 招股书与 Grok Bot 额度缩水，到 DeepSeek 创造模式、QQ 浏览器 WorkBuddy、CoworkOS 超级同事，再到百度 Apollo 世界模型、Supabase 个人数据库与 Isomorphic Labs AI 药物设计：9 条动态的结构化阅读。",
     sourceUrl: "https://mp.weixin.qq.com/s/rzJfuZIezq2s1ENQ7A5G8Q",
     evidenceNote:
-      "本期已通过文本提取读取腾讯研究院主文及全部 9 条关联原文。主文发布于 2026 年 11 月 3 日，9 条均有独立微信链接并成功读取完整正文。证据等级只表示本站实际读取范围，读取关联原文不等于独立交叉核验。",
+      "本期已通过文本提取读取腾讯研究院主文及全部 9 条关联原文。主文发布于 2026 年 11 月 4 日（00:01），9 条均有独立微信链接并成功读取完整正文。证据等级只表示本站实际读取范围，读取关联原文不等于独立交叉核验。",
     copyrightNotice:
       "基于腾讯研究院公开主文和关联原文的短摘要与评论，本站为非官方整理，版权归原作者和发布者，链接回腾讯研究院主文及各关联原文。",
     items: [
