@@ -881,3 +881,80 @@ test("2026-11-09 edition keeps evidence levels, attribution, and copyright", () 
   assert.match(block, /title_only/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
+
+test("2026-11-10 edition keeps evidence levels, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-11-10");
+  assert.equal((block.match(/^\s{8}id: "20261110-/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-11-10"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 7);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 1);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}interpretation:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}whyItMatters:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}category: "(?:生成式 AI|前沿科技|报告观点)"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}title: "/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}sourceTitle: "/gm) ?? []).length, 8);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261110-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08"],
+  );
+  assert.equal((block.match(/^\s{8}category: "生成式 AI"/gm) ?? []).length, 6);
+  assert.equal((block.match(/^\s{8}category: "前沿科技"/gm) ?? []).length, 1);
+  assert.equal((block.match(/^\s{8}category: "报告观点"/gm) ?? []).length, 1);
+  const urls = [...block.matchAll(/^\s{8}sourceUrl: "([^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(urls.length, 8);
+  assert.equal(new Set(urls).size, 8);
+  const wxUrls = urls.filter((url) => url.startsWith("https://mp.weixin.qq.com/s/"));
+  assert.equal(wxUrls.length, 7);
+  wxUrls.forEach((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+  });
+  assert.match(block, /105554\.html/);
+  assert.match(block, /腾讯研究院 AI 速递 20261110/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称/);
+  assert.match(block, /title_only/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
+
+test("2026-11-11 edition keeps evidence levels, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-11-11");
+  assert.equal((block.match(/^\s{8}id: "20261111-/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-11-11"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}interpretation:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}whyItMatters:/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}category: "(?:生成式 AI|前沿科技|报告观点)"/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}title: "/gm) ?? []).length, 9);
+  assert.equal((block.match(/^\s{8}sourceTitle: "/gm) ?? []).length, 9);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261111-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08", "09"],
+  );
+  assert.equal((block.match(/^\s{8}category: "生成式 AI"/gm) ?? []).length, 4);
+  assert.equal((block.match(/^\s{8}category: "前沿科技"/gm) ?? []).length, 4);
+  assert.equal((block.match(/^\s{8}category: "报告观点"/gm) ?? []).length, 1);
+  const childUrls = [...block.matchAll(/^\s{8}sourceUrl: "(https:\/\/mp\.weixin\.qq\.com\/s\/[^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(childUrls.length, 9);
+  assert.equal(new Set(childUrls).size, 9);
+  childUrls.forEach((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+  });
+  assert.match(block, /2EhgQo8H3XiL4G88Btu8Xg/);
+  assert.match(block, /腾讯研究院 AI 速递 20261111/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});

@@ -6297,6 +6297,338 @@ export const briefs: Brief[] = [
       },
     ],
   },
+  {
+    date: "2026-11-11",
+    title: "珂的非官方整理：腾讯研究院 AI 速递 20261111",
+    description:
+      "Anthropic 发布 Fable 5.2 与 Mythos 5.2，30 小时完成费马大定理形式化；Gemini 4 检查点 Krypton 曝光；Meta 推出最小模型 Muse Ember，以三分之一成本追平 Haiku 5.5；MiniMax 开源 H3-Image；姚期智与杨植麟团队推出 TCSExam，Kimi K3 把图论纪录推到 630 条边；英伟达发布 GR00T 2；智元发布 WITA-Omni；蚂蚁灵波开源 LingBot-Touch；Stamos 谈 AI 颠倒攻击链。",
+    sourceUrl: "https://mp.weixin.qq.com/s/2EhgQo8H3XiL4G88Btu8Xg",
+    evidenceNote:
+      "本期共 9 条，全部读取了关联原文全文（8 条经 AI Express 站内转载全文、1 条经微信公众号原文），其中姚期智团队 TCSExam 一条另核对正文引用的论文编号与四条任务轨道说明。读取关联原文不等于独立交叉核验，条目判断以转述与公开信息为限。",
+    copyrightNotice:
+      "本站为非官方整理，仅作信息聚合与个人学习用途；版权归原作者和发布者所有，完整内容请以公众号原文与 AI Express 页面为准。",
+    items: [
+      {
+        id: "20261111-01",
+        category: "生成式 AI",
+        title: "Anthropic发布Fable 5.2与Mythos 5.2，30小时形式化费马大定理",
+        tencentSummary: [
+          "腾讯摘要称，Anthropic发布Fable 5.2与Mythos 5.2，速度较5.1最高快30%，每百万输入/输出Token定价8/40美元；",
+          "腾讯摘要称，Fable 5.2在FrontierCode 2.0得49.1%，超GPT-6 Astra；RoboDojo Sim由27.6%升至64.9%；",
+          "腾讯摘要称，1000个Fable 5.2智能体30小时完成费马大定理形式化，此前需11天；Opus 5.5跑18小时仅完成26%。",
+        ],
+        interpretation:
+          "关联原文为发布解读，侧重产品分层、定价与基准数字。两款模型共用同一底层模型、以安全防护差异分流：Fable 对全部用户开放，Mythos 需通过生命科学与网络安全验证计划申请。这是把能力与可滥用风险拆开定价的产品化路径。8/40 美元定价、速度比 5.1 快 30%、并按订阅时长给重置次数，指向留住长期高频用户；RoboDojo Sim 从 27.6% 跳到 64.9% 说明提升并不局限在文本基准上。",
+        whyItMatters:
+          "同一底座按安全等级分版本交付，可能成为前沿模型面向企业与研究机构的常见形态。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "刚刚，Claude Fable 5.2炸场！30小时完成费马大定理形式化",
+        sourceUrl: "https://mp.weixin.qq.com/s/UF1J6k4MnKbQ3sMtDSuNfQ",
+      },
+      {
+        id: "20261111-02",
+        category: "生成式 AI",
+        title: "谷歌Gemini 4新检查点Krypton曝光，代码生成视觉与3D超越Carbon",
+        tencentSummary: [
+          "腾讯摘要称，谷歌Gemini 4内部检查点Krypton遭曝光，代码生成视觉与3D场景明显强于两周前发布的Carbon；",
+          "腾讯摘要称，测试者在AI Studio以单个提示词纯代码生成完整动画，耗时39分16秒、速度105 token/秒；",
+          "腾讯摘要称，Krypton耗时与代码量约为Carbon、Argon两倍，SVG手柄耗时386秒对165秒；Flash级Hydrogen基准接近GPT-6 Astra。",
+        ],
+        interpretation:
+          "关联原文为社区爆料整理，侧重测试者自述与对比数据。结论目前都来自早期测试者的自述与对比截图，没有官方基准，样本也小，需要正式发布后复核。可观察的是方向：同一提示词下 Krypton 的耗时与代码量约为 Carbon、Argon 的两倍，用更多生成时间换来更完整的作品，这是推理时计算在生成类任务上的具体表现。代号按化学元素排列、发布节奏按周计算，也说明泄露—炒作—发布已成常规营销链路。",
+        whyItMatters:
+          "多模态生成的竞争开始体现在愿不愿意花更多推理时间，这会反过来约束产品的成本与延迟设计。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "Fable 5.2 还没捂热，Gemini 4 神秘新模型就刷屏了",
+        sourceUrl: "https://mp.weixin.qq.com/s/Seqjbdch1SCXuKXgB5easQ",
+      },
+      {
+        id: "20261111-03",
+        category: "生成式 AI",
+        title: "Meta甩出最小模型Muse Ember，三分之一成本追平Haiku 5.5",
+        tencentSummary: [
+          "腾讯摘要称，Meta发布最小模型Muse Ember，支持100万Token上下文、原生多模态，首款用Muse Wonder Full训练；",
+          "腾讯摘要称，Artificial Analysis得35.8分，与Haiku 5.5的36.2分基本持平，单任务成本0.136美元，仅其1/3；",
+          "腾讯摘要称，每百万输入/输出Token 0.10/0.50美元；AutomationBench-AA得37.8%，超Haiku 5.5的13.9%。",
+        ],
+        interpretation:
+          "关联原文为发布解读，侧重成本对比与基准表。把考核口径从每 token 价格换成单项任务成本，是这篇最有价值的提醒：便宜但需要重试三次的模型，实际花费可能更高。35.8 分对 36.2 分基本持平、单任务 0.136 美元约为对方三分之一，同时保留 100 万上下文与原生多模态，指向的是 Agent 高频重复调用的长尾任务。网页生成与 3D 模型测试的速度数据仍来自厂商与社区侧，独立复核有限。",
+        whyItMatters:
+          "Agent 规模化落地时，任务级成本而非 token 单价才决定它能否 7×24 常开。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "便宜得离谱！Meta甩出最省钱模型，1/3成本追平Claude Haiku 5.5",
+        sourceUrl: "https://mp.weixin.qq.com/s/44vxpEPwrlo9Y3egWqsc4Q",
+      },
+      {
+        id: "20261111-04",
+        category: "生成式 AI",
+        title: "MiniMax开源H3-Image，10秒生成4096×4096高清图像",
+        tencentSummary: [
+          "腾讯摘要称，MiniMax开放H3-Image权重，衍生自H3，支持文生图、图像参考与编辑，最多16张参考图；",
+          "腾讯摘要称，10秒内生成4096×4096约16MP的4K图像，速度达市面主流5倍；后训练强化数据、强化学习与步数压缩；",
+          "腾讯摘要称，API标准模式速度为主流1.5–2倍，Highspeed达3–4倍，价格为同档50%–70%；首周16MP以上请求五折。",
+        ],
+        interpretation:
+          "关联原文为官方开源说明，侧重分辨率、速度与定价。10 秒出 4096×4096 的 16MP 图，是把高分辨率从演示推向日常创作的速度门槛。开源权重、最多 16 张参考图与较强指令遵循，瞄准创作者自建与二次定制；API 定价为同档 50%–70%、首周 16MP 请求五折，是用价格换调用量。真实感与细节是否在公开样本外稳定，仍需独立验证。",
+        whyItMatters:
+          "开源图像模型同时压低 4K 生成的成本与延迟，会直接冲击商业图库与素材生成的价格体系。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
+        sourceUrl: "https://mp.weixin.qq.com/s/k155NbBb4srZoJBZvlWttA",
+      },
+      {
+        id: "20261111-05",
+        category: "前沿科技",
+        title: "姚期智杨植麟联推TCSExam，Kimi K3把图论纪录推至630条边",
+        tencentSummary: [
+          "腾讯摘要称，姚期智、杨植麟等推出TCSExam，用100项理论计算机科研任务分四轨评测AI，以Lean 4与程序检查器核验成果；",
+          "腾讯摘要称，124点无三角形、无四边形图此前纪录629条边，Kimi K3构造出630条并经程序验证；",
+          "腾讯摘要称，GPT-6 Astra完成20项定理中14项，将Alon–Jaeger–Tarsi猜想特定情形从8维推至9维；其余28项开放猜想未获完整解。",
+        ],
+        interpretation:
+          "关联原文为评测体系解读，侧重任务分轨与核验方式。这套评测的重点不在题目数量，而在怎样判定算做出来了：定理走 Lean 4、Solver 走程序检查器与统一资源限制、构造任务固定合法条件与参考纪录，并用 Checkpoint 机制防止局部进展被误判为完整成果。124 点无三角无四边形图从 629 条推到 630 条，是极值构造类任务上一次可核验的推进；同时 28 项开放猜想未获完整解，也标出了当前边界。",
+        whyItMatters:
+          "把 AI 科研产出转成可独立核验的成果，是区分运气撞上还是逻辑证明的基础设施。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "姚期智杨植麟首次联手给 AI 出的博士级题目，Kimi 多画出了「关键一条边」",
+        sourceUrl: "https://mp.weixin.qq.com/s/xr2yPnG09FhJcNs1oj4n8Q",
+      },
+      {
+        id: "20261111-06",
+        category: "前沿科技",
+        title: "英伟达祭出GR00T 2世界动作模型，用超40万小时人类视频训练",
+        tencentSummary: [
+          "腾讯摘要称，英伟达在CoRL 2026推出GR00T 2及Turbo版，预训练用402730小时人类视频、10184小时UMI夹爪及23500小时遥操作数据；",
+          "腾讯摘要称，50项未见任务零样本成功率40%，每任务给1个示范升至71%、5个达95%，单卡RTX 5090微调仅30分钟；",
+          "腾讯摘要称，20亿参数Turbo在宇树G1机载Jetson Thor推理124毫秒；12月开放权重、数据与硬件设计图。",
+        ],
+        interpretation:
+          "关联原文为发布会解读，侧重数据规模与迁移方式。四十万小时人类视频配上一万小时夹爪与两万多小时遥操作，说明跨本体迁移主要靠「看人做」。零样本 40%、1 个示范 71%、5 个示范 95%，是这代模型最实用的一组数字：它把落地门槛从采集大量真机数据降到给几次示范。Turbo 以 20 亿参数在 G1 机载 Jetson Thor 上 124 毫秒推理，说明端侧实时控制已接近产品形态；官方演示中的部分任务仍明显提速播放，实际效率待观察。",
+        whyItMatters:
+          "少样本适应把机器人部署成本从数据采集转移到任务配置，这是能否规模复制的分水岭。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "Jim Fan直呼太棒了！英伟达GR00T 2来了，用40万小时人类视频训练",
+        sourceUrl: "https://mp.weixin.qq.com/s/MMCQv2uK2xPwNNpzfzdjfw",
+      },
+      {
+        id: "20261111-07",
+        category: "前沿科技",
+        title: "智元推出WITA-Omni，全模态交互大模型装进人形机器人本体",
+        tencentSummary: [
+          "腾讯摘要称，智元发布具身全模态端到端交互大模型WITA-Omni，新增触觉、本体状态输入及动作、表情输出，可在远征A3-Ultra本体部署；",
+          "腾讯摘要称，流式全双工架构下响应最快约400毫秒、平均约600毫秒，较业内平均快近3倍；全模态拒识免唤醒词，支持上百种语言方言；",
+          "腾讯摘要称，采用快慢双模系统，前台即时回应、后台Agent推理规划；登顶DailyOmni、MMAU等4个榜单，已用于文娱导览。",
+        ],
+        interpretation:
+          "关联原文为官方发布说明，侧重交互架构与实测时延。把触觉与本体状态纳入输入、动作与表情作为输出，并且能跑在量产本体上，意味着交互模型不再只是语音助手加合成语音。最快 400 毫秒、平均 600 毫秒的响应，靠的是流式全双工加快慢双模：前台即时回应，后台 Agent 做规划与长程任务。全模态拒识免唤醒词，实际解决的是多人环境中的误触发，这比单纯堆语音指标更贴近上岗场景。",
+        whyItMatters:
+          "具身交互的自然度取决于时延与拒识能力，这两项指标决定人形机器人能否进入导览、接待等真实岗位。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "智元 WITA-Omni，行业首个具身全模态端到端交互大模型，开创人形机器人交互新时代",
+        sourceUrl: "https://mp.weixin.qq.com/s/vKwXp1MBFCNo8XZH0v_5xg",
+      },
+      {
+        id: "20261111-08",
+        category: "前沿科技",
+        title: "蚂蚁灵波开源LingBot-Touch，触觉表征助拧瓶盖成功率升至90%",
+        tencentSummary: [
+          "腾讯摘要称，蚂蚁灵波开源触觉基础模型LingBot-Touch，基于近5000小时触觉数据预训练，将磁触觉、视触觉、压阻式信号统一表征；",
+          "腾讯摘要称，26项真机测试中，四种动作模型平均成功率较无触觉提升约14至26个百分点；T-Rex拧瓶盖由56.25%升至90%；",
+          "腾讯摘要称，测试用约530万参数的Tiny版，接入后参数仅增0.13%至0.16%；换XHand时模型参数不变仍可复用。",
+        ],
+        interpretation:
+          "关联原文为开源公告，侧重表征方案与真机测试结果。按传感原理分别设编码入口、再把触点映射到统一指尖坐标空间，输出共用触觉 Token，解决的是换传感器就要重采数据的重复投入。换到 XHand 时模型参数不变仍可复用，验证了跨硬件迁移。26 项真机测试里四种动作模型平均成功率提升 14 至 26 个百分点，拧瓶盖从 56.25% 到 90% 是一组较直接的对比。Tiny 版约 530 万参数、接入后参数仅增 0.13%–0.16%，兼顾端侧算力。",
+        whyItMatters:
+          "触觉是精细操作的最后一块短板，统一表征让硬件选型与算法解耦，降低灵巧操作的落地成本。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "LingBot-Touch 触觉基础模型正式开源，为通用大脑接入「手感」",
+        sourceUrl: "https://mp.weixin.qq.com/s/mgAN9NwgqSlIO-5JC-5guA",
+      },
+      {
+        id: "20261111-09",
+        category: "报告观点",
+        title: "Stamos警告AI颠倒攻击链，呼吁企业90天内主动攻击自己",
+        tencentSummary: [
+          "腾讯摘要称，Cognition首席安全官Stamos称开放权重模型已能自动化完成攻击链大部分环节，攻击者每Token成本趋零，防御者一次调查却要900美元；",
+          "腾讯摘要称，他主张90天内每家公司须用Artex类AI红队主动攻击自己；防御前几层交给AI，但须设确定性权限上限；",
+          "腾讯摘要称，他认为大量软件应重构而非打补丁，建议谷歌、亚马逊花约1亿美元用Rust重写Linux内核；识别假内容只能靠概率，应以密码学验证真实内容。",
+        ],
+        interpretation:
+          "关联原文为访谈整理，侧重成本对比与具体建议。核心判断是一个成本不对称：攻击者每 token 成本趋近于零，防御者用前沿模型做一次调查要 900 美元。所以他的方案偏向可执行的边界：把最初几层防御交给 AI，但设确定性权限上限，例如最多停用固定数量的账户；内容侧不与其拼概率识别假，转向用密码学验证真实。一亿美元重写 Linux 内核的提议，本质是把长期补丁与全球重启的社会成本一并计入。",
+        whyItMatters:
+          "防御侧的成本结构与权限边界设计，决定企业在 AI 加速的攻击面前是否还有可执行的应对选项。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-11",
+        sourceTitle: "90天内，必须主动攻击自己一次！Facebook前首席安全官Stamos提议：花1亿美元用Rust重写Linux",
+        sourceUrl: "https://mp.weixin.qq.com/s/1hQhYqExkxFWyVWuWNbM7w",
+      },
+    ],
+  },
+  {
+    date: "2026-11-10",
+    title: "珂的非官方整理：腾讯研究院 AI 速递 20261110",
+    description:
+      "谷歌一年内连推四款 TPU（新增 8tx 与 8i Max）；GPT-6.2 Sol 被曝灰度，同任务耗时与花费约为 Opus 5.5 一半；Anthropic 以 34 亿美元锁定 1.7 吉瓦发电机；豆包 Seedream 5.5 主打像素级可控编辑；LongCat-2.5 以 MIT 协议开源 1.6 万亿参数模型；千问办公 2.0 以 Team Agent 形态落地；苹果公开 HALO 人形机器人研究；Anthropic 用「做梦」机制整理智能体记忆。",
+    sourceUrl: "https://www.aiexpress.news/105554.html",
+    evidenceNote:
+      "本期共 8 条：7 条读取了关联原文全文（其中 3 条经微信公众号原文、4 条经 AI Express 站内转载全文），第 1 条（谷歌第八代 TPU）对应的站内转载页已返回 410、Google 官方公告在当前网络环境不可达，仅按腾讯摘要与官方页面标题保留 title_only 层级。读取关联原文不等于独立交叉核验，条目判断以转述与公开信息为限。",
+    copyrightNotice:
+      "本站为非官方整理，仅作信息聚合与个人学习用途；版权归原作者和发布者所有，完整内容请以公众号原文与 AI Express 页面为准。",
+    items: [
+      {
+        id: "20261110-01",
+        category: "生成式 AI",
+        title: "谷歌第八代TPU新增8tx与8i Max，一年内连推四款TPU系统",
+        tencentSummary: [
+          "腾讯摘要称，谷歌第八代TPU新增8tx与8i Max，连同4月的8t、8i，首次一年推出四款系统，分管训练、推理、机密计算与长上下文；",
+          "腾讯摘要称，8tx与8t同芯片，配AMD EPYC主机，硬件层隔离数据与权重，延迟较8t最多降2倍；8i Max将两颗8i合封，算力、SRAM与HBM带宽翻倍；",
+          "腾讯摘要称，开源TPU Sync，键值传输延迟与首令牌时间降超90%；GKE动态切片作业启动至多快5倍；TPU已有近百家客户。",
+        ],
+        interpretation:
+          "本条为 title_only 层级：AI Express 站内转载页已失效、Google 官方公告在当前网络不可达，只有腾讯摘要与官方页面标题可供判断。一年内推出四款系统，等于把加速器按训练、推理、机密计算与长上下文拆成专用型号，而不是用单一芯片覆盖全部负载。8tx 把训练级算力与低延迟推理网络放在同一系统，指向企业「同一集群既训又用、敏感数据不外迁」的场景；8i Max 双芯合封换取 SRAM 与 HBM 带宽翻倍，针对的是多智能体长上下文造成的内存墙。对采购方而言，选型维度从算力峰值转向按负载配型号。",
+        whyItMatters:
+          "专用化路线意味着企业 AI 基础设施的采购与调度要按负载分层，单卡算力比拼的解释力在下降。",
+        evidenceLevel: "title_only",
+        checkedAt: "2026-11-10",
+        sourceTitle: "Introducing TPU 8tx and TPU 8i Max（Google Cloud Blog）",
+        sourceUrl: "https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max",
+      },
+      {
+        id: "20261110-02",
+        category: "生成式 AI",
+        title: "GPT-6.2 Sol疑似开启灰测，网友实测耗时与花费不及Opus 5.5一半",
+        tencentSummary: [
+          "腾讯摘要称，网友在ChatGPT或Codex选GPT-6.1 Sol时，疑似被路由至未发布的GPT-6.2 Sol，Sol主打低成本推理与编程；",
+          "腾讯摘要称，同提示词生成交互动画，Sol约20分钟花9美元，Opus 5.5用时1小时花20美元；还用单个HTML做出3D海盗船；",
+          "腾讯摘要称，11月4日Google Cloud配额页已现gpt-6.2-sol，The Information称最快11月6日发布，至今仍未上线。",
+        ],
+        interpretation:
+          "关联原文为媒体实测报道，与摘要基本重合，补充了测试条件与现场细节。选择上一代型号却被路由到未发布模型，属于典型的静默放量，样本来自网友自述，尚缺官方基准。真正有信息量的是成本对比：同一提示词、最高推理档下约 20 分钟 9 美元对 1 小时 20 美元，单价与耗时同时腰斩。若这类结果能复现，压力会先落在按 token 计价的编程与 Agent 场景，因为那里成本最敏感、也最容易被批量替换。",
+        whyItMatters:
+          "性价比路线的正面竞争会把降价压力传导到所有按 token 计价的编程与 Agent 产品。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "GPT-6.2 Sol上线灰测！3倍速干翻Opus 5.5，账单还砍半了",
+        sourceUrl: "https://mp.weixin.qq.com/s/B9yxQXzlffs_Hya-GgnTXg",
+      },
+      {
+        id: "20261110-03",
+        category: "生成式 AI",
+        title: "Anthropic豪掷34亿美元锁定1.7吉瓦发电机，创AI实验室采购纪录",
+        tencentSummary: [
+          "腾讯摘要称，据《金融时报》，Anthropic于9月下旬与OnePWR达成交易，以34亿美元（约227亿元）锁定1.7吉瓦发电机，为已知AI实验室最大单笔发电设备采购；",
+          "腾讯摘要称，其未收购OnePWR，而是接管其两年前向卡特彼勒下的订单并含安装工程能力，赶在涨价前锁定未来两年供货；",
+          "腾讯摘要称，Anthropic称至2045年计算承诺总额近9000亿美元，计划最早本月上市；黑石警告其信用评级或被评为「垃圾级」。",
+        ],
+        interpretation:
+          "关联原文为编译报道，援引《金融时报》对交易结构的描述。交易结构比金额更值得看：不收购公司、不接收人员，只接管两年前下单的卡特彼勒设备与施工能力，买的是到货确定性而非资产。这反映约束已从芯片转向电力与交付周期，绕开公用事业公司直接掌控产能成为前沿实验室的共同选择。配合 2045 年近 9000 亿美元的计算承诺与年底每月 31 亿美元的算力租赁，重资产承诺也把信用评级风险一并放大。",
+        whyItMatters:
+          "算力扩张的瓶颈正从加速器转为电力与并网周期，这基本决定了未来两年模型公司的产能上限。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "227亿，史上最大AI界发电机大单来了！",
+        sourceUrl: "https://mp.weixin.qq.com/s/gs1ESxMHYDRcZX5nYnbiFQ",
+      },
+      {
+        id: "20261110-04",
+        category: "生成式 AI",
+        title: "豆包推出图像模型Seedream 5.5，百轮连续改图非编辑区不走样",
+        tencentSummary: [
+          "腾讯摘要称，豆包图像模型Seedream 5.5支持像素级可控编辑，上百轮连续修改后，修改区外的主体、构图比例与光影风格仍保持一致；",
+          "腾讯摘要称，支持原生RGBA透明素材生成与拆分，最多100层分层输出；密集小字渲染增强，写实光影与皮肤纹理较5.0 Pro更自然；",
+          "腾讯摘要称，按输入图加输出图计费、文本Token免费，2K方图编辑单张0.28元，较5.0 Pro便宜60%、快近40%；API本周上线。",
+        ],
+        interpretation:
+          "关联原文为官方发布说明，侧重技术指标、案例与定价。把「改动区外一像素不动」作为可承诺指标，切的是真实生产中改图频次高于出图这个事实。多轮编辑的误差累积一直是旧模型的主要失效模式，专项训练提升像素保持能力，直接降低长流程资产维护成本。原生 RGBA 与最多 100 层分层输出，让它能进设计资产管线而不只是产出终图；价格降 60%、速度提近 40%，是把图像编辑推向高频调用的定价结构。",
+        whyItMatters:
+          "图像模型竞争正从单张出图质量转向可编辑性与资产复用，这直接影响电商、广告与影视的前后期流程。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "Seedream 5.5：像素级可控编辑，百轮修改不崩坏",
+        sourceUrl: "https://mp.weixin.qq.com/s/35BineRdaBEsMi2Wvefr6Q",
+      },
+      {
+        id: "20261110-05",
+        category: "生成式 AI",
+        title: "LongCat-2.5以MIT协议开源，万亿参数模型深度适配国产算力",
+        tencentSummary: [
+          "腾讯摘要称，LongCat-2.5为面向长程智能体任务的原生多模态模型，总参数1.6万亿、每token激活约480亿，支持100万上下文；",
+          "腾讯摘要称，把真实Agent失败轨迹转为可验证训练任务；视觉信号转为多层级离散token，与文本共用主干；",
+          "腾讯摘要称，采用W4A4将专家权重与激活量化至4bit；在单卡显存不足80GB的国产加速器上完成长序列训练，FSDP单卡吞吐较DDP基线提升86%。",
+        ],
+        interpretation:
+          "关联原文为 LongCat 团队开源公告，侧重训练链路与工程选择。这组数字真正的指向是受限硬件：1.6 万亿总参数、每 token 激活约 480 亿，配合 W4A4 量化，在单卡显存不足 80GB 的国产加速器上跑完长序列训练。训练侧把真实 Agent 失败轨迹转成可验证任务、断网清 git 历史以防作弊，是对长程任务里「看起来完成」这类假成功的针对性约束。视觉信号做成与文本同主干的离散 token，也让多模态不再外挂模块。MIT 协议则直接对商用部署放开。",
+        whyItMatters:
+          "国产算力适配与长程任务训练的工程细节，比参数规模更能决定模型在自动化工作流里的实际可用性。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "LongCat-2.5开源：从看见，到抵达",
+        sourceUrl: "https://mp.weixin.qq.com/s/EGLDrPxND-xGTyStJIDXrw",
+      },
+      {
+        id: "20261110-06",
+        category: "生成式 AI",
+        title: "千问办公推出2.0版本，数字员工小Q入驻团队协作空间",
+        tencentSummary: [
+          "腾讯摘要称，千问办公推出2.0，定位Team Agent；协作空间可关联钉钉群聊、听记、表格与文档，数字员工小Q经IM接活并梳理进展；",
+          "腾讯摘要称，自动任务支持订阅事件、配置规则，首批覆盖指定人消息、群内@自己等触发，纯云端任务在电脑关机后仍可运行；",
+          "腾讯摘要称，人机共创可选中段落、单元格或幻灯片批注后由AI原地修改；资料空间统一收录产物，并规划千问办公应用、Inside与Managed Agent。",
+        ],
+        interpretation:
+          "关联原文为产品发布说明，侧重功能形态与协作方式。定位 Team Agent、让小Q 从 IM 接活，本质是把 Agent 入口从对话框搬到既有协作流。事件订阅加规则配置、且纯云端任务在电脑关机后仍运行，这一条把它与本机助理区分开；选中段落或单元格原地改写、资料空间统一收产物，解决的则是「AI 产出散落各处」带来的协作与追溯成本。能否长期接活并留下可查产物，比单次问答质量更决定这类产品的留存。",
+        whyItMatters:
+          "办公 Agent 的竞争点从问答质量转向能否在团队流程中长期接活并留下可追溯的产物。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "千问办公2.0：主动与协同，迈向Team Agent时代",
+        sourceUrl: "https://mp.weixin.qq.com/s/SZAYbSdS-tFX28CGw6ihjw",
+      },
+      {
+        id: "20261110-07",
+        category: "前沿科技",
+        title: "苹果公开HALO人形机器人研究，宇树G1靠仿真数据进家成功率91%",
+        tencentSummary: [
+          "腾讯摘要称，苹果HALO以宇树G1为本体，背负Mac mini M4 Pro本地运行千问，原厂Jetson Orin NX负责29个关节50Hz控制；",
+          "腾讯摘要称，不靠遥操作，在约1000个程序生成的虚拟家庭合成16.3万条、近300小时数据；1178个房间生成耗约300张GPU、26小时；",
+          "腾讯摘要称，在6个未见过、未扫描的真实家庭完成坐下、钻桌底、推箱子等6类任务，360次平均成功率91%；串成组合任务降至约70%。",
+        ],
+        interpretation:
+          "关联原文为苹果研究进展报道，侧重平台构成与实测数字。这套平台的意义在于用现成硬件拼装、把研究重心压到数据合成与迁移，而不是自研本体：G1 做本体、背一台 Mac mini 跑本地模型、原厂 Jetson 负责关节控制。数据全部来自程序生成的家庭场景，六类任务在未见过、未扫描的真实家庭取得 91% 平均成功率，是「仿真到真实」路线一个较强的样本；组合任务降到约 70%，也说明长链条执行仍是短板。",
+        whyItMatters:
+          "合成数据能否替代昂贵的真机采集，是家用机器人研发成本结构的核心变量。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "苹果罕见公布人形机器人进展，宇树 G1 背着一台跑千问的 Mac mini",
+        sourceUrl: "https://mp.weixin.qq.com/s/WOQn74QNo45agiNJtu962A",
+      },
+      {
+        id: "20261110-08",
+        category: "报告观点",
+        title: "Anthropic公布智能体记忆实验：会「做梦」整理笔记的AI记性更好",
+        tencentSummary: [
+          "腾讯摘要称，Anthropic称智能体光记笔记不够，还需在空闲时「做梦」，对照会话记录反思、纠错并重组记忆；",
+          "腾讯摘要称，玩《宝可梦・红》约一万步，Sonnet 3.7见啥记啥写了413个文件仅获1枚徽章，Fable 5只写9个文件拿4枚；做梦纠正错误笔记后Claude抵达华蓝市；",
+          "腾讯摘要称，Opus 5做梦会话由2个增至128个建wiki，25题评分达成率由13%升至48%；搜索加wiki总分61%，仅搜索53%。",
+        ],
+        interpretation:
+          "关联原文为实验解读，侧重对比数据与反思机制的作用。把「记笔记」和「整理笔记」分开，是这个实验最实用的结论：写 413 个文件只拿 1 枚徽章，写 9 个文件却拿 4 枚，说明记忆的价值不在存储量而在结构化程度。空闲时对照会话记录反思、纠错并重组，相当于给 Agent 加了一层离线整理环节；建 wiki 后 25 题达成率由 13% 升至 48%，是这层整理较可量化的收益。对长期运行的助手来说，记忆治理比单纯扩大上下文更接近「越用越懂」。",
+        whyItMatters:
+          "长期运行 Agent 的记忆治理机制，可能比扩大上下文窗口更能决定它在真实工作流中的可靠性。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-10",
+        sourceTitle: "会做梦的AI，记性反而更好？Anthropic新实验：写了413份笔记的，输给只写9份的",
+        sourceUrl: "https://mp.weixin.qq.com/s/14FvK7AY3gvCVlFjS9ZH2g",
+      },
+    ],
+  },
 ];
 
 export function getBrief(date: string) {
