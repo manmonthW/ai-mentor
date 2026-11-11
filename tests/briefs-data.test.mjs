@@ -216,6 +216,18 @@ const editions = [
     titleOnly: 1,
     itemCount: 8,
   },
+  {
+    date: "2026-11-12",
+    mainId: "09_PR3kGSdpUrJuvOY8p0g",
+    childIds: [
+      "M-11bAau51c-PfyF7E-YHg", "cC14gJ-0JgGfawL4s5anoA", "sch617r-tqG_UOlzOmwg9Q",
+      "Vov3uVjHMvJi7bZP2uArog", "RXuGNTEEoY5QWiJ2xjNafQ", "f6q1N-i-Xh1mtAFZnQP3qA",
+      "w1xzkKGQdtd7KNJjS7SAyQ", "afcdRWyUCSH6SA-TA9cLmg",
+    ],
+    fullText: 8,
+    titleOnly: 0,
+    itemCount: 8,
+  },
 ];
 
 function editionBlock(text, date) {
@@ -951,6 +963,43 @@ test("2026-11-11 edition keeps evidence levels, attribution, and copyright", () 
   });
   assert.match(block, /2EhgQo8H3XiL4G88Btu8Xg/);
   assert.match(block, /腾讯研究院 AI 速递 20261111/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /读取关联原文不等于独立交叉核验/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者和发布者/);
+  assert.match(block, /腾讯摘要称/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
+
+test("2026-11-12 edition keeps evidence levels, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-11-12");
+  assert.equal((block.match(/^\s{8}id: "20261112-/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-11-12"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}interpretation:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}whyItMatters:/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}category: "(?:生成式 AI|前沿科技|报告观点)"/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}title: "/gm) ?? []).length, 8);
+  assert.equal((block.match(/^\s{8}sourceTitle: "/gm) ?? []).length, 8);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261112-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08"],
+  );
+  assert.equal((block.match(/^\s{8}category: "生成式 AI"/gm) ?? []).length, 7);
+  assert.equal((block.match(/^\s{8}category: "前沿科技"/gm) ?? []).length, 1);
+  assert.equal((block.match(/^\s{8}category: "报告观点"/gm) ?? []).length, 0);
+  const childUrls = [...block.matchAll(/^\s{8}sourceUrl: "(https:\/\/mp\.weixin\.qq\.com\/s\/[^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(childUrls.length, 8);
+  assert.equal(new Set(childUrls).size, 8);
+  childUrls.forEach((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+  });
+  assert.match(block, /09_PR3kGSdpUrJuvOY8p0g/);
+  assert.match(block, /腾讯研究院 AI 速递 20261112/);
   assert.match(block, /珂的非官方整理/);
   assert.match(block, /读取关联原文不等于独立交叉核验/);
   assert.match(block, /本站为非官方整理/);

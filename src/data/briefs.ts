@@ -6629,6 +6629,160 @@ export const briefs: Brief[] = [
       },
     ],
   },
+  {
+    date: "2026-11-12",
+    title: "珂的非官方整理：腾讯研究院 AI 速递 20261112",
+    description: "从 ChatGPT 商家主页、Claude 办公三件套、Gemini 4 Carbon 形式化验证，到虚幻引擎 Agent 构建、元宝搜索、Qwen4-Max 与文心 5.5 Flash，再到无人拖拉机大田深翻：8 条动态的结构化阅读。",
+    sourceUrl: "https://mp.weixin.qq.com/s/09_PR3kGSdpUrJuvOY8p0g",
+    evidenceNote: "本期已读取腾讯研究院主文 8 条摘要并逐条提取关联原文正文，全部标记为已读取正文。读取关联原文不等于独立交叉核验，厂商自述指标与基准排名均保留原始来源口径。",
+    copyrightNotice: "基于腾讯研究院公开主文的短摘要与关联原文的扩展解读，本站为非官方整理，版权归原作者和发布者，链接回腾讯研究院主文及各关联原文。",
+    items: [
+      {
+        id: "20261112-01",
+        category: "生成式 AI",
+        title: "OpenAI 推出 Businesses in ChatGPT，商家可派 AI 代理接待顾客",
+        tencentSummary: [
+          "腾讯摘要称，OpenAI 推出测试版 Businesses in ChatGPT，商家在 Business Hub 认领验证后可更新资料与商品清单，同步价格库存；",
+          "腾讯摘要称，用户可从资料页开启有标识的 Business Agent 对话，与 ChatGPT 回答分开；仅向美国合资格电商与在线服务商家开放，下单需跳转官网；",
+          "腾讯摘要称，后台提供被提及次数、网站点击等汇总统计，原始对话不分享给商家；ChatGPT 每周用户已达 12 亿。",
+        ],
+        interpretation:
+          "关联原文为媒体解读，补充了演示案例与产品逻辑。Business Agent 与 ChatGPT 自身回答明确分开、且原始对话不向商家开放，是隐私边界的核心设计。创业者将商品清单比作「新的 SEO」，意味着 AI 推荐场景下结构化数据的维护将直接影响商家获客。但目前仅限美国、下单仍需跳转官网，距离闭环交易还有距离。Greg Isenberg 对用户是否愿意逐个与品牌 AI 聊天持保留态度，猜测大家更想派自己的 AI 去谈。",
+        whyItMatters:
+          "AI 平台正在从回答问题延伸到连接商家与交易，结构化商品数据的维护能力可能成为新的获客门槛。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "ChatGPT给商家开主页，还能派AI接待顾客",
+        sourceUrl: "https://mp.weixin.qq.com/s/M-11bAau51c-PfyF7E-YHg",
+      },
+      {
+        id: "20261112-02",
+        category: "生成式 AI",
+        title: "Anthropic 推出 Claude Sheets 等办公三件套，微软股价应声跌 2.2%",
+        tencentSummary: [
+          "腾讯摘要称，Anthropic 发布表格 Claude Sheets、白板 Claude Whiteboards 与数据分析 Claude Data，网页、桌面、移动端可用；",
+          "腾讯摘要称，Sheets 一句提示生成带公式、下拉菜单的表格，可导出 .xlsx；Whiteboards 按主题归组笔记，可转文档或 PPT；",
+          "腾讯摘要称，Claude Data 正式上线，支持认证指标与实时共享；连接器可嵌入 Adobe 等应用；微软股价当日跌 2.20%。",
+        ],
+        interpretation:
+          "关联原文为编译报道，补充了功能细节与市场反应。Claude 自建原生工作台而非外挂已有 Office 工具，与 OpenAI 将 ChatGPT Work 作为智能体连接已有系统的思路形成对照。Sheets 目前仅具备基础电子表格功能，复杂需求仍需导出 .xlsx 在其他工具操作，说明首版定位是快速生成而非替代 Excel。Claude Data 的「认证指标」机制统一查询语句以避免数据看板冲突，是面向企业数据治理的设计。微软股价跌 2.20% 属当日市场反应，不构成趋势判断。",
+        whyItMatters:
+          "AI 原生办公工具与传统套件的路线之争，正在重新定义文档、表格与数据看板的交互方式。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "Claude奇袭Office！端出AI办公全家桶，微软股价大跌",
+        sourceUrl: "https://mp.weixin.qq.com/s/cC14gJ-0JgGfawL4s5anoA",
+      },
+      {
+        id: "20261112-03",
+        category: "生成式 AI",
+        title: "谷歌全量开放 Gemini 4 Carbon，AlphaProof Code 四周生成 650 万行安全证明",
+        tencentSummary: [
+          "腾讯摘要称，Google DeepMind 全量开放 Gemini 4 Carbon，主打复杂长周期任务，Ultra 订阅、API 及企业版可用；",
+          "腾讯摘要称，Carbon 在 CursorBench 4.0 等三项工作流基准排第一，单任务成本比次优外部模型低两倍以上；",
+          "腾讯摘要称，AlphaProof Code 用 Carbon 驱动 Agent 验证 Signal 编译后机器码，4 周生成约 650 万行 Lean 证明，仅约 1% 需人工关注，并识出 2 个植入旧漏洞。",
+        ],
+        interpretation:
+          "关联原文为媒体深度报道，与摘要高度重合并补充了技术细节。Carbon 与此前 Argon 的区别在于愿意投入更多 Thinking Tokens 做长周期推理，Extended Verification Loops 让它在执行中反复检查修正。AlphaProof Code 的关键不仅是证明数量，而是验证范围深入到编译后 AArch64 机器码而非仅源代码或协议设计——后者才是用户设备上实际运行的代码。故意植入两个已修复漏洞并成功识别，说明系统不只是「给正确代码生成证明」。基准排名和成本优势均来自 Google 自述，尚缺独立复验。",
+        whyItMatters:
+          "AI 从写出代码走向用数学证明代码安全，形式化验证的门槛大幅降低可能改变安全审计的成本结构。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "刚刚，Gemini 4 Carbon全球全量开放，4周、650万行数学证明验证「Signal安全」",
+        sourceUrl: "https://mp.weixin.qq.com/s/sch617r-tqG_UOlzOmwg9Q",
+      },
+      {
+        id: "20261112-04",
+        category: "生成式 AI",
+        title: "Epic 用 Agent 一周赶出虚幻 5.9 预览版，编辑器直连 Claude Code 与 Codex",
+        tencentSummary: [
+          "腾讯摘要称，Epic 发布虚幻 5.9 预览版，工程师指挥 Agent 集群一周完成，将 UE6 的 AI 工具链移植至 UE5，称首个主要由 Agent 构建的版本；",
+          "腾讯摘要称，Unreal Assistant 让编辑器直连 Claude Code、Codex 等；Unreal MCP 扩容，代理可经 Fab 自行搜装素材；",
+          "腾讯摘要称，Unreal Canvas 可基于项目场景生成概念图、3D 网格与视频；借 WebAssembly 与 WebGPU 可在浏览器运行。",
+        ],
+        interpretation:
+          "关联原文为媒体报道，与摘要重合并补充了工程细节。这次发布的实验性质值得注意：少数工程师指挥 Agent 集群把 UE6 分支的 AI 工具链移植到 UE5，Web 平台代码由 Agent 编写、起点是已退役的 UE4 HTML5 平台。Epic 自己承认 QA 周期比平时短、部分 Agent 写的代码还在清理、Web 渲染器有些地方仍是原型。Unreal MCP 大幅扩容并接入 Fab 素材商城，让代理自行搜索安装资源，是从「调 API」到「自主采购」的能力跃迁。但所有新功能均处 Experimental 阶段，官方建议用项目副本测试。",
+        whyItMatters:
+          "引擎开发本身被 AI 重构，Agent 调度能力可能成为游戏开发竞争的新维度。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "虚幻5.9发布，首个\"AI造的引擎\"，Epic CEO直呼：游戏开发进入新纪元",
+        sourceUrl: "https://mp.weixin.qq.com/s/Vov3uVjHMvJi7bZP2uArog",
+      },
+      {
+        id: "20261112-05",
+        category: "生成式 AI",
+        title: "腾讯上线 AI 搜索产品元宝搜索，接入公众号与视频号内容",
+        tencentSummary: [
+          "腾讯摘要称，腾讯推出 AI 搜索产品元宝搜索，依托千亿级索引优先呈现权威与官方来源，官网带明确标识，并设组织机构、主流媒体等频道；",
+          "腾讯摘要称，接入微信公众号、视频号、腾讯新闻等生态内容；广告与答案区隔并可一键收起；学术科普 Tab 支持回溯原文、英文引文一键翻译；",
+          "腾讯摘要称，结果页顶部 AI 总结提炼要点，可进 AI 模式用文字、语音、图片追问；已上线 QQ 浏览器首页搜索框及独立站 so.qq.com。",
+        ],
+        interpretation:
+          "关联原文为 QQ 浏览器官方公众号发布说明，侧重产品功能介绍。元宝搜索的核心差异点在于依托腾讯生态内容——公众号、视频号、腾讯新闻——这是其他搜索引擎难以直接触达的封闭内容池。广告与答案区隔、一键收起是对传统搜索广告体验的针对性改进。学术科普 Tab 支持回溯原文和英文引文翻译，降低了专业知识的获取门槛。但目前入口绑定 QQ 浏览器和 so.qq.com 独立站，用户习惯迁移仍是挑战。",
+        whyItMatters:
+          "封闭生态内容池的搜索入口之争，可能重塑用户获取信息的路径。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "元宝搜索，正式上岗！",
+        sourceUrl: "https://mp.weixin.qq.com/s/RXuGNTEEoY5QWiJ2xjNafQ",
+      },
+      {
+        id: "20261112-06",
+        category: "生成式 AI",
+        title: "阿里上线 Qwen4-Max 预览版，同步开源 Agent 运行底座 Qwen Code 1.0",
+        tencentSummary: [
+          "腾讯摘要称，Qwen4-Max 预览版首发上线阿里 Token Plan，千问办公、Qoder 等已接入，Coding 与 Agentic 能力进阶；",
+          "腾讯摘要称，Qwen Code 1.0 Preview 融合 Qoder 与 Qwen Code 的 Harness 能力并开源，以事件连接用户要求、工具结果与系统反馈；",
+          "腾讯摘要称，开发者可接入自有工具将 Agent 嵌入产品；11 月 11 日至 24 日登录 Qoder 账号可领 Qwen4 免费额度，30 天有效。",
+        ],
+        interpretation:
+          "关联原文为阿里技术官方发布说明，侧重产品定位与开源策略。Qwen Code 1.0 的核心设计是「以事件为语言」——用户要求、工具结果和系统反馈以事件形式进入任务上下文，一次执行的结果为下一步判断提供依据。这一架构把 Agent 从单轮对话推向持续工作，开发者接入自有工具后可嵌入已有产品流程。Qwen4-Max 预览版的具体基准数据原文未公布，能力描述以「交出让我们眼前一亮的成果」等定性表述为主。免费额度 30 天有效的策略旨在降低试用门槛。",
+        whyItMatters:
+          "开源 Agent 运行底座降低嵌入门槛，模型公司与开发者的分工边界可能从 API 调用延伸到 Harness 集成。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "Qwen4-Max 预览版上线，Qwen Code 1.0 Preview 发布",
+        sourceUrl: "https://mp.weixin.qq.com/s/f6q1N-i-Xh1mtAFZnQP3qA",
+      },
+      {
+        id: "20261112-07",
+        category: "生成式 AI",
+        title: "百度发布文心 5.5 Flash Preview，2800 亿参数生成速度超 200 tokens/秒",
+        tencentSummary: [
+          "腾讯摘要称，文心 5.5 Flash Preview 总参数 2800 亿、每 Token 激活 140 亿，上下文 100 万 Token，采用混合稀疏注意力与多路由器 MoE，生成速度超 200 tokens/秒；",
+          "腾讯摘要称，可做出近百款手机小游戏；后训练构建 30 万个工作空间、1000 万份参考文件，视频累计成片约 5300 分钟；",
+          "腾讯摘要称，已上线千帆，每百万 Token 输入忙时 2 元、闲时 1 元，输出 8 元/4 元，限时五折；权重 11 月 25 日开源。",
+        ],
+        interpretation:
+          "关联原文为百度 AI 官方发布说明，侧重技术指标与应用场景。2800 亿总参数但每 Token 仅激活 140 亿（约 5%），配合混合稀疏注意力和多路由器 MoE，是在参数规模与推理成本之间取平衡。200+ tokens/秒的生成速度在同等参数规模模型中具备竞争力。后训练构建 30 万工作空间和 1000 万份参考文件的规模，说明百度在专业领域训练数据上投入了实质性工程。游戏开发、3D 建模、视频创作等场景的演示效果属于厂商自述，实际可用性需独立验证。权重 11 月 25 日开源是确定的时间节点。",
+        whyItMatters:
+          "大参数稀疏激活模型的价格竞争与开源节奏，直接影响开发者的模型选型决策。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "文心 5.5 Flash Preview发布！",
+        sourceUrl: "https://mp.weixin.qq.com/s/w1xzkKGQdtd7KNJjS7SAyQ",
+      },
+      {
+        id: "20261112-08",
+        category: "前沿科技",
+        title: "丘沃智能开物系统驾驶临工拖拉机，在新疆无人深翻超 30 厘米",
+        tencentSummary: [
+          "腾讯摘要称，搭载丘沃智能开物™ L4 无人作业套件的临工 3004 混动拖拉机，在新疆芳草湖农场牵引 650 岸下犁无人深翻超 30 厘米，速度 11.8km/h；",
+          "腾讯摘要称，实测综合横向误差 1.2 厘米，无接管连续转场超 3.2 公里；KaiwuOS 采用六层架构，据称非计划停机时间降低 80%；",
+          "腾讯摘要称，后台数据平台可支撑万台级车辆并发遥测；已与卓品智能合作农具控制器，首家直营旗舰店 11 月底在芳草湖开业。",
+        ],
+        interpretation:
+          "关联原文为量子位授权刊载的深度报道，与摘要高度重合并补充了系统架构与团队背景。深翻是大田作业中对整机要求最苛刻的工序之一，1.2 厘米综合横向误差和 3.2 公里无接管转场是较强工程指标。KaiwuOS 六层架构论文已被 AGROSYM 2026 接受，为技术体系提供了学术背书。PathFinder-I 硬件底座适配新能源混动拖拉机，而非改造整车，降低前装门槛。与卓品智能合作农具控制器，是把 L4 能力从驾驶室延伸到农具端。VictoriaMetrics 时序数据中台支撑万台级并发遥测据公司披露，实际负载能力尚无第三方验证。11 月底芳草湖旗舰店开业是从样板田到规模化交付的关键节点。",
+        whyItMatters:
+          "非道路 L4 无人化作业从技术验证走向可交付、可运维的产品体系，农业场景的商业化进度可能领先于开放道路自动驾驶。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-12",
+        sourceTitle: "无人拖拉机真正下地了！新疆大田深翻30+厘米，丘沃智能开物™系统首次完整曝光",
+        sourceUrl: "https://mp.weixin.qq.com/s/afcdRWyUCSH6SA-TA9cLmg",
+      },
+    ],
+  },
 ];
 
 export function getBrief(date: string) {
