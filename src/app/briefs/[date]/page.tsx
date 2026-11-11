@@ -32,7 +32,7 @@ export default async function TencentBriefPage({ params }: BriefPageProps) {
     <article>
       <header className="border-b border-[color:var(--color-line)]">
         <div className="wrap py-14 sm:py-20">
-          <Link href="/briefs" className="ulink mb-10 text-sm"><ArrowLeft className="h-4 w-4" /> 全部速递</Link>
+          <Link href="/briefs" className="ulink mb-10 text-sm"><ArrowLeft className="h-4 w-4" aria-hidden="true" /> 全部速递</Link>
           <div className="grid gap-10 lg:grid-cols-[1fr_18rem] lg:items-end">
             <div>
               <p className="eyebrow mb-5">NON-OFFICIAL AI BRIEF · {brief.date}</p>

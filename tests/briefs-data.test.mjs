@@ -280,6 +280,7 @@ test("brief detail template keeps safe external links and decorative icons hidde
   externalLinks.forEach((link) => assert.match(link, /rel="noopener noreferrer"/));
   assert.match(detail, /<StatusIcon[^>]*aria-hidden="true"/);
   assert.equal((detail.match(/<ArrowUpRight[^>]*aria-hidden="true"/g) ?? []).length, 2);
+  assert.match(detail, /<ArrowLeft[^>]*aria-hidden="true"/);
 });
 
 test("all brief editions have valid, unique WeChat sources and required fields", () => {
