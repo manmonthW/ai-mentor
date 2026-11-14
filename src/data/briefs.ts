@@ -6783,6 +6783,160 @@ export const briefs: Brief[] = [
       },
     ],
   },
+  {
+    date: "2026-11-13",
+    title: "珂的非官方整理：腾讯研究院 AI 速递 20261113",
+    description: "从 Gemini Decision 1 决策模型、Grok Bot 1.0 团队协作、Seedance 2.5 flash 提速降价，到 AlphaGenome 2 单细胞预测、Runway Praxis-1 开源、SpaceX 订购 Singulus 太阳能产线，再到 ClickHouse 谈 Agent 时代数据库与李飞飞 Atlas 世界模型：8 条动态的结构化阅读。",
+    sourceUrl: "https://mp.weixin.qq.com/s/M1-ijrXQcpuR6MZn12yarA",
+    evidenceNote: "本期已读取腾讯研究院主文 8 条摘要并逐条提取关联原文正文：其中第 5 条关联的微信转载已被发布者删除，改读 Runway 官方发布页正文；其余 7 条读取关联原文。读取关联原文不等于独立交叉核验，厂商自述指标与基准排名均保留原始来源口径。",
+    copyrightNotice: "基于腾讯研究院公开主文的短摘要与关联原文的扩展解读，本站为非官方整理，版权归原作者和发布者，链接回腾讯研究院主文及各关联原文。",
+    items: [
+      {
+        id: "20261113-01",
+        category: "生成式 AI",
+        title: "谷歌推出决策模型 Gemini Decision 1，一次答千题且输出免费",
+        tencentSummary: [
+          "腾讯摘要称，谷歌上线 Gemini Decision 1，可做判断、选择、评分三类题，支持文字、图片、音频、视频、PDF 混合输入；",
+          "腾讯摘要称，同一材料一次最多答 1000 题；JevBench 得 92.2%，高于 GPT-6 Luna 的 90.9% 与 Jev 的 90.0%；",
+          "腾讯摘要称，端到端延迟 150～250 毫秒，输入每百万 token 0.10 美元、输出免费；Gemini Notebook 用其分流，日常请求延迟最高降 40%。",
+        ],
+        interpretation:
+          "关联原文为夕小瑶科技说的解读，补充了赛道时间线与分项成绩。定义上它做三件事：判断条件是否成立、从 2 至 255 个选项中选一、按给定标准打分，返回选择与概率；同一份材料一次最多问 1000 个问题，高于 OpenAI Decisions API 的 400 个。原文明确标注 92.2% 是谷歌自测的 JevBench 结果，且 Mind2Web Multimodal（Jev 86.8% 对 86.2%）与 When2Call（82.0% 对 79.9%）两项落后 Jev；置信度校准误差 0.0250，低于 Jev 的 0.0494 与 GPT-6 Luna 的 0.0721。独立评测机构 Artificial Analysis 的 Decision Index v2.1 给它 66 分，与 Jev 1.14 同档，比榜首低 7 分，说明官方口径与独立榜单存在差距。价格上每百万输入 token 0.10 美元、输出不收费，但 Jev 的 0.042 美元更低，实际成本还取决于材料长度与调用方式。落地案例包括包裹破损检查（4.5 秒处理 100 张配送照片）、Gemini Notebook 的模型路由、Stitch 快速画布与 Google Labs 表情反应筛选。原文称三个月前还没有决策模型这个说法，如今独立榜单已收录 18 个。",
+        whyItMatters:
+          "决策能力被抽成独立 API 且输出免费，等于把大模型的批量判定场景做成廉价基础设施，应用层的分类、审核、打分环节可能被整体替换。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "谷歌发布首个决策模型，多模态输入，输出Token零收费",
+        sourceUrl: "https://mp.weixin.qq.com/s/iSPXt9A3em4pCqUFPO-_AQ",
+      },
+      {
+        id: "20261113-02",
+        category: "生成式 AI",
+        title: "马斯克 Grok Bot 转正 1.0，可进 Slack 与 Teams 群接活开会",
+        tencentSummary: [
+          "腾讯摘要称，Grok Bot 发布 1.0 正式版，Bot 可像文档一样共享给团队，在 Slack 和微软 Teams 群里被 @ 即接活，Bot 之间可互相派活；",
+          "腾讯摘要称，可凭链接加入 Google Meet、Zoom、Teams 会议记笔记，会后发总结与待办；从同事处学到的做法须经创建者或管理者批准才成团队知识；",
+          "腾讯摘要称，团队版按席位分 Premium、Super、Ultra 三档，每月 30、100、200 美元；Bot 回复谁就扣谁的额度。",
+        ],
+        interpretation:
+          "关联原文为 AI信息Gap 的报道，补充了产品形态与内部用例。1.0 的定位从个人助手转成团队共享的 AI 队友：Bot 可像文档一样共享给指定同事，群里被 @ 即接活，Bot 之间也能互相派活（演示中 Research Bot 直接 @ 了市场部与 Copy Bot）。原文提到共享 Bot 功能 9 月 28 日已上线，本次转正新增微软 Teams 群聊入口，8 月内测至今约三个月。治理设计是能否进企业群的关键：个人与 Bot 的私聊对创建者和管理者不可见，从某位同事学到的做法需创建者或管理者批准才进入团队知识；按各人权限办事，敏感操作执行前先确认，公开频道发言前会提示风险（例如提醒 PPT 第 6 页含敏感财务数据）。此外可连日历自动入会、主动发现待办并跟进。原文称 SpaceX 内部会计、客服、销售、市场等部门已在用；三档席位价格详见腾讯摘要，原文只提及每席位每月 30 美元起。",
+        whyItMatters:
+          "AI 协作的重心从个人对话转向组织内的数字同事，权限、审计与知识入库审批正在成为企业采购的实际决策点。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "刚刚，马斯克的 Grok Bot 转正了！进群接活、替你开会，还能指挥其他 AI",
+        sourceUrl: "https://mp.weixin.qq.com/s/dLWAYREj7kn-2J-Gxz88Tw",
+      },
+      {
+        id: "20261113-03",
+        category: "生成式 AI",
+        title: "Seedance 2.5 flash 上线，生成提速一倍且 720P 价格降约 34%",
+        tencentSummary: [
+          "腾讯摘要称，Seedance 2.5 flash 发布，效果最接近 Seedance 2.5、优于前代旗舰 2.0，生成速度提升一倍；",
+          "腾讯摘要称，720P 文生、图生视频约 0.99 元/秒，较 Seedance 2.5 降约 34%；单段最长 30 秒，单次最多输入 10 张图、5 段视频与 5 段音频，支持 480P 与 720P；",
+          "腾讯摘要称，陆续登陆即梦、LibTV、TapNow 等平台，API 于 11 月 15 日上线。",
+        ],
+        interpretation:
+          "关联原文为火山引擎官方发布，标题即「Seedance 2.5 flash：生成速度翻倍，创作成本更低」。正文以场景与完整提示词演示为主，三条示例分别是维多利亚马戏团一镜到底的胶片质感短片、30 秒 14 镜头的蓝牙耳机广告、约 20 至 25 秒的黄铜望远镜广告，逐镜写明机位、动作连续性、参考图约束与字幕规则，说明 flash 的定位是量产型素材生成而非旗舰效果：面向需要快速产出多个创意版本、控制制作成本的广告与影视试拍场景。这类演示也暴露了当前使用门槛，成品质量高度依赖提示词的镜头级控制能力，而非单纯的能力上限。价格与规格（0.99 元/秒、单段 30 秒、10 图 5 视频 5 音频、480P/720P、11 月 15 日 API 上线）见腾讯摘要。",
+        whyItMatters:
+          "视频生成进入速度与单价的直接竞争，广告与影视的创意试错从按条付费变成按批量试错，素材生产节奏可能被重新组织。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "Seedance 2.5 flash ：生成速度翻倍，创作成本更低",
+        sourceUrl: "https://mp.weixin.qq.com/s/lTZS2oV6BuORvK_Shgb-Ag",
+      },
+      {
+        id: "20261113-04",
+        category: "前沿科技",
+        title: "DeepMind 发布 AlphaGenome 2，因果变异识别率提至 30%",
+        tencentSummary: [
+          "腾讯摘要称，Google DeepMind 发布 AlphaGenome 2，改用条件模型，以组织、细胞类型或细胞状态为输入，预测从组织平均推进到具体细胞；",
+          "腾讯摘要称，训练数据涵盖人与小鼠超 1.07 亿份细胞 profiles、68 种组织，新增 DNA 甲基化预测，可跨模态补全未测分子读出；",
+          "腾讯摘要称，在含 28 种免疫细胞的 TenK10K 测试中，因果变异识别率 30%、表达方向预测 43%，均近上一代两倍；无需重训即可适配新细胞状态。",
+        ],
+        interpretation:
+          "关联原文为 ScienceAI 的报道。技术改动是把上一代「一段序列并行预测多组织结果」改为条件模型：输入 DNA 序列的同时，把组织、细胞类型或细胞状态作为条件注入网络各层，从而针对明确细胞背景预测同一段序列的功能表现。读出项在基因表达、组蛋白修饰、染色质可及性之外增加 DNA 甲基化，并支持跨模态补全——已有一种测量即可预测尚未测量的分子读出，用于缓解不同细胞类型数据覆盖不均。TenK10K 的 28 种原代免疫细胞测试中，因果变异识别率 30%（上一代单细胞微调版 16%）、表达方向预测 43%（上一代 23%），均为官方口径，尚无第三方复现。案例包括重现炎症性肠病中增强子调控 ETS2 的机制，以及在 COVID-19 mRNA 疫苗单细胞数据上区分激活与静息 T 细胞、识别重症相关变异在激活 T 细胞中扰动更强。原文称模型可自主适配研究人员的新细胞状态数据，无需重新训练，并已把增强子—基因关系预测扩展到脑星形胶质细胞等原代细胞类型。",
+        whyItMatters:
+          "基因组模型的产出正在从「这段序列会产生什么分子信号」转向「在哪种细胞、什么状态下发生」，直接决定 GWAS 变异定位与药物靶点筛选的可行精度。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "DeepMind发布AlphaGenome 2：从细胞层面关联变异与疾病",
+        sourceUrl: "https://mp.weixin.qq.com/s/KXtVKuXFS0z4NSS0K4htUw",
+      },
+      {
+        id: "20261113-05",
+        category: "前沿科技",
+        title: "Runway 开源 27B 世界动作模型 Praxis-1，RoboLab-120 榜单登顶",
+        tencentSummary: [
+          "腾讯摘要称，Runway 以 Apache 2.0 开源 Praxis-1，基于 27B 视频模型加 Action Expert，同步预测视频与 1.6 秒动作；",
+          "腾讯摘要称，RoboLab-120 上 1200 次测试成功率 46.2%，居世界动作模型与开源机器人模型榜首；Franka 真机 100 次成功 88 次，FLUX 3 Action 为 80 次；",
+          "腾讯摘要称，单张 H100 单次调用约 0.55～0.6 秒；GPT-6 Astra 同任务耗时为其 15.6 倍、成本 51 倍。",
+        ],
+        interpretation:
+          "本期该条关联的微信转载已被发布者删除，改为读取 Runway 官方发布页。官方口径为：Praxis-1 是 27B 参数混合专家扩散 Transformer，同时预测视频与动作，以 Apache 2.0 开放权重、推理与微调代码（含全量微调与 LoRA），可商用；在 NVIDIA RoboLab-120 上 1,200 个 episode 成功率 46.2%，对比 FLUX 3 Action 42.9%、Cosmos3 Nano 36.8%、π0.5 28.0%；在 Google RT-1 平台上于 SimplerEnv 达到 80.0%，原策略为 52.4%。分发渠道包括 GitHub、Hugging Face（原生支持 LeRobot）与 vLLM-Omni，托管推理在 Reactor；硬件覆盖 H100、B200 至 RTX 5090、RTX PRO 6000 及机器人端 Jetson Thor，单一 checkpoint 可适配多种本体，LoRA 用于适配新摄像头与任务。腾讯摘要中的 Franka 真机 88/100、单张 H100 0.55 至 0.6 秒，以及与 GPT-6 Astra 的 15.6 倍耗时、51 倍成本对比未出现在官方发布页，保留原始口径。",
+        whyItMatters:
+          "世界动作模型以开放权重加完整工具链发布，把具身智能的复现门槛从训练算力前移到本体适配与数据采集，机器人团队的选型空间被打开。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "Praxis-1 Is Now Available",
+        sourceUrl: "https://runway.com/news/company-news/praxis-1-is-now-available",
+      },
+      {
+        id: "20261113-06",
+        category: "前沿科技",
+        title: "马斯克向德国 Singulus 订购太阳能产线，为 Starmind 铺超百 GW 产能",
+        tencentSummary: [
+          "腾讯摘要称，Singulus 宣布与 SpaceX 签约，供应交钥匙异质结 HJT 太阳能电池产线，为 Starmind 太空卫星算力供电；",
+          "腾讯摘要称，首条线 2027 年上半年交付，最终支撑超 100GW 年产能，落户 SpaceX 得州巴斯特罗普基地；",
+          "腾讯摘要称，SpaceX 将于 2027 年第三季度起发射 StarMind SI 计算机，2028 至 2029 年大规模部署，首批系统与英伟达围绕 Vera Rubin NVL72 共同设计。",
+        ],
+        interpretation:
+          "关联原文为 AI寒武纪 的报道。合同要点是 Singulus 正式宣布与 SpaceX 签署供货协议，提供用于制造异质结 HJT 太阳能电池的交钥匙完整产线，首条线计划 2027 年上半年交付，后续将陆续交付多条产线，设备进入 SpaceX 得州巴斯特罗普制造基地；星链高级副总裁 Mike Nicolls 表示，合作是为该基地的 Starmind 卫星寻找高性能太阳能电池制造路径。原文补充了资本关系：2026 年 3 月双方确立战略合作且 SpaceX 已注资 Singulus，2026 年 10 月又以一笔次级担保贷款再次注资。Singulus 的积累集中在真空镀膜与湿法化学处理（PVD 溅射、PECVD、蒸镀及热处理）。马斯克的说法是把为星链处理海量数据而搭建的地面与太空通信软件，发现同样适合训练超级智能，并引用了卡尔达肖夫尺度，称人类的目标可能是孕育一个有意识的太阳。原文未披露合同金额，属转述与引语性质。",
+        whyItMatters:
+          "太空算力的约束正在从芯片扩展到电力与制造产线，星座级部署开始反向拉动地面光伏设备订单，供应链被提前锁定到 2027 年之后。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "刚刚，马斯克砸巨资采购德国太阳能面板产线，这回真要在太空训练超级智能了",
+        sourceUrl: "https://mp.weixin.qq.com/s/JHgvY4WU5T96GCzQ4Ty19g",
+      },
+      {
+        id: "20261113-07",
+        category: "报告观点",
+        title: "ClickHouse 安迪·帕夫洛驳「传统数据库已死」，称 Postgres 仍是默认",
+        tencentSummary: [
+          "腾讯摘要称，ClickHouse 研究副总裁安迪·帕夫洛称，Agent 时代数据库无需推倒重来，五年后 Postgres 仍是默认选择，如同 Linux；",
+          "腾讯摘要称，Agent 查询未必更复杂但几乎无停顿、24 小时运行，查询量或达今天的 10 倍、100 倍，且更常写出无效 SQL，数据库须快速报错；",
+          "腾讯摘要称，Agent 改功能需与生产库隔离的数据库分支；ClickHouse 同日宣布托管 Postgres 上线并收购 Xata，拟集成分支能力。",
+        ],
+        interpretation:
+          "关联原文为 51CTO 技术栈 的访谈翻译整理，访谈对象是卡内基梅隆大学数据库副教授、ClickHouse 数据库研究副总裁安迪·帕夫洛。核心论点是 Agent 改变的不是查询的复杂度，而是查询的节奏：人类看结果、思考、再查，这段停顿对数据库是缓冲；Agent 拿到结果立刻发起下一条，24 小时不停，查询量可能达到今天的 10 倍乃至 100 倍，且更常发出语法错误或引用不存在表的无效 SQL，于是解析与报错链路从后台工作变成性能问题——报错要快、要告诉 Agent 错在哪里，但反馈越快它也越快重试，团队因此要盯失败次数、重试频率与资源消耗。开发侧的对应改动是给 Agent 一条与生产库隔离的数据库分支或快照，用于改表结构、跑迁移与测试。原文同时明确 ClickHouse 当天宣布托管 Postgres 上线并收购 Xata，分支与克隆能力是后续计划，不是同日交付；并提醒分支不等于数据安全，仍需脱敏与权限。帕夫洛判断五年后 Postgres 仍是默认选择，类比 Linux 之于操作系统，并认为 Agent 创建的数据库可能比人更多，但可靠运行需要护栏、测试与验证。",
+        whyItMatters:
+          "Agent 负载把数据库的设计重点从查询复杂度推向高频失败与反馈速度，传统的容量与慢查询指标会失真，观测口径需要重写。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "「传统数据库已死」是谬论！ClickHouse数据库总裁：传统数据库不需要推倒重建，Postgres仍是默认选择",
+        sourceUrl: "https://mp.weixin.qq.com/s/duqRgUeOR6vryNBoVVclrw",
+      },
+      {
+        id: "20261113-08",
+        category: "报告观点",
+        title: "李飞飞详解统一世界模型 Atlas，与苏姿丰首次同台谈物理 AI",
+        tencentSummary: [
+          "腾讯摘要称，李飞飞在 CoRL 2026 介绍 Atlas，以多模态自回归扩散 Transformer 按相机位姿预测下一视角，统一稠密重建、稀疏重建与纯文本生成；",
+          "腾讯摘要称，Atlas 在 RapidData 约 50 万次人工判断的相机控制基准中排第一，可生成超 60 秒连贯视频，蒸馏后可 15 帧/秒实时运行；",
+          "腾讯摘要称，苏姿丰称物理 AI 未来几年是数千亿美元机会；李飞飞称机器人将推动算力进入下一阶段，双方呼吁为公共部门研究者提供更多算力。",
+        ],
+        interpretation:
+          "关联原文为机器人前瞻 11 月 12 日的报道。Atlas 是从零训练的自回归全模态基础模型，输入可含文本、图像、视频、深度信号、灰盒与三维结构信号，输出为像素帧，以相机条件控制预测下一个视角，同一架构在稠密重建、稀疏重建（少视图甚至单图）与纯文本生成之间切换。演讲用斯坦福主广场作演示：2 张输入只能生成形似而非真实的主广场，8 张基本重建但缺纪念教堂，33 张地面手持照片才补出教堂，说明稀疏视图下模型仍倾向按条件生成而非忠实还原。李飞飞称正在测试 Atlas 在机器人仿真中的价值，可完全在仿真中训练再零样本部署到真实机器人。产业侧背景是 AMD 于 9 月宣布收购 World Labs，交易价值约 82 亿美元（约 547 亿元人民币），预计 2026 年底前完成，这是两人在收购后首次公开同台；苏姿丰称物理 AI 尤其机器人是未来几年数千亿美元的机会，并透露 AMD 已有规模可观的机器人研究团队但布局仍早期。腾讯摘要中的 50 万次人工判断基准、超 60 秒连贯视频与蒸馏后 15 帧/秒实时运行来自主文演讲要点，原文正文侧重架构与重建演示。",
+        whyItMatters:
+          "生成与重建被收进同一个模型，意味着机器人仿真数据的供给链路可能大幅缩短；而当算力成为瓶颈，公共部门的评估能力也开始被当作产业议题讨论。",
+        evidenceLevel: "full_text",
+        checkedAt: "2026-11-13",
+        sourceTitle: "547亿元收购后首次同台！李飞飞对话苏姿丰，详解统一世界模型Atlas",
+        sourceUrl: "https://mp.weixin.qq.com/s/VzRvuftUozVGowswp35MHg",
+      },
+    ],
+  },
 ];
 
 export function getBrief(date: string) {
