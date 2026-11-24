@@ -1340,5 +1340,9 @@ test("2026-11-25 edition records full-text evidence scope, attribution, and copy
   assert.match(block, /本站为非官方整理/);
   assert.match(block, /版权归原作者/);
   assert.match(block, /腾讯摘要称/);
+  // Independent re-check: evidence note must record browser full-text reading
+  assert.match(block, /浏览器打开并读取文章正文节点/);
+  // Re-check removed numbers and file names that the linked sources do not contain
+  assert.doesNotMatch(block, /approvals\.yml|seats:0|63\.89|91\.52|73\.48|0\.744|0\.832|0\.08%|0\.54%/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
