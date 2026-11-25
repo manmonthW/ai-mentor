@@ -1346,3 +1346,41 @@ test("2026-11-25 edition records full-text evidence scope, attribution, and copy
   assert.doesNotMatch(block, /approvals\.yml|seats:0|63\.89|91\.52|73\.48|0\.744|0\.832|0\.08%|0\.54%/);
   assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
 });
+
+test("2026-11-26 edition records full-text evidence scope, attribution, and copyright", () => {
+  const block = editionBlock(source(), "2026-11-26");
+  assert.equal((block.match(/^\s{8}id: "20261126-/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}checkedAt: "2026-11-26"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "full_text"/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}evidenceLevel: "title_only"/gm) ?? []).length, 0);
+  assert.equal((block.match(/^\s{8}tencentSummary:/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}interpretation:/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}whyItMatters:/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}sourceTitle: "/gm) ?? []).length, 10);
+  assert.equal((block.match(/^\s{8}category: "生成式 AI"/gm) ?? []).length, 7);
+  assert.equal((block.match(/^\s{8}category: "前沿科技"/gm) ?? []).length, 3);
+  assert.equal((block.match(/^\s{8}category: "报告观点"/gm) ?? []).length, 0);
+  assert.deepEqual(
+    [...block.matchAll(/^\s{8}id: "20261126-(\d{2})"/gm)].map((m) => m[1]),
+    ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"],
+  );
+  const childUrls = [...block.matchAll(/^\s{8}sourceUrl: "([^"]+)"/gm)].map((m) => m[1]);
+  assert.equal(childUrls.length, 10);
+  assert.equal(new Set(childUrls).size, 10);
+  childUrls.forEach((url) => {
+    const parsed = new URL(url);
+    assert.equal(parsed.protocol, "https:");
+    assert.equal(parsed.hostname, "mp.weixin.qq.com");
+    assert.match(url, /^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]+$/);
+  });
+  assert.equal(
+    childUrls.filter((url) => url.includes("__biz=MjM5OTE0ODA2MQ==&mid=2650999775")).length,
+    0,
+  );
+  assert.match(block, /sourceUrl: "https:\/\/mp\.weixin\.qq\.com\/s\?__biz=MjM5OTE0ODA2MQ==&mid=2650999794/);
+  assert.match(block, /珂的非官方整理/);
+  assert.match(block, /本站为非官方整理/);
+  assert.match(block, /版权归原作者/);
+  assert.match(block, /腾讯摘要称/);
+  assert.doesNotMatch(block, /已证实|事实证明|必将|一定会|可以确认/);
+});
