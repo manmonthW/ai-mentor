@@ -8504,7 +8504,7 @@ export const briefs: Brief[] = [
         whyItMatters: "AI 从辅助证明工具走向自主研究系统，Cogentic 的架构（总控调度 + 分工 Agent + 两轮审查 + 默认有错的验证原则）提供了一种可参考的 Agent 科研范式。但「文件将后续公开」意味着当前无法独立验证 Lean 形式化结果，整数分解复杂度的理论改进与实际密码学影响之间仍有数量级差距。",
         evidenceLevel: "full_text",
         checkedAt: "2026-11-27",
-        sourceTitle: "谷歌让一群AI自己搞数学研究",
+        sourceTitle: "刚刚，谷歌甩出6篇数学大结果！整数分解算法迎来34年来新突破",
         sourceUrl: "https://mp.weixin.qq.com/s/_PN1AXtSN2r-S2CfVY3QMw",
       },
       {
